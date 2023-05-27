@@ -1,0 +1,32 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bpjf5vfrugtbl"
+path="res://.godot/imported/Cliff_Base_Corner_Inner_Lg.obj-b2166e772ea2d23e9e52b6094f274254.scn"
+
+[deps]
+
+source_file="res://models/terrain/Modular Terrain Cliff/Cliff_Base_Corner_Inner_Lg.obj"
+dest_files=["res://.godot/imported/Cliff_Base_Corner_Inner_Lg.obj-b2166e772ea2d23e9e52b6094f274254.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={}
+gltf/embedded_image_handling=1
