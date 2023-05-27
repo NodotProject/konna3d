@@ -94,7 +94,7 @@ project/assembly_name="Konna3D"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/assetplacer/plugin.cfg", "res://addons/nodot/plugin.cfg")
+enabled=PackedStringArray("res://addons/nodot/plugin.cfg", "res://addons/assetplacer/plugin.cfg")
 
 [rendering]
 

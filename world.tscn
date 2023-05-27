@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://jamsn5bulbre"]
+[gd_scene load_steps=42 format=3 uid="uid://jamsn5bulbre"]
 
 [ext_resource type="PackedScene" uid="uid://bfxymqbqylgk2" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_From_Gentle.obj" id="1_2avps"]
 [ext_resource type="PackedScene" uid="uid://cl2kx60uej170" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_To_Gentle.obj" id="2_85ldi"]
@@ -33,6 +33,13 @@
 [ext_resource type="PackedScene" uid="uid://bkw4m7f8ibr77" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_3.obj" id="31_kfceg"]
 [ext_resource type="PackedScene" uid="uid://c7yu4ak2kaqrv" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_4.obj" id="32_38bdr"]
 [ext_resource type="PackedScene" uid="uid://dds46602460p4" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_2.obj" id="33_ao82n"]
+[ext_resource type="PackedScene" uid="uid://bmqy32c3x3pr1" path="res://models/terrain/Modular Terrain Cliff/Prop_Cliff_Rock_1.obj" id="34_p5g04"]
+[ext_resource type="PackedScene" uid="uid://i3sps7lpu0bs" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_4.obj" id="35_taro0"]
+[ext_resource type="PackedScene" uid="uid://bs4njoetrrw2i" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_3.obj" id="36_lgclh"]
+[ext_resource type="PackedScene" uid="uid://fbqy6hw26rqk" path="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Tulip.obj" id="37_6cdj5"]
+[ext_resource type="PackedScene" uid="uid://busklqekecb0r" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_1.obj" id="38_fgcco"]
+[ext_resource type="PackedScene" uid="uid://b7sbuh14t1pgw" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_2.obj" id="39_l6v8y"]
+[ext_resource type="PackedScene" uid="uid://c2lg01rarju4p" path="res://models/terrain/Modular Terrain Hilly/Hill_Side.obj" id="40_86jn8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riiew"]
 size = Vector3(50, 1, 50)
@@ -40,7 +47,7 @@ size = Vector3(50, 1, 50)
 [node name="World" type="Node3D"]
 
 [node name="WaterArea3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.273099, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31859, 0)
 script = ExtResource("28_8r87w")
 water_shader = ExtResource("29_6nao4")
 float_force = 2.0
@@ -83,20 +90,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 [node name="Sand_Flatobj9" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 
-[node name="Sand_Flatobj11" parent="Prefabs" instance=ExtResource("6_6cxbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-
-[node name="Sand_Flatobj12" parent="Prefabs" instance=ExtResource("6_6cxbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.38419e-07, -5)
-
-[node name="Sand_Flatobj13" parent="Prefabs" instance=ExtResource("6_6cxbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
-
 [node name="Sand_Flatobj17" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
 
 [node name="Cliff_Top_Hill_Sharpobj" parent="Prefabs" instance=ExtResource("7_hhpjx")]
-transform = Transform3D(0.0207255, 7.45058e-08, 0.999785, 1.73459e-08, 1, -6.70552e-08, -0.999785, 1.9827e-08, 0.0207255, 7, 0.5, -4)
+transform = Transform3D(0.0207255, 7.45058e-08, 0.999785, 1.73459e-08, 1, -6.70552e-08, -0.999785, 1.9827e-08, 0.0207255, 7, 0.4, -4)
 
 [node name="Path_Steps_Edgeobj" parent="Prefabs" instance=ExtResource("9_7eauc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
@@ -146,9 +144,6 @@ transform = Transform3D(3.0598e-07, -1.74846e-07, 1, 1.74846e-07, 1, 1.74846e-07
 [node name="Sand_Sideobj4" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(3.0598e-07, -1.74846e-07, 1, 1.74846e-07, 1, 1.74846e-07, -1, 1.74845e-07, 3.0598e-07, -6, 0, -5)
 
-[node name="Sand_Sideobj5" parent="Prefabs" instance=ExtResource("16_mo2ta")]
-transform = Transform3D(3.0598e-07, -1.74846e-07, 1, 1.74846e-07, 1, 1.74846e-07, -1, 1.74845e-07, 3.0598e-07, -6, 0, -4)
-
 [node name="Sand_Side_Overlap_Sideobj3" parent="Prefabs" instance=ExtResource("16_wthqm")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0, 0, -6)
 
@@ -172,12 +167,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
 
 [node name="Sand_Flatobj18" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
-
-[node name="Sand_Flatobj19" parent="Prefabs" instance=ExtResource("6_6cxbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
-
-[node name="Sand_Flatobj20" parent="Prefabs" instance=ExtResource("6_6cxbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
 
 [node name="Sand_Flatobj21" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
@@ -366,31 +355,91 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1.4
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1.4, -2)
 
 [node name="Cliff_Top_Hill_Sharpobj3" parent="Prefabs" instance=ExtResource("7_hhpjx")]
-transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 9, 1, -1)
+transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 9, 1.3989, -1)
 
-[node name="Prop_Bush_2obj" type="Node3D" parent="Prefabs" instance=ExtResource("30_8v525")]
-transform = Transform3D(0.955165, -2.98023e-08, -0.296074, -2.98023e-08, 1, -8.19564e-08, 0.296074, 7.45058e-08, 0.955165, 6.28689, 1.19719, -4.09087)
+[node name="Prop_Bush_2obj" parent="Prefabs" instance=ExtResource("30_8v525")]
+transform = Transform3D(0.955165, -2.98023e-08, -0.296074, -2.98023e-08, 1, -8.19564e-08, 0.296074, 7.45058e-08, 0.955165, 6.40187, 1.14448, -4.03482)
 
-[node name="Prop_Rock_3obj" type="Node3D" parent="Prefabs" instance=ExtResource("31_kfceg")]
+[node name="Prop_Rock_3obj" parent="Prefabs" instance=ExtResource("31_kfceg")]
 transform = Transform3D(1, 0, 0, 0, 0.996756, 0.0804848, 0, -0.0804848, 0.996756, 5.48714, 0.498891, -4.51373)
 
-[node name="Prop_Rock_3obj2" type="Node3D" parent="Prefabs" instance=ExtResource("31_kfceg")]
+[node name="Prop_Rock_3obj2" parent="Prefabs" instance=ExtResource("31_kfceg")]
 transform = Transform3D(1, 1.15442e-07, -3.68487e-08, -1.15442e-07, 1, -1.8999e-07, 3.68487e-08, 1.8999e-07, 1, 0.636234, 0.5, -4.78916)
 
-[node name="Prop_Rock_4obj" type="Node3D" parent="Prefabs" instance=ExtResource("32_38bdr")]
+[node name="Prop_Rock_4obj" parent="Prefabs" instance=ExtResource("32_38bdr")]
 transform = Transform3D(0.973841, -0.22723, 1.15978e-08, 0.22723, 0.973841, -1.00744e-07, 1.15978e-08, 1.00744e-07, 1, -5.75299, 0.155, -5.81719)
 
-[node name="Prop_Rock_1obj2" type="Node3D" parent="Prefabs" instance=ExtResource("12_v405o")]
+[node name="Prop_Rock_1obj2" parent="Prefabs" instance=ExtResource("12_v405o")]
 transform = Transform3D(0.995036, -0.0995045, 7.1587e-09, 0.0995045, 0.995036, -1.43532e-07, 7.1589e-09, 1.43532e-07, 1, -6.93128, 0.0568721, -5.20058)
 
-[node name="Prop_Rock_3obj3" type="Node3D" parent="Prefabs" instance=ExtResource("31_kfceg")]
+[node name="Prop_Rock_3obj3" parent="Prefabs" instance=ExtResource("31_kfceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.78816, 0.0871179, -4.9002)
 
-[node name="Prop_Rock_2obj" type="Node3D" parent="Prefabs" instance=ExtResource("33_ao82n")]
+[node name="Prop_Rock_2obj" parent="Prefabs" instance=ExtResource("33_ao82n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94199, 0.0107179, -1.92872)
 
-[node name="Prop_Rock_2obj2" type="Node3D" parent="Prefabs" instance=ExtResource("33_ao82n")]
+[node name="Prop_Rock_2obj2" parent="Prefabs" instance=ExtResource("33_ao82n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27274, 0.419695, -3.76376)
 
-[node name="Cliff_Mid_Corner_Outer_Lgobj2" type="Node3D" parent="Prefabs" instance=ExtResource("25_bxitv")]
+[node name="Cliff_Mid_Corner_Outer_Lgobj2" parent="Prefabs" instance=ExtResource("25_bxitv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.08926, 1.19209e-07, -2.86042)
+
+[node name="Cliff_Top_Corner_Outer_Smobj8" type="Node3D" parent="Prefabs" instance=ExtResource("19_dwywj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.00744, 1.39847, -3.99866)
+
+[node name="Prop_Rock_4obj2" type="Node3D" parent="Prefabs" instance=ExtResource("32_38bdr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.999999, -3)
+
+[node name="Prop_Rock_4obj3" type="Node3D" parent="Prefabs" instance=ExtResource("32_38bdr")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 9.65605, 1, -1.66678)
+
+[node name="Prop_Rock_3obj4" parent="Prefabs" instance=ExtResource("31_kfceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.63849, 1, -2.31437)
+
+[node name="Prop_Rock_3obj5" parent="Prefabs" instance=ExtResource("31_kfceg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.51382, 0.996905, -3.60302)
+
+[node name="Prop_Cliff_Rock_1obj" type="Node3D" parent="Prefabs" instance=ExtResource("34_p5g04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57679, 0.828342, -3.67635)
+
+[node name="Prop_Rock_3obj6" parent="Prefabs" instance=ExtResource("31_kfceg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.50486, 2.25199, -4.12291)
+
+[node name="Prop_Bush_1obj2" parent="Prefabs" instance=ExtResource("13_brvdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54679, 2.47383, -4.21723)
+
+[node name="Prop_Branch_3obj2" type="Node3D" parent="Prefabs" instance=ExtResource("15_5rcrq")]
+transform = Transform3D(-0.987214, 0, -0.159399, 0.0780943, 0.871762, -0.483666, 0.138958, -0.48993, -0.860615, 10.5386, 1.7083, -1.89185)
+
+[node name="Prop_Grass_Clump_4obj" type="Node3D" parent="Prefabs" instance=ExtResource("35_taro0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1363, 1.81644, -2.00743)
+
+[node name="Prop_Grass_Clump_3obj" type="Node3D" parent="Prefabs" instance=ExtResource("36_lgclh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8592, 1.86795, -2.13922)
+
+[node name="Prop_Bush_1obj3" type="Node3D" parent="Prefabs" instance=ExtResource("13_brvdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4944, 1.11451, -3.47606)
+
+[node name="Prop_Flower_Tulipobj" type="Node3D" parent="Prefabs" instance=ExtResource("37_6cdj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05298, 1.5, -3.70195)
+
+[node name="Prop_Flower_Tulipobj2" type="Node3D" parent="Prefabs" instance=ExtResource("37_6cdj5")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 6.97578, 1.69368, -3.42115)
+
+[node name="Prop_Grass_Clump_1obj" type="Node3D" parent="Prefabs" instance=ExtResource("38_fgcco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.939, 1.61424, -3.21718)
+
+[node name="Prop_Grass_Clump_1obj2" type="Node3D" parent="Prefabs" instance=ExtResource("38_fgcco")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 6.79446, 1.65983, -2.81113)
+
+[node name="Prop_Grass_Clump_2obj" type="Node3D" parent="Prefabs" instance=ExtResource("39_l6v8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.31986, 1.63334, -3.02787)
+
+[node name="Hill_Corner_Outer_2x2obj2" type="Node3D" parent="Prefabs" instance=ExtResource("22_a18jq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8, 1.4, -1)
+
+[node name="Hill_Sideobj" type="Node3D" parent="Prefabs" instance=ExtResource("40_86jn8")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 1.4, -3)
+
+[node name="Hill_Sideobj2" type="Node3D" parent="Prefabs" instance=ExtResource("40_86jn8")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 8, 1.4, -2)
