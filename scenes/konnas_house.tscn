@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://jsfifrmce8v0"]
+
+[ext_resource type="PackedScene" uid="uid://dokpxq4xlm13p" path="res://models/buildings/konnahouse.blend" id="1_goc6y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r216"]
+size = Vector3(2.07386, 0.149979, 2.94721)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w64d2"]
+size = Vector3(0.81973, 1.351, 0.154)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5n4e"]
+size = Vector3(0.503024, 0.701, 0.154)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2l5s3"]
+size = Vector3(0.287058, 0.885001, 2.94721)
+
+[node name="KonnasHouse" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="konnahouse" parent="StaticBody3D" instance=ExtResource("1_goc6y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="floor_collider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.540286, -0.0835492, 0.237091)
+shape = SubResource("BoxShape3D_4r216")
+
+[node name="roof_collider2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.540286, 0.953372, 0.237091)
+shape = SubResource("BoxShape3D_4r216")
+
+[node name="front_wall_collider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20683, 0.649307, -1.13906)
+shape = SubResource("BoxShape3D_w64d2")
+
+[node name="front_wall_collider2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0767574, 0.67672, -1.13844)
+shape = SubResource("BoxShape3D_w64d2")
+
+[node name="front_wall_collider3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577416, 0.78732, -1.13906)
+shape = SubResource("BoxShape3D_e5n4e")
+
+[node name="side_wall_collider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345864, 0.439738, 0.237091)
+shape = SubResource("BoxShape3D_2l5s3")
+
+[node name="side_wall_collider2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47145, 0.439738, 0.237091)
+shape = SubResource("BoxShape3D_2l5s3")

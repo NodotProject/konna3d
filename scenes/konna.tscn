@@ -4930,13 +4930,13 @@ func _ready():
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4de5"]
 radius = 0.143
-height = 0.593
+height = 0.418
 
 [node name="ThirdPersonCharacter" type="CharacterBody3D"]
 script = ExtResource("1_gq726")
 
 [node name="Frog" type="Node3D" parent="."]
-transform = Transform3D(-0.216, 0, -1.88833e-08, 0, 0.216, 0, 1.88833e-08, 0, -0.216, 0, 0, 0)
+transform = Transform3D(-0.142, 0, -2.14414e-08, 0, 0.142, 0, 2.14414e-08, 0, -0.142, 0, 0, 0)
 
 [node name="RootNode" type="Node3D" parent="Frog"]
 
@@ -5365,26 +5365,27 @@ script = SubResource("GDScript_65mg3")
 character = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271297, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170297, 0)
 shape = SubResource("CapsuleShape3D_i4de5")
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.214)
 script = ExtResource("2_w2cds")
-camera_offset = Vector3(0, 2, 2)
+camera_offset = Vector3(0, 1.5, 1.5)
 
 [node name="ThirdPersonMouseInput" type="Node" parent="."]
 script = ExtResource("3_v4lkj")
 
 [node name="CharacterJump3D" type="Node" parent="."]
 script = ExtResource("4_05m3e")
+jump_velocity = 3.0
 
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("third_person_camera", "character")]
 script = ExtResource("5_by8hf")
 gravity = 9.7
 friction = 0.8
 step_height = 0.1
-movement_speed = 2.0
+movement_speed = 1.0
 sprint_speed_multiplier = 1.0
 third_person_camera = NodePath("../ThirdPersonCamera")
 strafing = false
