@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://jamsn5bulbre"]
+[gd_scene load_steps=61 format=3 uid="uid://jamsn5bulbre"]
 
 [ext_resource type="PackedScene" uid="uid://bfxymqbqylgk2" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_From_Gentle.obj" id="1_2avps"]
 [ext_resource type="PackedScene" uid="uid://cl2kx60uej170" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_To_Gentle.obj" id="2_85ldi"]
@@ -50,6 +50,10 @@
 [ext_resource type="PackedScene" uid="uid://cg2ffnw2r2g8u" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Outer_Sm.obj" id="48_if4ac"]
 [ext_resource type="PackedScene" uid="uid://bpjf5vfrugtbl" path="res://models/terrain/Modular Terrain Cliff/Cliff_Base_Corner_Inner_Lg.obj" id="49_4dt2u"]
 [ext_resource type="PackedScene" uid="uid://jsfifrmce8v0" path="res://scenes/konnas_house.tscn" id="50_up6vw"]
+[ext_resource type="PackedScene" uid="uid://bgbh0fe7igeky" path="res://models/terrain/Modular Terrain Beach/Prop_Shell_1.obj" id="51_8buya"]
+[ext_resource type="PackedScene" uid="uid://d4gt2ma42oay0" path="res://models/terrain/Docks/Dock_Stairs.fbx" id="51_xdwq1"]
+[ext_resource type="PackedScene" uid="uid://del7k3o7lgosj" path="res://models/terrain/Docks/Dock_Long.fbx" id="52_s1m40"]
+[ext_resource type="PackedScene" uid="uid://5vy77lxyomtq" path="res://models/terrain/Docks/Dock_Long_NoRope.fbx" id="53_3vs4p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxo2j"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -65,7 +69,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riiew"]
-size = Vector3(50, 1, 50)
+size = Vector3(50, 10, 400)
 
 [sub_resource type="GDScript" id="GDScript_gqx0p"]
 resource_name = "character_state"
@@ -92,7 +96,8 @@ shadow_enabled = true
 environment = SubResource("Environment_nw2vd")
 
 [node name="WaterArea3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31859, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.84377, 0)
+visible = false
 script = ExtResource("28_8r87w")
 water_shader = ExtResource("29_6nao4")
 float_force = 2.0
@@ -602,6 +607,108 @@ transform = Transform3D(-9.17939e-07, 0, -1, 0, 1, 0, 1, 0, -9.17939e-07, 9, 1.4
 
 [node name="Cliff_Top_Corner_Outer_Smobj19" parent="Prefabs" instance=ExtResource("19_dwywj")]
 transform = Transform3D(1, 0, -1.04907e-06, 0, 1, 0, 1.04907e-06, 0, 1, 9, 1.4, 0)
+
+[node name="Dock_Stairsfbx" parent="Prefabs" instance=ExtResource("51_xdwq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12174, -0.0894839, -13)
+
+[node name="Dock_Longfbx" parent="Prefabs" instance=ExtResource("52_s1m40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10461, 0, -14.4789)
+
+[node name="Dock_Long_NoRopefbx" parent="Prefabs" instance=ExtResource("53_3vs4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11672, 2.38419e-07, -16.6085)
+
+[node name="Sand_Sideobj4" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, -12)
+
+[node name="Sand_Sideobj5" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, -12)
+
+[node name="Sand_Sideobj6" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.5, -12)
+
+[node name="Sand_Sideobj7" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -12)
+
+[node name="Sand_Sideobj8" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -12)
+
+[node name="Sand_Sideobj9" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -12)
+
+[node name="Sand_Sideobj10" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.5, -12)
+
+[node name="Sand_Sideobj11" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.506846, -13.9942)
+
+[node name="Sand_Sideobj12" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.498176, -14)
+
+[node name="Sand_Flatobj10" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -13)
+
+[node name="Sand_Flatobj11" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -13)
+
+[node name="Sand_Flatobj12" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -13)
+
+[node name="Sand_Flatobj13" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -14)
+
+[node name="Sand_Flatobj16" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -14)
+
+[node name="Sand_Flatobj19" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -14)
+
+[node name="Sand_Flatobj20" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -15)
+
+[node name="Sand_Flatobj22" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -15)
+
+[node name="Sand_Flatobj24" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -16)
+
+[node name="Sand_Flatobj26" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -16)
+
+[node name="Sand_Flatobj27" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -17)
+
+[node name="Sand_Flatobj28" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -17)
+
+[node name="Prop_Rock_1obj3" type="Node3D" parent="Prefabs" instance=ExtResource("12_v405o")]
+transform = Transform3D(0.601801, 0, -0.798646, 0, 1, 0, 0.798646, 0, 0.601801, 0.823522, -0.587803, -12.0705)
+
+[node name="Prop_Rock_3obj9" type="Node3D" parent="Prefabs" instance=ExtResource("31_kfceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30631, -0.210461, -13.4584)
+
+[node name="Sand_Side_Overlap_Sideobj5" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -15)
+
+[node name="Sand_Side_Overlap_Sideobj6" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 2, -1, -12)
+
+[node name="Sand_Side_Overlap_Sideobj7" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 1, -1, -16)
+
+[node name="Prop_Starfish_1obj2" type="Node3D" parent="Prefabs" instance=ExtResource("5_idd0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01886, 0.0290564, -13.0704)
+
+[node name="Prop_Starfish_1obj3" type="Node3D" parent="Prefabs" instance=ExtResource("5_idd0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03952, 0.046048, -6)
+
+[node name="Prop_Shell_2obj3" type="Node3D" parent="Prefabs" instance=ExtResource("4_lddre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04873, 0.0313796, -8.01306)
+
+[node name="Prop_Shell_2obj4" type="Node3D" parent="Prefabs" instance=ExtResource("4_lddre")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.0379, 0.0325409, -11.0102)
+
+[node name="Prop_Shell_1obj" type="Node3D" parent="Prefabs" instance=ExtResource("51_8buya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07809, 0.0843816, -10.0781)
 
 [node name="ThirdPersonCharacter" parent="." instance=ExtResource("41_4vqtr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48439, 0.672236, -7.32705)
