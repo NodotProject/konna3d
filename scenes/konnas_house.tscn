@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://jsfifrmce8v0"]
+[gd_scene load_steps=10 format=3 uid="uid://jsfifrmce8v0"]
 
 [ext_resource type="PackedScene" uid="uid://dokpxq4xlm13p" path="res://models/buildings/konnahouse.blend" id="1_goc6y"]
+[ext_resource type="PackedScene" uid="uid://cadpmr1tuk7aw" path="res://models/furniture/Light_Cube2.fbx" id="2_r1bb3"]
+[ext_resource type="PackedScene" uid="uid://cli6dv8lmtk2y" path="res://models/furniture/NightStand_1.fbx" id="3_cn4d4"]
+[ext_resource type="PackedScene" uid="uid://dqwgwnaicrqt2" path="res://models/furniture/WallClock3.fbx" id="4_bkp8u"]
+[ext_resource type="PackedScene" uid="uid://b5lh268qfep8b" path="res://models/furniture/Bed_Single.fbx" id="5_t3aqd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r216"]
 size = Vector3(2.07386, 0.149979, 2.94721)
@@ -48,3 +52,18 @@ shape = SubResource("BoxShape3D_2l5s3")
 [node name="side_wall_collider2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47145, 0.439738, 0.237091)
 shape = SubResource("BoxShape3D_2l5s3")
+
+[node name="WallClock3fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("4_bkp8u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.32792, 0.614944, 1.17607)
+
+[node name="Light_Cube2fbx" type="Node3D" parent="." instance=ExtResource("2_r1bb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456372, 0.878383, 0.405181)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light_Cube2fbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100836, 0)
+
+[node name="Bed_Singlefbx" type="Node3D" parent="." instance=ExtResource("5_t3aqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15827, -0.0085597, -0.657926)
+
+[node name="NightStand_1fbx" type="Node3D" parent="." instance=ExtResource("3_cn4d4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1642, -0.00855967, -0.20131)

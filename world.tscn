@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gt2ma42oay0" path="res://models/terrain/Docks/Dock_Stairs.fbx" id="51_xdwq1"]
 [ext_resource type="PackedScene" uid="uid://del7k3o7lgosj" path="res://models/terrain/Docks/Dock_Long.fbx" id="52_s1m40"]
 [ext_resource type="PackedScene" uid="uid://5vy77lxyomtq" path="res://models/terrain/Docks/Dock_Long_NoRope.fbx" id="53_3vs4p"]
+[ext_resource type="PackedScene" uid="uid://cawfwb24ugg4j" path="res://scenes/speedboat.tscn" id="55_i4ri8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxo2j"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -69,22 +70,10 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riiew"]
-size = Vector3(50, 10, 400)
-
-[sub_resource type="GDScript" id="GDScript_gqx0p"]
-resource_name = "character_state"
-script/source = "extends Label
-
-@export var character: CharacterBody3D
-
-func _ready():
-	var state: StateMachine = character.sm
-	state.connect(\"state_updated\", func(old_state, new_state):
-		text = \"Character State: %s\" % state.get_name_from_id(new_state))
-"
+size = Vector3(50, 10, 150)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xg7mn"]
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 300)
 
 [node name="World" type="Node3D"]
 
@@ -96,14 +85,16 @@ shadow_enabled = true
 environment = SubResource("Environment_nw2vd")
 
 [node name="WaterArea3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.84377, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.82964, -40)
 script = ExtResource("28_8r87w")
 water_shader = ExtResource("29_6nao4")
-float_force = 2.0
+float_force = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterArea3D"]
 shape = SubResource("BoxShape3D_riiew")
+
+[node name="ThirdPersonCharacter" parent="." instance=ExtResource("41_4vqtr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04841, 0.557753, -16.9568)
 
 [node name="Prefabs" type="Node3D" parent="."]
 
@@ -617,114 +608,104 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10461, 0, -14.4789)
 [node name="Dock_Long_NoRopefbx" parent="Prefabs" instance=ExtResource("53_3vs4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11672, 2.38419e-07, -16.6085)
 
-[node name="Sand_Sideobj4" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj4" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, -12)
 
-[node name="Sand_Sideobj5" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj5" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, -12)
 
-[node name="Sand_Sideobj6" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj6" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.5, -12)
 
-[node name="Sand_Sideobj7" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj7" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -12)
 
-[node name="Sand_Sideobj8" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj8" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -12)
 
-[node name="Sand_Sideobj9" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj9" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -12)
 
-[node name="Sand_Sideobj10" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj10" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.5, -12)
 
-[node name="Sand_Sideobj11" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj11" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.506846, -13.9942)
 
-[node name="Sand_Sideobj12" type="Node3D" parent="Prefabs" instance=ExtResource("16_mo2ta")]
+[node name="Sand_Sideobj12" parent="Prefabs" instance=ExtResource("16_mo2ta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.498176, -14)
 
-[node name="Sand_Flatobj10" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj10" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -13)
 
-[node name="Sand_Flatobj11" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj11" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -13)
 
-[node name="Sand_Flatobj12" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj12" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -13)
 
-[node name="Sand_Flatobj13" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj13" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -14)
 
-[node name="Sand_Flatobj16" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj16" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -14)
 
-[node name="Sand_Flatobj19" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj19" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -14)
 
-[node name="Sand_Flatobj20" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj20" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -15)
 
-[node name="Sand_Flatobj22" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj22" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -15)
 
-[node name="Sand_Flatobj24" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj24" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -16)
 
-[node name="Sand_Flatobj26" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj26" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -16)
 
-[node name="Sand_Flatobj27" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj27" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.6, -17)
 
-[node name="Sand_Flatobj28" type="Node3D" parent="Prefabs" instance=ExtResource("6_6cxbx")]
+[node name="Sand_Flatobj28" parent="Prefabs" instance=ExtResource("6_6cxbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.6, -17)
 
-[node name="Prop_Rock_1obj3" type="Node3D" parent="Prefabs" instance=ExtResource("12_v405o")]
+[node name="Prop_Rock_1obj3" parent="Prefabs" instance=ExtResource("12_v405o")]
 transform = Transform3D(0.601801, 0, -0.798646, 0, 1, 0, 0.798646, 0, 0.601801, 0.823522, -0.587803, -12.0705)
 
-[node name="Prop_Rock_3obj9" type="Node3D" parent="Prefabs" instance=ExtResource("31_kfceg")]
+[node name="Prop_Rock_3obj9" parent="Prefabs" instance=ExtResource("31_kfceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30631, -0.210461, -13.4584)
 
-[node name="Sand_Side_Overlap_Sideobj5" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+[node name="Sand_Side_Overlap_Sideobj5" parent="Prefabs" instance=ExtResource("16_wthqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -15)
 
-[node name="Sand_Side_Overlap_Sideobj6" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+[node name="Sand_Side_Overlap_Sideobj6" parent="Prefabs" instance=ExtResource("16_wthqm")]
 transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 2, -1, -12)
 
-[node name="Sand_Side_Overlap_Sideobj7" type="Node3D" parent="Prefabs" instance=ExtResource("16_wthqm")]
+[node name="Sand_Side_Overlap_Sideobj7" parent="Prefabs" instance=ExtResource("16_wthqm")]
 transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 1, -1, -16)
 
-[node name="Prop_Starfish_1obj2" type="Node3D" parent="Prefabs" instance=ExtResource("5_idd0f")]
+[node name="Prop_Starfish_1obj2" parent="Prefabs" instance=ExtResource("5_idd0f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01886, 0.0290564, -13.0704)
 
-[node name="Prop_Starfish_1obj3" type="Node3D" parent="Prefabs" instance=ExtResource("5_idd0f")]
+[node name="Prop_Starfish_1obj3" parent="Prefabs" instance=ExtResource("5_idd0f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03952, 0.046048, -6)
 
-[node name="Prop_Shell_2obj3" type="Node3D" parent="Prefabs" instance=ExtResource("4_lddre")]
+[node name="Prop_Shell_2obj3" parent="Prefabs" instance=ExtResource("4_lddre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04873, 0.0313796, -8.01306)
 
-[node name="Prop_Shell_2obj4" type="Node3D" parent="Prefabs" instance=ExtResource("4_lddre")]
+[node name="Prop_Shell_2obj4" parent="Prefabs" instance=ExtResource("4_lddre")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.0379, 0.0325409, -11.0102)
 
-[node name="Prop_Shell_1obj" type="Node3D" parent="Prefabs" instance=ExtResource("51_8buya")]
+[node name="Prop_Shell_1obj" parent="Prefabs" instance=ExtResource("51_8buya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07809, 0.0843816, -10.0781)
 
-[node name="ThirdPersonCharacter" parent="." instance=ExtResource("41_4vqtr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48439, 0.672236, -7.32705)
-
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-
-[node name="CharacterState" type="Label" parent="CanvasGroup" node_paths=PackedStringArray("character")]
-offset_right = 40.0
-offset_bottom = 23.0
-script = SubResource("GDScript_gqx0p")
-character = NodePath("../../ThirdPersonCharacter")
-
 [node name="Teleport3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.90353, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.5484, -100.399)
 script = ExtResource("45_4qhx3")
-target_position = Vector3(3.48439, 0.672236, -7.32705)
+target_position = Vector3(3.25442, 1.3447, -7.67073)
+global_positioning = false
 delay = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleport3D"]
@@ -732,3 +713,6 @@ shape = SubResource("BoxShape3D_xg7mn")
 
 [node name="KonnasHouse" parent="." instance=ExtResource("50_up6vw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72933, 1.68197, 2.58749)
+
+[node name="Speedboat" parent="." instance=ExtResource("55_i4ri8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.433315, 0.114443, -16.9867)
