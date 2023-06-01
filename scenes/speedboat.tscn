@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cawfwb24ugg4j"]
+[gd_scene load_steps=20 format=3 uid="uid://cawfwb24ugg4j"]
 
 [ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_0fmjq"]
 
@@ -42,7 +42,7 @@ func _physics_process(_delta):
 		var input_dir = Input.get_vector(left_action, right_action, up_action, down_action)
 		var direction = (character.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-		character.position = position
+		character.global_position = Vector3(global_position.x, global_position.y + 0.1, global_position.z)
 		character.rotation.y = rotation.y - PI
 		if Input.is_action_pressed(\"up\") or Input.is_action_pressed(\"down\"):
 			if engine_force + acceleration <= max_engine_speed:
@@ -70,9 +70,9 @@ func drive_mode():
 	character.get_node(\"CollisionShape3D\").disabled = true
 	character.input_enabled = false
 	input_enabled = true
-	character.camera.current = false
-	$Camera3D.current = true
-	#character.visible = false
+	#character.camera.current = false
+	#$Camera3D.current = true
+	character.visible = false
 	$Frog.visible = true
 	
 func park_mode():
@@ -80,9 +80,9 @@ func park_mode():
 	character.get_node(\"CollisionShape3D\").disabled = false
 	character.input_enabled = true
 	input_enabled = false
-	character.camera.current = true
-	$Camera3D.current = false
-	#character.visible = true
+	#character.camera.current = true
+	#$Camera3D.current = false
+	character.visible = true
 	$Frog.visible = false
 
 func apply_wake():
@@ -94,11 +94,11 @@ func apply_wake():
 		$GPUParticles3D.emitting = true
 	
 	if max_speed > 2.0:
-		$GPUParticles3D.amount = 30
+		$GPUParticles3D.amount = 60
 	elif max_speed > 1.0:
-		$GPUParticles3D.amount = 15
+		$GPUParticles3D.amount = 30
 	else:
-		$GPUParticles3D.amount = 5
+		$GPUParticles3D.amount = 10
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u3bt1"]
@@ -326,21 +326,39 @@ bind/42/name = &"PoleTarget.R"
 bind/42/bone = -1
 bind/42/pose = Transform3D(1, -7.15256e-07, 1.42109e-13, -1.42109e-13, 6.12323e-17, 1, -7.15256e-07, -1, 6.11307e-17, 0.00347177, -0.00599934, -0.0162215)
 
+[sub_resource type="Gradient" id="Gradient_lm836"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vbnww"]
+gradient = SubResource("Gradient_lm836")
+
+[sub_resource type="Curve" id="Curve_72qq2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.406143, 0.390909), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k4xrf"]
+curve = SubResource("Curve_72qq2")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dwhou"]
 emission_shape = 3
-emission_box_extents = Vector3(0.119, 0.043, 0.023)
+emission_box_extents = Vector3(0.036, 0.043, 0.023)
 direction = Vector3(0, 0, -1)
 spread = 0.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 0.1
-initial_velocity_max = 1.75
-radial_accel_min = 4.59
-radial_accel_max = 10.0
+gravity = Vector3(0, -1.365, 0)
+initial_velocity_min = 0.14
+initial_velocity_max = 0.28
+radial_accel_min = 1.0
+radial_accel_max = 2.0
+angle_max = 360.0
+scale_max = 1.47
+scale_curve = SubResource("CurveTexture_k4xrf")
+color_ramp = SubResource("GradientTexture1D_vbnww")
 
 [sub_resource type="Gradient" id="Gradient_ky5gf"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i65d0"]
+frequency = 0.044
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ceyy8"]
 seamless = true
@@ -350,12 +368,13 @@ noise = SubResource("FastNoiseLite_i65d0")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4q8hm"]
 render_priority = 1
 transparency = 1
+vertex_color_use_as_albedo = true
 albedo_texture = SubResource("NoiseTexture2D_ceyy8")
 
 [sub_resource type="SphereMesh" id="SphereMesh_xwteb"]
 material = SubResource("StandardMaterial3D_4q8hm")
-radius = 0.047
-height = 0.055
+radius = 0.109
+height = 0.01
 
 [node name="SpeedBoat" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -371,16 +390,14 @@ shape = SubResource("BoxShape3D_u3bt1")
 
 [node name="Frog" type="MeshInstance3D" parent="."]
 transform = Transform3D(14, 0, 0, 0, -6.11959e-07, 14, 0, -14, -6.11959e-07, 0, 0.0336576, -0.186937)
+visible = false
 lod_bias = 20.0
 mesh = SubResource("ArrayMesh_0p2jn")
 skin = SubResource("Skin_qi6id")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.506, -1.058)
-
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3247)
-amount = 5
-lifetime = 0.17
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.205202)
+amount = 28
+lifetime = 0.45
 process_material = SubResource("ParticleProcessMaterial_dwhou")
 draw_pass_1 = SubResource("SphereMesh_xwteb")

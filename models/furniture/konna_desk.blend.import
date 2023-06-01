@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dg67jov108mj5"
-path="res://.godot/imported/underwater_terrain.blend-d80b976e6fb4efe291ad84076788fd6d.scn"
+uid="uid://c1gcg3soln1ud"
+path="res://.godot/imported/konna_desk.blend-ec3a8928941263ddd75f062efc07144b.scn"
 
 [deps]
 
-source_file="res://models/terrain/underwater_terrain.blend"
-dest_files=["res://.godot/imported/underwater_terrain.blend-d80b976e6fb4efe291ad84076788fd6d.scn"]
+source_file="res://models/furniture/konna_desk.blend"
+dest_files=["res://.godot/imported/konna_desk.blend-ec3a8928941263ddd75f062efc07144b.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.032
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -30,13 +30,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cube001": {
+"PATH:Surface": {
 "generate/physics": true,
-"physics/shape_type": 2
-},
-"PATH:Plane": {
-"generate/physics": true,
-"physics/shape_type": 2
+"physics/shape_type": 1
 }
 }
 }

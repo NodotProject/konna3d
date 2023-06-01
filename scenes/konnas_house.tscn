@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://jsfifrmce8v0"]
+[gd_scene load_steps=17 format=3 uid="uid://jsfifrmce8v0"]
 
 [ext_resource type="PackedScene" uid="uid://dokpxq4xlm13p" path="res://models/buildings/konnahouse.blend" id="1_goc6y"]
 [ext_resource type="PackedScene" uid="uid://cadpmr1tuk7aw" path="res://models/furniture/Light_Cube2.fbx" id="2_r1bb3"]
 [ext_resource type="PackedScene" uid="uid://cli6dv8lmtk2y" path="res://models/furniture/NightStand_1.fbx" id="3_cn4d4"]
 [ext_resource type="PackedScene" uid="uid://dqwgwnaicrqt2" path="res://models/furniture/WallClock3.fbx" id="4_bkp8u"]
+[ext_resource type="PackedScene" uid="uid://c1gcg3soln1ud" path="res://models/furniture/konna_desk.blend" id="5_7s0ho"]
 [ext_resource type="PackedScene" uid="uid://b5lh268qfep8b" path="res://models/furniture/Bed_Single.fbx" id="5_t3aqd"]
+[ext_resource type="PackedScene" uid="uid://pi1pqccdk4aa" path="res://models/furniture/Chair_1.fbx" id="7_0k8ae"]
+[ext_resource type="PackedScene" uid="uid://bhmy7uw3gxfa1" path="res://models/furniture/Plate.fbx" id="8_wxlyd"]
+[ext_resource type="PackedScene" uid="uid://3k5orynato41" path="res://models/furniture/Donut2.fbx" id="9_ljpfm"]
+[ext_resource type="PackedScene" uid="uid://bccom6vq3rhbu" path="res://models/furniture/Soda.fbx" id="10_eghma"]
+[ext_resource type="PackedScene" uid="uid://xtlstp365t8p" path="res://models/furniture/Carpet_2.fbx" id="11_v7xk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r216"]
 size = Vector3(2.07386, 0.149979, 2.94721)
@@ -18,9 +24,18 @@ size = Vector3(0.503024, 0.701, 0.154)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2l5s3"]
 size = Vector3(0.287058, 0.885001, 2.94721)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxlis"]
+size = Vector3(0.262614, 0.885001, 1.8614)
+
 [node name="KonnasHouse" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Bed_Singlefbx" parent="StaticBody3D" instance=ExtResource("5_t3aqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12359, -0.0085597, -0.546096)
+
+[node name="NightStand_1fbx" parent="StaticBody3D" instance=ExtResource("3_cn4d4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.10831, -0.00855967, 0.0851574)
 
 [node name="konnahouse" parent="StaticBody3D" instance=ExtResource("1_goc6y")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -49,21 +64,37 @@ shape = SubResource("BoxShape3D_e5n4e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345864, 0.439738, 0.237091)
 shape = SubResource("BoxShape3D_2l5s3")
 
+[node name="side_wall_collider3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.550122, 0.41161, 1.55315)
+shape = SubResource("BoxShape3D_xxlis")
+
 [node name="side_wall_collider2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47145, 0.439738, 0.237091)
 shape = SubResource("BoxShape3D_2l5s3")
 
-[node name="WallClock3fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("4_bkp8u")]
+[node name="WallClock3fbx" parent="StaticBody3D" instance=ExtResource("4_bkp8u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.32792, 0.614944, 1.17607)
 
-[node name="Light_Cube2fbx" type="Node3D" parent="." instance=ExtResource("2_r1bb3")]
+[node name="konna_desk" parent="StaticBody3D" instance=ExtResource("5_7s0ho")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09571, -0.0085597, 0.997892)
+
+[node name="Chair_1fbx" parent="StaticBody3D" instance=ExtResource("7_0k8ae")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.825615, -0.0085597, 1.12814)
+
+[node name="Platefbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("8_wxlyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04409, 0.247434, 1.18322)
+
+[node name="Donut2fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("9_ljpfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06033, 0.251037, 1.19616)
+
+[node name="Sodafbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("10_eghma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997149, 0.247434, 0.807906)
+
+[node name="Carpet_2fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("11_v7xk6")]
+transform = Transform3D(1, 0, -1.74533e-05, 0, 1, 0, 1.74533e-05, 0, 1, 0.658742, -0.00278252, -0.534474)
+
+[node name="Light_Cube2fbx" parent="." instance=ExtResource("2_r1bb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456372, 0.878383, 0.405181)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light_Cube2fbx"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100836, 0)
-
-[node name="Bed_Singlefbx" type="Node3D" parent="." instance=ExtResource("5_t3aqd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15827, -0.0085597, -0.657926)
-
-[node name="NightStand_1fbx" type="Node3D" parent="." instance=ExtResource("3_cn4d4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1642, -0.00855967, -0.20131)

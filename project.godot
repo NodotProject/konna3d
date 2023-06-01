@@ -92,6 +92,10 @@ InputManager="*res://addons/nodot/autoload/InputManager.gd"
 
 project/assembly_name="Konna3D"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/krazy/Videos/Nodot/konna3d.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nodot/plugin.cfg", "res://addons/assetplacer/plugin.cfg")

@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pi1pqccdk4aa"
-path="res://.godot/imported/Chair_1.fbx-d318943b293d5aa6fb78bf11b9a56fe2.scn"
+uid="uid://cuv836vux1kkr"
+path="res://.godot/imported/BirchTree_5.fbx-eed575953789ade2d71fe9562e5652df.scn"
 
 [deps]
 
-source_file="res://models/furniture/Chair_1.fbx"
-dest_files=["res://.godot/imported/Chair_1.fbx-d318943b293d5aa6fb78bf11b9a56fe2.scn"]
+source_file="res://models/flora/BirchTree_5.fbx"
+dest_files=["res://.godot/imported/BirchTree_5.fbx-eed575953789ade2d71fe9562e5652df.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=0.15
+nodes/root_scale=0.5
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -30,9 +30,8 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:RootNode/Chair_1": {
-"generate/physics": true,
-"physics/shape_type": 1
+"PATH:RootNode/BirchTree_5": {
+"generate/physics": true
 }
 }
 }
