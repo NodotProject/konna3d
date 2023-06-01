@@ -381,6 +381,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 gravity_scale = 0.06
 script = SubResource("GDScript_unem0")
+max_engine_speed = 5.0
 
 [node name="Boat" parent="." instance=ExtResource("1_0fmjq")]
 

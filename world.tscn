@@ -39,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://busklqekecb0r" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_1.obj" id="38_fgcco"]
 [ext_resource type="PackedScene" uid="uid://b7sbuh14t1pgw" path="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_2.obj" id="39_l6v8y"]
 [ext_resource type="PackedScene" uid="uid://c2lg01rarju4p" path="res://models/terrain/Modular Terrain Hilly/Hill_Side.obj" id="40_86jn8"]
-[ext_resource type="PackedScene" uid="uid://b0i27hw82rb7m" path="res://scenes/konna.tscn" id="41_4vqtr"]
+[ext_resource type="PackedScene" uid="uid://cmxre06eq6osa" path="res://scenes/konna.tscn" id="41_4vqtr"]
 [ext_resource type="PackedScene" uid="uid://b7u2lp6ri7g65" path="res://models/terrain/Modular Terrain Cliff/Cliff_Base_Top_Joined_Hill_Sharp.obj" id="42_fax36"]
 [ext_resource type="PackedScene" uid="uid://uo563orfe7pv" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Grass_Edge.obj" id="43_rt2aa"]
 [ext_resource type="PackedScene" uid="uid://bqlsc585je0m6" path="res://models/terrain/Modular Terrain Hilly/Prop_Hollow_Trunk.obj" id="44_dwoo8"]
@@ -127,7 +127,7 @@ float_force = 3.0
 shape = SubResource("BoxShape3D_riiew")
 
 [node name="ThirdPersonCharacter" parent="." instance=ExtResource("41_4vqtr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.2869, 1.77905, 2.69367)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.79813, 1.77905, -7.12383)
 
 [node name="KonnasIsland" type="Node3D" parent="."]
 
@@ -761,103 +761,103 @@ transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 8.3540
 [node name="Willow_5fbx2" parent="KonnasIsland" instance=ExtResource("58_n5xad")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 8.90895, 1.33452, 3.60321)
 
-[node name="Prop_Cattail_1obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
+[node name="Prop_Cattail_1obj" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35791, 0.106357, -3.75211)
 
-[node name="Prop_Cattail_1obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
+[node name="Prop_Cattail_1obj2" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -4.33339, 0.102335, -3.75309)
 
-[node name="Prop_Cattail_1obj3" type="Node3D" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
+[node name="Prop_Cattail_1obj3" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -4.35112, 0.10308, -3.73971)
 
-[node name="Prop_Cattail_2obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("61_in5s0")]
+[node name="Prop_Cattail_2obj" parent="KonnasIsland" instance=ExtResource("61_in5s0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19325, 0.0475082, -3.35765)
 
-[node name="Prop_Grass_Clump_1obj3" type="Node3D" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
+[node name="Prop_Grass_Clump_1obj3" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33853, 0.10484, -3.7626)
 
-[node name="Prop_Grass_Clump_1obj4" type="Node3D" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
+[node name="Prop_Grass_Clump_1obj4" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1753, 0.0450187, -3.34159)
 
-[node name="Prop_Grass_Clump_2obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("39_l6v8y")]
+[node name="Prop_Grass_Clump_2obj2" parent="KonnasIsland" instance=ExtResource("39_l6v8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67722, 1.2, -1.36916)
 
-[node name="Prop_Grass_Clump_3obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("36_lgclh")]
+[node name="Prop_Grass_Clump_3obj2" parent="KonnasIsland" instance=ExtResource("36_lgclh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4704, 1.21424, -1.26877)
 
-[node name="Prop_Flower_Sunflowerobj" type="Node3D" parent="KonnasIsland" instance=ExtResource("62_320kd")]
+[node name="Prop_Flower_Sunflowerobj" parent="KonnasIsland" instance=ExtResource("62_320kd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54111, 1.2, -1.28774)
 
-[node name="Prop_Flower_Sunflowerobj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("62_320kd")]
+[node name="Prop_Flower_Sunflowerobj2" parent="KonnasIsland" instance=ExtResource("62_320kd")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -7.69487, 1.2, -1.321)
 
-[node name="Prop_Starfish_2obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("63_jgags")]
+[node name="Prop_Starfish_2obj" parent="KonnasIsland" instance=ExtResource("63_jgags")]
 transform = Transform3D(0.997784, 0.0607731, 0.0270692, -0.0529993, 0.972041, -0.228751, -0.0402143, 0.22681, 0.973108, -1.00928, 0.227402, -3.03464)
 
-[node name="Prop_Shell_1obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("51_8buya")]
+[node name="Prop_Shell_1obj2" parent="KonnasIsland" instance=ExtResource("51_8buya")]
 transform = Transform3D(0.986058, -0.166036, -0.0110197, 0.161774, 0.972041, -0.170191, 0.0389696, 0.166036, 0.985349, -3.01413, 0.0827367, -2.98587)
 
-[node name="Prop_Shell_2obj5" type="Node3D" parent="KonnasIsland" instance=ExtResource("4_lddre")]
+[node name="Prop_Shell_2obj5" parent="KonnasIsland" instance=ExtResource("4_lddre")]
 transform = Transform3D(0.029145, 0.166036, -0.985689, -0.173137, 0.972041, 0.158618, 0.984466, 0.166036, 0.0570772, -0.0266333, 0.0966632, -3.02663)
 
-[node name="Prop_Shell_2obj6" type="Node3D" parent="KonnasIsland" instance=ExtResource("4_lddre")]
+[node name="Prop_Shell_2obj6" parent="KonnasIsland" instance=ExtResource("4_lddre")]
 transform = Transform3D(0.986386, 0.163899, -0.0134085, -0.161771, 0.981752, 0.0999635, 0.0295478, -0.0964336, 0.994901, 3.16346, 0.390376, -7.09617)
 
-[node name="Prop_Shell_2obj7" type="Node3D" parent="KonnasIsland" instance=ExtResource("4_lddre")]
+[node name="Prop_Shell_2obj7" parent="KonnasIsland" instance=ExtResource("4_lddre")]
 transform = Transform3D(0.993358, 0.0990141, 0.0586076, -0.104212, 0.990147, 0.0935282, -0.0487695, -0.0990147, 0.99389, -0.907081, 0.481416, -10.0929)
 
-[node name="Prop_Shell_1obj3" type="Node3D" parent="KonnasIsland" instance=ExtResource("51_8buya")]
+[node name="Prop_Shell_1obj3" parent="KonnasIsland" instance=ExtResource("51_8buya")]
 transform = Transform3D(0.999288, 0.00553089, -0.03727, 0.0030865, 0.973823, 0.227272, 0.0375513, -0.227225, 0.973117, 7.00084, 0.429193, -5.23377)
 
-[node name="Prop_Shell_1obj4" type="Node3D" parent="KonnasIsland" instance=ExtResource("51_8buya")]
+[node name="Prop_Shell_1obj4" parent="KonnasIsland" instance=ExtResource("51_8buya")]
 transform = Transform3D(0.973831, -0.226159, -0.0224363, 0.222685, 0.969255, -0.104661, 0.0454167, 0.096926, 0.994254, -2.17942, 0.883779, -6.92311)
 
-[node name="Prop_Starfish_2obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("63_jgags")]
+[node name="Prop_Starfish_2obj2" parent="KonnasIsland" instance=ExtResource("63_jgags")]
 transform = Transform3D(0.973883, -0.226159, 0.0200691, 0.222939, 0.969255, 0.104119, -0.0429998, -0.0969255, 0.994362, -3.31528, 0.612921, -8.13512)
 
-[node name="Prop_Branch_2obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("65_01h5n")]
+[node name="Prop_Branch_2obj" parent="KonnasIsland" instance=ExtResource("65_01h5n")]
 transform = Transform3D(0.972043, 0.22616, -0.0631139, -0.231012, 0.969256, -0.0847138, 0.0420146, 0.0969254, 0.994404, 0.0779202, 0.67848, -6.96661)
 
-[node name="Prop_Branch_3obj3" type="Node3D" parent="KonnasIsland" instance=ExtResource("15_5rcrq")]
+[node name="Prop_Branch_3obj3" parent="KonnasIsland" instance=ExtResource("15_5rcrq")]
 transform = Transform3D(0.0378939, -0.226809, -0.973201, 0.0711605, 0.97204, -0.223768, 0.996744, -0.0607741, 0.0529742, -3.19903, 0.168965, -11.0533)
 
-[node name="Prop_Grass_Clump_2obj3" type="Node3D" parent="KonnasIsland" instance=ExtResource("39_l6v8y")]
+[node name="Prop_Grass_Clump_2obj3" parent="KonnasIsland" instance=ExtResource("39_l6v8y")]
 transform = Transform3D(0.999142, 3.1665e-08, 0.0414134, -1.02329e-07, 1, 2.98023e-08, -0.0414132, -5.96046e-08, 0.999142, 1, 0.062197, -12)
 
-[node name="Prop_Cattail_1obj4" type="Node3D" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
+[node name="Prop_Cattail_1obj4" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
 transform = Transform3D(-0.0715656, 4.93601e-08, 0.997436, -2.98023e-08, 1, -8.84756e-08, -0.997436, -2.98023e-08, -0.0715656, 1, 0.062197, -12)
 
-[node name="Prop_Cattail_2obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("61_in5s0")]
+[node name="Prop_Cattail_2obj2" parent="KonnasIsland" instance=ExtResource("61_in5s0")]
 transform = Transform3D(0.997436, 4.93601e-08, 0.0715658, -5.7742e-08, 1, 2.98023e-08, -0.0715657, -2.98023e-08, 0.997436, 1, 0.062197, -12)
 
-[node name="Prop_Cattail_1obj5" type="Node3D" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
+[node name="Prop_Cattail_1obj5" parent="KonnasIsland" instance=ExtResource("60_mht2b")]
 transform = Transform3D(-0.0219451, 2.70084e-08, -0.999759, 2.98023e-08, 1, -1.76951e-08, 0.999759, -2.98023e-08, -0.0219451, 1, 0.062197, -12)
 
-[node name="Prop_Grass_Clump_1obj5" type="Node3D" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
+[node name="Prop_Grass_Clump_1obj5" parent="KonnasIsland" instance=ExtResource("38_fgcco")]
 transform = Transform3D(0.916302, -0.148341, 0.372001, 0.137486, 0.988936, 0.0557, -0.376148, 0.000107051, 0.92656, -4.1794, 0.897959, -5.99987)
 
-[node name="Prop_Flower_Lily_Blueobj" type="Node3D" parent="KonnasIsland" instance=ExtResource("65_e2yv6")]
+[node name="Prop_Flower_Lily_Blueobj" parent="KonnasIsland" instance=ExtResource("65_e2yv6")]
 transform = Transform3D(0.943654, -0.33035, -0.0196232, 0.330273, 0.943858, -0.00712042, 0.0208738, 0.000238181, 0.999782, -4.19174, 0.957762, -6.01699)
 
-[node name="Path_Centerobj15" type="Node3D" parent="KonnasIsland" instance=ExtResource("15_bd4l6")]
+[node name="Path_Centerobj15" parent="KonnasIsland" instance=ExtResource("15_bd4l6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.6, 1)
 
-[node name="Path_Centerobj16" type="Node3D" parent="KonnasIsland" instance=ExtResource("15_bd4l6")]
+[node name="Path_Centerobj16" parent="KonnasIsland" instance=ExtResource("15_bd4l6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82657, 1.5, 0.995376)
 
-[node name="Path_Sideobj6" type="Node3D" parent="KonnasIsland" instance=ExtResource("24_ykh5o")]
+[node name="Path_Sideobj6" parent="KonnasIsland" instance=ExtResource("24_ykh5o")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4, 1.4, 1)
 
-[node name="Path_Sideobj7" type="Node3D" parent="KonnasIsland" instance=ExtResource("24_ykh5o")]
+[node name="Path_Sideobj7" parent="KonnasIsland" instance=ExtResource("24_ykh5o")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 5, 1.4, 1)
 
-[node name="Prop_Fence_Curve_1x1obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("66_y5scv")]
+[node name="Prop_Fence_Curve_1x1obj" parent="KonnasIsland" instance=ExtResource("66_y5scv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.78536, 1.4, 1.08461)
 
-[node name="Prop_Fence_Curve_1x1obj2" type="Node3D" parent="KonnasIsland" instance=ExtResource("66_y5scv")]
+[node name="Prop_Fence_Curve_1x1obj2" parent="KonnasIsland" instance=ExtResource("66_y5scv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.2849, 1.4, 0.582921)
 
-[node name="Prop_Fence_Boards_3obj" type="Node3D" parent="KonnasIsland" instance=ExtResource("59_s80oq")]
+[node name="Prop_Fence_Boards_3obj" parent="KonnasIsland" instance=ExtResource("59_s80oq")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 7.80761, 1.4, 0.0734825)
 
 [node name="FishingHut" type="Node3D" parent="."]
