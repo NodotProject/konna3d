@@ -31,8 +31,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:object1": {
-"generate/physics": true,
-"physics/shape_type": 2
+"generate/physics": true
 }
 }
 }

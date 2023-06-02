@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://del7k3o7lgosj"
-path="res://.godot/imported/Dock_Long.fbx-f43c362bb0b85893eeebac5880b5e209.scn"
+uid="uid://caq8req3j5us6"
+path="res://.godot/imported/Rock_4.fbx-87a3dd4aa6efcf7bef3e7b6036b119fb.scn"
 
 [deps]
 
-source_file="res://models/terrain/Docks/Dock_Long.fbx"
-dest_files=["res://.godot/imported/Dock_Long.fbx-f43c362bb0b85893eeebac5880b5e209.scn"]
+source_file="res://models/terrain/Rocks/Rock_4.fbx"
+dest_files=["res://.godot/imported/Rock_4.fbx-87a3dd4aa6efcf7bef3e7b6036b119fb.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=0.1
+nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -30,8 +30,8 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:RootNode/Dock_Long": {
-"physics/shape_type": 2
+"PATH:RootNode/Rock_4": {
+"generate/physics": true
 }
 }
 }

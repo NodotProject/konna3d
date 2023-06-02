@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://jamsn5bulbre"]
+[gd_scene load_steps=99 format=3 uid="uid://jamsn5bulbre"]
 
 [ext_resource type="PackedScene" uid="uid://bfxymqbqylgk2" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_From_Gentle.obj" id="1_2avps"]
 [ext_resource type="PackedScene" uid="uid://cl2kx60uej170" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_To_Gentle.obj" id="2_85ldi"]
@@ -43,7 +43,6 @@
 [ext_resource type="PackedScene" uid="uid://b7u2lp6ri7g65" path="res://models/terrain/Modular Terrain Cliff/Cliff_Base_Top_Joined_Hill_Sharp.obj" id="42_fax36"]
 [ext_resource type="PackedScene" uid="uid://uo563orfe7pv" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Grass_Edge.obj" id="43_rt2aa"]
 [ext_resource type="PackedScene" uid="uid://bqlsc585je0m6" path="res://models/terrain/Modular Terrain Hilly/Prop_Hollow_Trunk.obj" id="44_dwoo8"]
-[ext_resource type="Script" path="res://addons/nodot/interaction/Teleport3D.gd" id="45_4qhx3"]
 [ext_resource type="PackedScene" uid="uid://ca552b2xvsd7t" path="res://models/terrain/Modular Terrain Cliff/Cliff_Base_Waterfall.obj" id="45_j3vg6"]
 [ext_resource type="PackedScene" uid="uid://2atct2g267iw" path="res://models/terrain/Modular Terrain Cliff/Prop_Cliff_Rock_2.obj" id="46_xp2rf"]
 [ext_resource type="PackedScene" uid="uid://bmgwarepcryhy" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Inner_Sm.obj" id="47_x7m8e"]
@@ -82,6 +81,13 @@
 [ext_resource type="PackedScene" uid="uid://dgii4q1d342is" path="res://models/terrain/Modular Terrain Hilly/Prop_Branch_2.obj" id="65_01h5n"]
 [ext_resource type="PackedScene" uid="uid://cuvdihq6355cn" path="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Lily_Blue.obj" id="65_e2yv6"]
 [ext_resource type="PackedScene" uid="uid://bk0rtvj881c0r" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Curve_1x1.obj" id="66_y5scv"]
+[ext_resource type="PackedScene" uid="uid://dfxb7elpkvhtq" path="res://models/terrain/Rocks/Rock_7.fbx" id="80_n0nnm"]
+[ext_resource type="PackedScene" uid="uid://dcgx0ill8wpw5" path="res://models/terrain/Rocks/Rock_6.fbx" id="81_721x2"]
+[ext_resource type="PackedScene" uid="uid://b1iooh3drc70s" path="res://models/terrain/Rocks/Rock_2.fbx" id="82_uuoiy"]
+[ext_resource type="PackedScene" uid="uid://caq8req3j5us6" path="res://models/terrain/Rocks/Rock_4.fbx" id="83_70ngu"]
+[ext_resource type="PackedScene" uid="uid://dkuxrln4qpuub" path="res://models/terrain/Rocks/Rock_1.fbx" id="84_5jt8s"]
+[ext_resource type="PackedScene" uid="uid://ckulqh8oyv1wa" path="res://models/terrain/Rocks/Rock_3.fbx" id="85_dvdtj"]
+[ext_resource type="PackedScene" uid="uid://bmfvyseevj3ns" path="res://models/terrain/Rocks/Rock_5.fbx" id="86_bltgt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxo2j"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -105,20 +111,36 @@ fog_sky_affect = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_riiew"]
 size = Vector3(400, 10, 400)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xg7mn"]
-size = Vector3(100, 1, 300)
+[sub_resource type="BoxShape3D" id="BoxShape3D_djhyo"]
+size = Vector3(0.803877, 0.377354, 1.07091)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fw3o4"]
+height = 0.32442
+radius = 0.0716458
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc326"]
+size = Vector3(0.142782, 0.346792, 2.08604)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68vin"]
+size = Vector3(0.803877, 0.115214, 4.38215)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spmkd"]
+size = Vector3(1, 30, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhm4f"]
+size = Vector3(44.9122, 30, 1)
 
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 45.9097)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nw2vd")
 
 [node name="WaterArea3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.82964, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.82964, 5.90968)
 script = ExtResource("28_8r87w")
 water_shader = ExtResource("29_6nao4")
 float_force = 3.0
@@ -126,10 +148,11 @@ float_force = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterArea3D"]
 shape = SubResource("BoxShape3D_riiew")
 
-[node name="ThirdPersonCharacter" parent="." instance=ExtResource("41_4vqtr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.79813, 1.77905, -7.12383)
+[node name="Konna" parent="." instance=ExtResource("41_4vqtr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.79813, 1.77905, 38.7859)
 
 [node name="KonnasIsland" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.9097)
 
 [node name="Sand_Side_Transition_From_Gentleobj2" parent="KonnasIsland" instance=ExtResource("1_2avps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
@@ -632,6 +655,30 @@ transform = Transform3D(1, 0, -1.04907e-06, 0, 1, 0, 1.04907e-06, 0, 1, 9, 1.4, 
 [node name="Dock_Stairsfbx" parent="KonnasIsland" instance=ExtResource("51_xdwq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12174, -0.0894839, -13)
 
+[node name="StepsCollider" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 0.919835, -0.392305, 0, 0.392305, 0.919835, 0, 0.0996001, 0.0865784)
+shape = SubResource("BoxShape3D_djhyo")
+
+[node name="BeachPost1" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.372104, 0.363151, 0.413815)
+shape = SubResource("CylinderShape3D_fw3o4")
+
+[node name="BeachPost2" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390583, 0.363151, 0.43079)
+shape = SubResource("CylinderShape3D_fw3o4")
+
+[node name="RopedSides" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445461, 0.62993, -1.33395)
+shape = SubResource("BoxShape3D_tc326")
+
+[node name="RopedSides2" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451095, 0.62904, -1.35771)
+shape = SubResource("BoxShape3D_tc326")
+
+[node name="RopedCollider" type="CollisionShape3D" parent="KonnasIsland/Dock_Stairsfbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.411052, -2.50788)
+shape = SubResource("BoxShape3D_68vin")
+
 [node name="Dock_Longfbx" parent="KonnasIsland" instance=ExtResource("52_s1m40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10461, 0, -14.4789)
 
@@ -861,7 +908,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.2849
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 7.80761, 1.4, 0.0734825)
 
 [node name="FishingHut" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.4173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.507622)
 
 [node name="Prop_Docks_Cornerobj" parent="FishingHut" instance=ExtResource("53_h65ky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.037487)
@@ -954,6 +1001,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0873595, 0.501645, 0.939022
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.46631, 0.494036, 1.44241)
 
 [node name="ShopIsland" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.9097)
 
 [node name="Path_Steps_Centerobj" parent="ShopIsland" instance=ExtResource("63_811bv")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, -86)
@@ -1108,21 +1156,76 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.042
 [node name="BirchTree_3fbx" parent="ShopIsland" instance=ExtResource("57_4afr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52143, 2.715, -88.3343)
 
-[node name="Teleport3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.5484, -100.399)
-script = ExtResource("45_4qhx3")
-target_position = Vector3(3.25442, 1.3447, -7.67073)
-global_positioning = false
-delay = 1.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleport3D"]
-shape = SubResource("BoxShape3D_xg7mn")
-
 [node name="KonnasHouse" parent="." instance=ExtResource("50_up6vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72933, 1.68197, 2.58749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72933, 1.68197, 48.4972)
+
+[node name="Cave" type="Node3D" parent="."]
+
+[node name="Rock_7fbx" parent="Cave" instance=ExtResource("80_n0nnm")]
+transform = Transform3D(-1.35112e-07, 3.091, 4.39258e-14, -2.99193, -1.30781e-07, 0.776302, 0.776302, 3.39332e-08, 2.99193, -4.95703, -9, 4)
+
+[node name="Rock_6fbx" parent="Cave" instance=ExtResource("81_721x2")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -4.95703, -9.13736, 2.39224)
+
+[node name="Rock_2fbx" parent="Cave" instance=ExtResource("82_uuoiy")]
+transform = Transform3D(1.95428, 4.3925, -1.37358, 2.87516, 5.59814e-07, 4.09066, 3.59364, -2.38871, -2.52583, -5.56952, -9.00291, 0.616133)
+
+[node name="Rock_4fbx" parent="Cave" instance=ExtResource("83_70ngu")]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -2.94124, -10, 6.9078)
+
+[node name="Rock_7fbx2" parent="Cave" instance=ExtResource("80_n0nnm")]
+transform = Transform3D(1.47282, -2.43034, 1.6756, -1.48964, 1.00478, 2.76673, -2.54857, -1.99179, -0.648825, -0.588907, -10.0006, 6.71287)
+
+[node name="Rock_1fbx" parent="Cave" instance=ExtResource("84_5jt8s")]
+transform = Transform3D(-1.13824, 2.65276, -6.42645, 6.93201, 0.931877, -0.843112, 0.532589, -6.4596, -2.76077, 1.39183, -9.32484, 5.89084)
+
+[node name="Rock_3fbx" parent="Cave" instance=ExtResource("85_dvdtj")]
+transform = Transform3D(2.64117, -2.28155, -1.33282, 2.57676, 2.64117, 0.58499, 0.58499, -1.33282, 3.4408, 0.940907, -9.97255, 5.05468)
+
+[node name="Rock_4fbx2" parent="Cave" instance=ExtResource("83_70ngu")]
+transform = Transform3D(-0.239087, 4.25788, -0.325567, -4.2703, -0.239087, 0.0091203, -0.00911982, 0.325567, 4.26458, -3.62586, -9.61839, -3.04186)
+
+[node name="Rock_5fbx" parent="Cave" instance=ExtResource("86_bltgt")]
+transform = Transform3D(-0.998413, 1.64059, -3.19991, 0.411629, 3.35128, 1.58976, 3.57233, 0.0723629, -1.07751, -0.731512, -9.78811, -3.16628)
+
+[node name="Rock_5fbx2" parent="Cave" instance=ExtResource("86_bltgt")]
+transform = Transform3D(2.43812, -1.89353, -1.18312, 1.18312, 2.58131, -1.69313, 1.89353, 0.825253, 2.58131, 1.92672, -9.50616, -1.58303)
+
+[node name="Rock_1fbx2" parent="Cave" instance=ExtResource("84_5jt8s")]
+transform = Transform3D(1.47392, 0.54308, 0.0833932, -0.0833932, 0.457095, -1.50281, -0.54308, 1.40373, 0.457095, 0.451333, -8.89709, -2.17245)
+
+[node name="Rock_7fbx3" parent="Cave" instance=ExtResource("80_n0nnm")]
+transform = Transform3D(1.89946, -1.78341, -1.55846, 1.82107, 2.37705, -0.500628, 1.51429, -0.62159, 2.55692, 2.85529, -9.0224, 0.0408061)
+
+[node name="Rock_3fbx2" parent="Cave" instance=ExtResource("85_dvdtj")]
+transform = Transform3D(2.91161, 4.06249e-07, 3.11653, 3.11653, 2.35291e-07, -2.91161, -4.49269e-07, 4.265, -1.36228e-07, 3, -9, -3.70541)
+
+[node name="Rock_4fbx3" parent="Cave" instance=ExtResource("83_70ngu")]
+transform = Transform3D(4.465, 0, 0, 0, -1.95171e-07, 4.465, 0, -4.465, -1.95171e-07, 2, -10, 7.71708)
+
+[node name="Rock_7fbx4" parent="Cave" instance=ExtResource("80_n0nnm")]
+transform = Transform3D(-1.53779e-07, -5.518, 6.51962e-07, 5.46905, -2.3906e-07, -0.733333, 0.733333, 6.25742e-07, 5.46905, 3.87481, -10, 7)
 
 [node name="Speedboat" parent="." instance=ExtResource("55_i4ri8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.433315, 0.114443, -16.9867)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.433315, 0.114443, 28.923)
 
 [node name="underwater_terrain" parent="." instance=ExtResource("56_dn0yg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237488, -0.020457, -42.6585)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237488, -0.020457, 3.25118)
+
+[node name="WorldBoundaries" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2291, 0, 0)
+shape = SubResource("BoxShape3D_spmkd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WorldBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5976, 0, 0)
+shape = SubResource("BoxShape3D_spmkd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WorldBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 69.3874)
+shape = SubResource("BoxShape3D_nhm4f")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WorldBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -63.5546)
+shape = SubResource("BoxShape3D_nhm4f")

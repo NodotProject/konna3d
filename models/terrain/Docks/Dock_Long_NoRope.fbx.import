@@ -31,7 +31,6 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:RootNode/Dock_Long_NoRope": {
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }
