@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://jamsn5bulbre"]
+[gd_scene load_steps=102 format=3 uid="uid://jamsn5bulbre"]
 
 [ext_resource type="PackedScene" uid="uid://bfxymqbqylgk2" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_From_Gentle.obj" id="1_2avps"]
 [ext_resource type="PackedScene" uid="uid://cl2kx60uej170" path="res://models/terrain/Modular Terrain Beach/Sand_Side_Transition_To_Gentle.obj" id="2_85ldi"]
@@ -81,8 +81,11 @@
 [ext_resource type="PackedScene" uid="uid://dgii4q1d342is" path="res://models/terrain/Modular Terrain Hilly/Prop_Branch_2.obj" id="65_01h5n"]
 [ext_resource type="PackedScene" uid="uid://cuvdihq6355cn" path="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Lily_Blue.obj" id="65_e2yv6"]
 [ext_resource type="PackedScene" uid="uid://bk0rtvj881c0r" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Curve_1x1.obj" id="66_y5scv"]
+[ext_resource type="PackedScene" uid="uid://bnmxw60xkcqyr" path="res://scenes/blocks/stone.tscn" id="80_6pc2i"]
 [ext_resource type="PackedScene" uid="uid://dfxb7elpkvhtq" path="res://models/terrain/Rocks/Rock_7.fbx" id="80_n0nnm"]
+[ext_resource type="PackedScene" uid="uid://cxk6vw8aa2sk0" path="res://scenes/blocks/diamond.tscn" id="81_55vwl"]
 [ext_resource type="PackedScene" uid="uid://dcgx0ill8wpw5" path="res://models/terrain/Rocks/Rock_6.fbx" id="81_721x2"]
+[ext_resource type="PackedScene" uid="uid://cqmy8q35oeru4" path="res://scenes/blocks/iron.tscn" id="82_svkya"]
 [ext_resource type="PackedScene" uid="uid://b1iooh3drc70s" path="res://models/terrain/Rocks/Rock_2.fbx" id="82_uuoiy"]
 [ext_resource type="PackedScene" uid="uid://caq8req3j5us6" path="res://models/terrain/Rocks/Rock_4.fbx" id="83_70ngu"]
 [ext_resource type="PackedScene" uid="uid://dkuxrln4qpuub" path="res://models/terrain/Rocks/Rock_1.fbx" id="84_5jt8s"]
@@ -149,7 +152,7 @@ float_force = 3.0
 shape = SubResource("BoxShape3D_riiew")
 
 [node name="Konna" parent="." instance=ExtResource("41_4vqtr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.79813, 1.77905, 38.7859)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.79813, 0.577161, 38.7859)
 
 [node name="KonnasIsland" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.9097)
@@ -1000,6 +1003,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0873595, 0.501645, 0.939022
 [node name="Prop_Fence_Boards_2obj" parent="FishingHut" instance=ExtResource("62_yav3l")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.46631, 0.494036, 1.44241)
 
+[node name="Prop_Docks_Stepsobj2" type="Node3D" parent="FishingHut" instance=ExtResource("56_n4n4e")]
+transform = Transform3D(-1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 1.93848, -0.4, 0.689209)
+
 [node name="ShopIsland" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.9097)
 
@@ -1158,6 +1164,1283 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52143, 2.715, -88.3343)
 
 [node name="KonnasHouse" parent="." instance=ExtResource("50_up6vw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72933, 1.68197, 48.4972)
+
+[node name="Quarry" type="Node3D" parent="."]
+
+[node name="stone2" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -9, 6)
+
+[node name="stone3" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -9, 4)
+
+[node name="stone4" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -9, 2)
+
+[node name="stone5" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -9, 0)
+
+[node name="stone6" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -9, -2)
+
+[node name="stone7" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, -2)
+
+[node name="stone8" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, -4)
+
+[node name="stone9" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -2)
+
+[node name="stone10" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9, -2)
+
+[node name="stone11" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9, 0)
+
+[node name="stone12" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9, 2)
+
+[node name="stone13" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9, 4)
+
+[node name="stone14" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 4)
+
+[node name="stone15" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 6)
+
+[node name="stone16" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 6)
+
+[node name="stone17" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 4)
+
+[node name="stone18" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 2)
+
+[node name="stone19" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 2)
+
+[node name="stone20" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+
+[node name="stone21" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 0)
+
+[node name="diamond2" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -2)
+
+[node name="diamond3" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 6)
+
+[node name="diamond4" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 6)
+
+[node name="diamond5" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -6)
+
+[node name="diamond6" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -10)
+
+[node name="diamond7" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 12)
+
+[node name="iron2" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 10)
+
+[node name="iron3" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -2)
+
+[node name="iron4" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 0)
+
+[node name="iron5" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -2)
+
+[node name="iron6" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 2)
+
+[node name="iron7" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -12)
+
+[node name="stone22" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 8)
+
+[node name="stone23" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 6)
+
+[node name="stone24" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 4)
+
+[node name="stone25" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 0)
+
+[node name="stone26" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -4)
+
+[node name="stone27" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -8)
+
+[node name="stone28" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -10)
+
+[node name="stone29" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -10)
+
+[node name="stone30" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -12)
+
+[node name="stone31" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -8)
+
+[node name="stone32" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -6)
+
+[node name="stone33" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -4)
+
+[node name="stone34" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -2)
+
+[node name="stone35" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 0)
+
+[node name="stone36" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 2)
+
+[node name="stone37" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 4)
+
+[node name="stone38" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 6)
+
+[node name="stone39" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 8)
+
+[node name="stone40" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 10)
+
+[node name="stone41" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 12)
+
+[node name="stone42" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 14)
+
+[node name="stone43" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, 16)
+
+[node name="stone44" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 16)
+
+[node name="stone45" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 14)
+
+[node name="stone46" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, 12)
+
+[node name="stone47" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 16)
+
+[node name="stone48" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 14)
+
+[node name="stone49" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 12)
+
+[node name="stone50" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 10)
+
+[node name="stone51" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 10)
+
+[node name="stone52" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 8)
+
+[node name="stone53" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 6)
+
+[node name="stone54" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 4)
+
+[node name="stone55" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 6)
+
+[node name="stone56" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 8)
+
+[node name="stone57" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 4)
+
+[node name="stone58" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 2)
+
+[node name="stone59" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, 0)
+
+[node name="stone60" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, -2)
+
+[node name="stone61" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, -4)
+
+[node name="stone62" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, -6)
+
+[node name="stone63" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, -8)
+
+[node name="stone64" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -7, -10)
+
+[node name="stone65" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -10)
+
+[node name="stone66" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -8)
+
+[node name="stone67" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -6)
+
+[node name="stone68" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -4)
+
+[node name="stone69" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, -2)
+
+[node name="stone70" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 0)
+
+[node name="stone71" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7, 2)
+
+[node name="stone72" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 8)
+
+[node name="stone73" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 10)
+
+[node name="stone74" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 12)
+
+[node name="stone75" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 14)
+
+[node name="stone76" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 14)
+
+[node name="stone77" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 16)
+
+[node name="stone78" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 16)
+
+[node name="stone79" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 18)
+
+[node name="stone80" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 16)
+
+[node name="stone81" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 14)
+
+[node name="stone82" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 14)
+
+[node name="stone83" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 10)
+
+[node name="stone84" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 10)
+
+[node name="stone85" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 10)
+
+[node name="stone86" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 8)
+
+[node name="stone87" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 8)
+
+[node name="stone88" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 8)
+
+[node name="stone89" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 12)
+
+[node name="stone90" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 6)
+
+[node name="stone91" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 6)
+
+[node name="stone92" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 4)
+
+[node name="stone93" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 4)
+
+[node name="stone94" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 4)
+
+[node name="stone95" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 4)
+
+[node name="stone96" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, 2)
+
+[node name="stone97" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 2)
+
+[node name="stone98" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 2)
+
+[node name="stone99" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 2)
+
+[node name="stone100" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, 0)
+
+[node name="stone101" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 0)
+
+[node name="stone102" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+
+[node name="stone103" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -2)
+
+[node name="stone104" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -2)
+
+[node name="stone105" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -4)
+
+[node name="stone106" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -4)
+
+[node name="stone107" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -4)
+
+[node name="stone108" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -4)
+
+[node name="stone109" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -6)
+
+[node name="stone110" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -8)
+
+[node name="stone111" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -10)
+
+[node name="stone112" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -12)
+
+[node name="stone113" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -6)
+
+[node name="stone114" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -6)
+
+[node name="stone115" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -6)
+
+[node name="stone116" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -8)
+
+[node name="stone117" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -8)
+
+[node name="stone118" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -8)
+
+[node name="stone119" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 8)
+
+[node name="stone120" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 6)
+
+[node name="stone121" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 4)
+
+[node name="stone122" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 2)
+
+[node name="stone123" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, 0)
+
+[node name="stone124" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, -2)
+
+[node name="stone125" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, -4)
+
+[node name="stone126" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, -6)
+
+[node name="stone127" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -7, -8)
+
+[node name="stone128" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -10)
+
+[node name="stone129" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -7, -14)
+
+[node name="stone130" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -7, -14)
+
+[node name="stone131" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -14)
+
+[node name="stone132" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -14)
+
+[node name="stone133" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -14)
+
+[node name="stone134" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -14)
+
+[node name="stone135" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -7, -12)
+
+[node name="stone136" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -7, -12)
+
+[node name="stone137" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -12)
+
+[node name="stone138" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, -10)
+
+[node name="iron8" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, -12)
+
+[node name="iron9" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -12)
+
+[node name="iron10" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, -8)
+
+[node name="iron11" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, -4)
+
+[node name="iron12" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 0)
+
+[node name="iron13" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 6)
+
+[node name="iron14" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, 6)
+
+[node name="iron15" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, -2)
+
+[node name="iron16" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, -6)
+
+[node name="diamond8" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, -8)
+
+[node name="diamond9" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 14)
+
+[node name="diamond10" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, 10)
+
+[node name="diamond11" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, 10)
+
+[node name="diamond12" parent="Quarry" instance=ExtResource("81_55vwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, 2)
+
+[node name="iron17" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 2)
+
+[node name="iron18" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 8)
+
+[node name="iron19" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, -2)
+
+[node name="iron20" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, -2)
+
+[node name="iron21" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, -4)
+
+[node name="iron22" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 12)
+
+[node name="iron23" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 10)
+
+[node name="iron24" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 2)
+
+[node name="iron25" parent="Quarry" instance=ExtResource("82_svkya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 4)
+
+[node name="stone139" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -4)
+
+[node name="stone140" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -2)
+
+[node name="stone141" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 0)
+
+[node name="stone142" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 2)
+
+[node name="stone143" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 4)
+
+[node name="stone144" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 6)
+
+[node name="stone145" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 8)
+
+[node name="stone146" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 10)
+
+[node name="stone147" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, 12)
+
+[node name="stone148" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, 10)
+
+[node name="stone149" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, 8)
+
+[node name="stone150" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -5, 12)
+
+[node name="stone151" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -5, 14)
+
+[node name="stone152" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 14)
+
+[node name="stone153" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5, 16)
+
+[node name="stone154" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 16)
+
+[node name="stone155" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, 16)
+
+[node name="stone156" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 16)
+
+[node name="stone157" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 18)
+
+[node name="stone158" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, 18)
+
+[node name="stone159" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, 14)
+
+[node name="stone160" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 14)
+
+[node name="stone161" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 12)
+
+[node name="stone162" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5, 12)
+
+[node name="stone163" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 12)
+
+[node name="stone164" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 12)
+
+[node name="stone165" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 12)
+
+[node name="stone166" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 14)
+
+[node name="stone167" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 16)
+
+[node name="stone168" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5, 10)
+
+[node name="stone169" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 10)
+
+[node name="stone170" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 10)
+
+[node name="stone171" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 8)
+
+[node name="stone172" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 8)
+
+[node name="stone173" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 6)
+
+[node name="stone174" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 6)
+
+[node name="stone175" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, 0)
+
+[node name="stone176" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -2)
+
+[node name="stone177" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -4)
+
+[node name="stone178" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -6)
+
+[node name="stone179" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 4)
+
+[node name="stone180" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 2)
+
+[node name="stone181" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 0)
+
+[node name="stone182" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -5, -8)
+
+[node name="stone183" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -5, -8)
+
+[node name="stone184" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -5, -10)
+
+[node name="stone185" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -5, -12)
+
+[node name="stone186" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -5, -6)
+
+[node name="stone187" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, -6)
+
+[node name="stone188" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, -8)
+
+[node name="stone189" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, -10)
+
+[node name="stone190" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, -4)
+
+[node name="stone191" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -4)
+
+[node name="stone192" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -6)
+
+[node name="stone193" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -6)
+
+[node name="stone194" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -4)
+
+[node name="stone195" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -2)
+
+[node name="stone196" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -2)
+
+[node name="stone197" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -10)
+
+[node name="stone198" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -12)
+
+[node name="stone199" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, -14)
+
+[node name="stone200" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, -14)
+
+[node name="stone201" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -14)
+
+[node name="stone202" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -14)
+
+[node name="stone203" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -14)
+
+[node name="stone204" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -8)
+
+[node name="stone205" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, -10)
+
+[node name="stone206" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -12)
+
+[node name="stone207" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -12)
+
+[node name="stone208" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, -12)
+
+[node name="stone209" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, -10)
+
+[node name="stone210" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -5, -10)
+
+[node name="stone211" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -5, -8)
+
+[node name="stone212" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -5, -6)
+
+[node name="stone213" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, -8)
+
+[node name="stone214" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -10)
+
+[node name="stone215" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -10)
+
+[node name="stone216" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -8)
+
+[node name="stone217" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -6)
+
+[node name="stone218" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -4)
+
+[node name="stone219" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -4)
+
+[node name="stone220" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -6)
+
+[node name="stone221" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, -14)
+
+[node name="stone222" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, 0)
+
+[node name="stone223" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, 0)
+
+[node name="stone224" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, -2)
+
+[node name="stone225" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, -2)
+
+[node name="stone226" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, 2)
+
+[node name="stone227" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, 4)
+
+[node name="stone228" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, 4)
+
+[node name="stone229" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, 4)
+
+[node name="stone230" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -5, 6)
+
+[node name="stone231" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 0)
+
+[node name="stone232" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 2)
+
+[node name="stone233" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 4)
+
+[node name="stone234" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, 0)
+
+[node name="stone235" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, 2)
+
+[node name="stone236" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, 4)
+
+[node name="stone237" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, 0)
+
+[node name="stone238" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, 2)
+
+[node name="stone239" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -5, 4)
+
+[node name="stone240" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 8)
+
+[node name="stone241" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, 8)
+
+[node name="stone242" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -5, 6)
+
+[node name="stone243" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 6)
+
+[node name="stone244" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 10)
+
+[node name="stone245" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, 8)
+
+[node name="stone246" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -5, 6)
+
+[node name="stone247" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -5, 8)
+
+[node name="stone248" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 12)
+
+[node name="stone249" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 14)
+
+[node name="stone250" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 12)
+
+[node name="stone251" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 16)
+
+[node name="stone252" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 16)
+
+[node name="stone253" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 18)
+
+[node name="stone254" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 18)
+
+[node name="stone255" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 16)
+
+[node name="stone256" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 16)
+
+[node name="stone257" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 16)
+
+[node name="stone258" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 14)
+
+[node name="stone259" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 14)
+
+[node name="stone260" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 14)
+
+[node name="stone261" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 14)
+
+[node name="stone262" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 14)
+
+[node name="stone263" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 12)
+
+[node name="stone264" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 12)
+
+[node name="stone265" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 12)
+
+[node name="stone266" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 12)
+
+[node name="stone267" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 12)
+
+[node name="stone268" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 12)
+
+[node name="stone269" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 10)
+
+[node name="stone270" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 10)
+
+[node name="stone271" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 10)
+
+[node name="stone272" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 10)
+
+[node name="stone273" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 10)
+
+[node name="stone274" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 10)
+
+[node name="stone275" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 10)
+
+[node name="stone276" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 10)
+
+[node name="stone277" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 10)
+
+[node name="stone278" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 8)
+
+[node name="stone279" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 8)
+
+[node name="stone280" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 8)
+
+[node name="stone281" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 8)
+
+[node name="stone282" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 6)
+
+[node name="stone283" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 6)
+
+[node name="stone284" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 6)
+
+[node name="stone285" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 8)
+
+[node name="stone286" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 8)
+
+[node name="stone287" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 8)
+
+[node name="stone288" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 8)
+
+[node name="stone289" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 8)
+
+[node name="stone290" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 6)
+
+[node name="stone291" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 6)
+
+[node name="stone292" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 6)
+
+[node name="stone293" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 6)
+
+[node name="stone294" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 6)
+
+[node name="stone295" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 6)
+
+[node name="stone296" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 4)
+
+[node name="stone297" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 2)
+
+[node name="stone298" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 2)
+
+[node name="stone299" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 4)
+
+[node name="stone300" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 4)
+
+[node name="stone301" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 4)
+
+[node name="stone302" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 4)
+
+[node name="stone303" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 4)
+
+[node name="stone304" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 4)
+
+[node name="stone305" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 2)
+
+[node name="stone306" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 2)
+
+[node name="stone307" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 2)
+
+[node name="stone308" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 2)
+
+[node name="stone309" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 2)
+
+[node name="stone310" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 2)
+
+[node name="stone311" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 4)
+
+[node name="stone312" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10, -3, 4)
+
+[node name="stone313" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12, -3, 6)
+
+[node name="stone314" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10, -3, 6)
+
+[node name="stone315" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 4)
+
+[node name="stone316" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, 0)
+
+[node name="stone317" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, 0)
+
+[node name="stone318" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, 0)
+
+[node name="stone319" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, 0)
+
+[node name="stone320" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, 0)
+
+[node name="stone321" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, 0)
+
+[node name="stone322" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, 0)
+
+[node name="stone323" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, 0)
+
+[node name="stone324" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 0)
+
+[node name="stone325" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8, -3, 2)
+
+[node name="stone326" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, -2)
+
+[node name="stone327" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, -3, -4)
+
+[node name="stone328" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, -4)
+
+[node name="stone329" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, -4)
+
+[node name="stone330" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, -2)
+
+[node name="stone331" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4, -3, -2)
+
+[node name="stone332" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, -3, -2)
+
+[node name="stone333" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, -4)
+
+[node name="stone334" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, -2)
+
+[node name="stone335" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10, -3, 0)
+
+[node name="stone336" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, -2)
+
+[node name="stone337" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, -2)
+
+[node name="stone338" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, -3, -4)
+
+[node name="stone339" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, -4)
+
+[node name="stone340" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10, -3, -2)
+
+[node name="stone341" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, -2)
+
+[node name="stone342" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3, -4)
+
+[node name="stone343" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, -3, -6)
+
+[node name="stone344" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, -4)
+
+[node name="stone345" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -10, -3, -4)
+
+[node name="stone346" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8, -3, -6)
+
+[node name="stone347" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, -3, -6)
+
+[node name="stone348" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -6)
+
+[node name="stone349" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -6)
+
+[node name="stone350" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -6)
+
+[node name="stone351" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -8)
+
+[node name="stone352" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -8)
+
+[node name="stone353" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -8)
+
+[node name="stone354" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -6)
+
+[node name="stone355" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -8)
+
+[node name="stone356" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 8, -3, -8)
+
+[node name="stone357" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 8, -3, -10)
+
+[node name="stone358" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -16)
+
+[node name="stone359" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -10)
+
+[node name="stone360" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -12)
+
+[node name="stone361" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -6, -3, -12)
+
+[node name="stone362" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -8)
+
+[node name="stone363" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -6, -3, -8)
+
+[node name="stone364" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -6)
+
+[node name="stone365" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -6, -3, -10)
+
+[node name="stone366" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -8, -3, -8)
+
+[node name="stone367" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2, -3, -8)
+
+[node name="stone368" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2, -3, -10)
+
+[node name="stone369" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -10)
+
+[node name="stone370" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -10)
+
+[node name="stone371" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -12)
+
+[node name="stone372" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -10)
+
+[node name="stone373" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -12)
+
+[node name="stone374" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -14)
+
+[node name="stone375" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2, -3, -12)
+
+[node name="stone376" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -12)
+
+[node name="stone377" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -14)
+
+[node name="stone378" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -14)
+
+[node name="stone379" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2, -3, -14)
+
+[node name="stone380" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -14)
+
+[node name="stone381" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -12)
+
+[node name="stone382" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6, -3, -14)
+
+[node name="stone383" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -10)
+
+[node name="stone384" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 4, -3, -16)
+
+[node name="stone385" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 2, -3, -16)
+
+[node name="stone386" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -3, -16)
+
+[node name="stone387" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2, -3, -16)
+
+[node name="stone388" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -4, -3, -16)
+
+[node name="stone389" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 8, -3, -2)
+
+[node name="stone390" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 8, -3, -6)
+
+[node name="stone391" parent="Quarry" instance=ExtResource("80_6pc2i")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 8, -3, -4)
 
 [node name="Cave" type="Node3D" parent="."]
 

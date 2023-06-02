@@ -765,7 +765,7 @@ jump_velocity = 3.0
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("5_by8hf")
 gravity = 9.7
-friction = 0.8
+friction = 0.4
 stepping_enabled = null
 step_height = 0.3
 movement_speed = 1.0
