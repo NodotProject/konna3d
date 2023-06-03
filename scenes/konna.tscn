@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=25 format=3 uid="uid://cmxre06eq6osa"]
 
 [ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_gq726"]
 [ext_resource type="PackedScene" uid="uid://lq3kuh3vnyrq" path="res://models/items/FishingRod_Lvl2.fbx" id="2_417ki"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterSwim3D.gd" id="7_luh7s"]
 [ext_resource type="Script" path="res://scripts/character/CharacterFish3D.gd" id="11_csa4y"]
 [ext_resource type="PackedScene" uid="uid://dcnetxo0mb8lc" path="res://scenes/bait.tscn" id="13_11jsd"]
+[ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="14_i2iuk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4681x"]
 resource_name = "Frog_Secondary"
@@ -765,7 +766,7 @@ jump_velocity = 3.0
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("5_by8hf")
 gravity = 9.7
-friction = 0.4
+friction = 0.01
 stepping_enabled = null
 step_height = 0.3
 movement_speed = 1.0
@@ -816,3 +817,8 @@ text = "Ability: None"
 script = SubResource("GDScript_qg7ai")
 fishing_raycast = NodePath("../../FishingInteraction3D")
 character_fish_3d = NodePath("../../CharacterFish3D")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_i2iuk")
+volume_db = -15.0
+autoplay = true

@@ -48,3 +48,5 @@ Example model asset credits:
 - https://quaternius.com ([CC0](https://creativecommons.org/share-your-work/public-domain/cc0/))
 - https://pixabay.com ([CC0](https://creativecommons.org/share-your-work/public-domain/cc0/))
 - https://opengameart.org/content/modular-terrain ([CC0](https://creativecommons.org/share-your-work/public-domain/cc0/))
+- https://opengameart.org/content/wall-clock-3 ([CC0](https://creativecommons.org/share-your-work/public-domain/cc0/))
+- Music by [Oleksii Kaplunskyi](https://pixabay.com/users/lesfm-22579021/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=116216)

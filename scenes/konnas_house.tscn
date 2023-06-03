@@ -81,16 +81,16 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.0957
 [node name="Chair_1fbx" parent="StaticBody3D" instance=ExtResource("7_0k8ae")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.825615, -0.0085597, 1.12814)
 
-[node name="Platefbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("8_wxlyd")]
+[node name="Platefbx" parent="StaticBody3D" instance=ExtResource("8_wxlyd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04409, 0.247434, 1.18322)
 
-[node name="Donut2fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("9_ljpfm")]
+[node name="Donut2fbx" parent="StaticBody3D" instance=ExtResource("9_ljpfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06033, 0.251037, 1.19616)
 
-[node name="Sodafbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("10_eghma")]
+[node name="Sodafbx" parent="StaticBody3D" instance=ExtResource("10_eghma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997149, 0.247434, 0.807906)
 
-[node name="Carpet_2fbx" type="Node3D" parent="StaticBody3D" instance=ExtResource("11_v7xk6")]
+[node name="Carpet_2fbx" parent="StaticBody3D" instance=ExtResource("11_v7xk6")]
 transform = Transform3D(1, 0, -1.74533e-05, 0, 1, 0, 1.74533e-05, 0, 1, 0.658742, -0.00278252, -0.534474)
 
 [node name="Light_Cube2fbx" parent="." instance=ExtResource("2_r1bb3")]

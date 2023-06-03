@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cawfwb24ugg4j"]
+[gd_scene load_steps=21 format=3 uid="uid://cawfwb24ugg4j"]
 
 [ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_0fmjq"]
+[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_rigbr"]
 
 [sub_resource type="GDScript" id="GDScript_unem0"]
 resource_name = "drive"
@@ -26,6 +27,8 @@ var engine_force: float = 0.0
 var character: NodotCharacter3D
 var input_enabled = false
 var driving = false
+var previous_position: Vector3 = Vector3.ZERO
+var pitch_target: float = 0.0
 
 func _ready():
 	character = PlayerManager.node
@@ -70,35 +73,39 @@ func drive_mode():
 	character.get_node(\"CollisionShape3D\").disabled = true
 	character.input_enabled = false
 	input_enabled = true
-	#character.camera.current = false
-	#$Camera3D.current = true
 	character.visible = false
 	$Frog.visible = true
+	$EngineAudio.play()
 	
 func park_mode():
 	driving = false
 	character.get_node(\"CollisionShape3D\").disabled = false
 	character.input_enabled = true
 	input_enabled = false
-	#character.camera.current = true
-	#$Camera3D.current = false
 	character.visible = true
 	$Frog.visible = false
+	$EngineAudio.stop()
 
 func apply_wake():
-	var max_speed = abs(max(linear_velocity.x, linear_velocity.y, linear_velocity.z))
-	if max_speed < 0.05:
+	var current_speed = min(10, (previous_position - global_position).length() * 1000)
+	previous_position = global_position
+	if current_speed < 1:
 		$GPUParticles3D.emitting = false
+		pitch_target = 0.01
 		return
 	else:
+		pitch_target = current_speed / 10
 		$GPUParticles3D.emitting = true
 	
-	if max_speed > 2.0:
+	
+	if current_speed > 5:
 		$GPUParticles3D.amount = 60
-	elif max_speed > 1.0:
+	elif current_speed > 1:
 		$GPUParticles3D.amount = 30
 	else:
 		$GPUParticles3D.amount = 10
+		
+	$EngineAudio.pitch_scale = lerp($EngineAudio.pitch_scale, pitch_target, 0.05)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u3bt1"]
@@ -402,3 +409,7 @@ amount = 28
 lifetime = 0.45
 process_material = SubResource("ParticleProcessMaterial_dwhou")
 draw_pass_1 = SubResource("SphereMesh_xwteb")
+
+[node name="EngineAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rigbr")
+pitch_scale = 0.01
