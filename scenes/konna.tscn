@@ -765,17 +765,11 @@ jump_velocity = 3.0
 
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("5_by8hf")
-gravity = 9.7
-friction = 0.01
-stepping_enabled = null
-step_height = 0.3
+friction = 0.2
 movement_speed = 1.0
 sprint_speed_multiplier = 1.0
-terminal_velocity = null
 strafing = false
-turn_rate = null
 character = NodePath("..")
-action_unhandled_states = null
 
 [node name="CharacterSwim3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("7_luh7s")
