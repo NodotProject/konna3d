@@ -259,9 +259,8 @@ func _ready():
 			current_animation = state_animations[state_name])
 "
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4de5"]
-radius = 0.088
-height = 0.418
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6te2"]
+size = Vector3(0.185645, 0.349231, 0.149826)
 
 [sub_resource type="GDScript" id="GDScript_7jdx5"]
 resource_name = "character_state_debug"
@@ -748,8 +747,8 @@ script = SubResource("GDScript_65mg3")
 character = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206453, 0)
-shape = SubResource("CapsuleShape3D_i4de5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17173, 0)
+shape = SubResource("BoxShape3D_r6te2")
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.214)
@@ -766,6 +765,7 @@ jump_velocity = 3.0
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("5_by8hf")
 friction = 0.2
+step_height = 0.1
 movement_speed = 1.0
 sprint_speed_multiplier = 1.0
 strafing = false
