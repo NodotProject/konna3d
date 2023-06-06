@@ -1,0 +1,176 @@
+[gd_scene load_steps=17 format=3 uid="uid://bluthpodtuf4l"]
+
+[ext_resource type="PackedScene" uid="uid://cua110c6p4yra" path="res://models/buildings/fishing_hut_roof.blend" id="1_7msau"]
+[ext_resource type="PackedScene" uid="uid://d4d725mr3577q" path="res://models/terrain/Modular Terrain Beach/Prop_Docks_Corner.obj" id="2_2a47m"]
+[ext_resource type="PackedScene" uid="uid://clhog8bo7gayh" path="res://models/terrain/Modular Terrain Beach/Prop_Docks_Straight.obj" id="3_2a878"]
+[ext_resource type="PackedScene" uid="uid://bvcp16p85mru6" path="res://models/terrain/Modular Terrain Beach/Prop_Docks_Straight_Supports.obj" id="4_1cssp"]
+[ext_resource type="PackedScene" uid="uid://c1bc3kwb8wx5" path="res://models/terrain/Modular Terrain Beach/Prop_Docks_Steps.obj" id="5_anbxh"]
+[ext_resource type="PackedScene" uid="uid://fhfc2x3lcpjg" path="res://models/terrain/Modular Terrain Hilly/Prop_Bridge_Log_Post_Support.obj" id="6_qrtip"]
+[ext_resource type="PackedScene" uid="uid://y2p8ueofuq17" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Post_1.obj" id="7_ht335"]
+[ext_resource type="PackedScene" uid="uid://cqs6t5vpmfmj2" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Boards_3.obj" id="8_sp1yx"]
+[ext_resource type="PackedScene" uid="uid://ch0x1uw2147ry" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Post_2.obj" id="9_gbw3k"]
+[ext_resource type="PackedScene" uid="uid://dqodfrb6dwh07" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Boards_4.obj" id="10_sxboc"]
+[ext_resource type="PackedScene" uid="uid://cn05q3gqwqi8s" path="res://models/terrain/Modular Terrain Hilly/Prop_Fence_Boards_2.obj" id="11_hhl54"]
+[ext_resource type="PackedScene" uid="uid://ce5qspb71g4xw" path="res://models/furniture/plastic_barrel.tscn" id="12_w62rm"]
+[ext_resource type="Script" path="res://addons/nodot/camera/CameraArea3D.gd" id="13_sps0h"]
+[ext_resource type="PackedScene" uid="uid://cl0vx2j35h8eh" path="res://scenes/fishing_area_3d.tscn" id="14_2yltq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs277"]
+size = Vector3(1, 0.58776, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbukc"]
+size = Vector3(2, 0.561089, 2)
+
+[node name="FishingHut" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.507622)
+
+[node name="Prefabs" type="Node3D" parent="."]
+
+[node name="fishing_hut_roof" parent="Prefabs" instance=ExtResource("1_7msau")]
+transform = Transform3D(0.55, 0, 0, 0, 0.5, 0, 0, 0, 0.45, 0.2534, 1.10642, 0.690835)
+
+[node name="Prop_Docks_Cornerobj" parent="Prefabs" instance=ExtResource("2_2a47m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.037487)
+
+[node name="Prop_Docks_Straightobj" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.997812, 0, 0.442772)
+
+[node name="Prop_Docks_Straightobj2" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.995573, 0, 0.942238)
+
+[node name="Prop_Docks_Cornerobj2" parent="Prefabs" instance=ExtResource("2_2a47m")]
+transform = Transform3D(-1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.991039, 0, 1.43082)
+
+[node name="Prop_Docks_Straightobj3" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015255, 0, -0.0413132)
+
+[node name="Prop_Docks_Straightobj4" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514721, 0, -0.0390739)
+
+[node name="Prop_Docks_Cornerobj4" parent="Prefabs" instance=ExtResource("2_2a47m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.478134, 0, 1.42624)
+
+[node name="Prop_Docks_Straightobj5" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.475946, 0, 0.945984)
+
+[node name="Prop_Docks_Straightobj6" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.473707, 0, 0.446518)
+
+[node name="Prop_Docks_Cornerobj5" parent="Prefabs" instance=ExtResource("2_2a47m")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -0.469174, 0, -0.0420647)
+
+[node name="Prop_Docks_Straightobj7" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.506611, 0, 1.43007)
+
+[node name="Prop_Docks_Straightobj8" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00714499, 0, 1.42783)
+
+[node name="Prop_Docks_Straightobj9" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.000594497, 0, 0.937527)
+
+[node name="Prop_Docks_Straightobj10" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.000475511, -5.96046e-08, 0.438644)
+
+[node name="Prop_Docks_Straightobj11" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.502293, 0, 0.94492)
+
+[node name="Prop_Docks_Straightobj12" parent="Prefabs" instance=ExtResource("3_2a878")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.502701, 0, 0.447044)
+
+[node name="Prop_Docks_Straight_Supportsobj" parent="Prefabs" instance=ExtResource("4_1cssp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.1, 0.459, 0.438)
+
+[node name="Prop_Docks_Stepsobj" parent="Prefabs" instance=ExtResource("5_anbxh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.48174, 0.05, 0.684853)
+
+[node name="Prop_Docks_Straight_Supportsobj2" parent="Prefabs" instance=ExtResource("4_1cssp")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -0.0800837, 0.441937, 0.953129)
+
+[node name="Prop_Bridge_Log_Post_Supportobj" parent="Prefabs" instance=ExtResource("6_qrtip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850093, 0.501645, 0.948566)
+
+[node name="Prop_Bridge_Log_Post_Supportobj2" parent="Prefabs" instance=ExtResource("6_qrtip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.853872, 0.501479, -0.0296783)
+
+[node name="Prop_Fence_Post_1obj" parent="Prefabs" instance=ExtResource("7_ht335")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0399306, 0.501645, 0.429501)
+
+[node name="Prop_Fence_Boards_3obj" parent="Prefabs" instance=ExtResource("8_sp1yx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0537777, 0.501645, 0.920357)
+
+[node name="Prop_Fence_Boards_3obj2" parent="Prefabs" instance=ExtResource("8_sp1yx")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -0.460303, 0.5016, 0.428017)
+
+[node name="Prop_Fence_Post_2obj" parent="Prefabs" instance=ExtResource("9_gbw3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613774, 0.501645, 0.947502)
+
+[node name="Prop_Fence_Post_2obj2" parent="Prefabs" instance=ExtResource("9_gbw3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.616009, 0.501645, -0.0591316)
+
+[node name="Prop_Fence_Boards_3obj3" parent="Prefabs" instance=ExtResource("8_sp1yx")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.0752632, 0.501645, -0.0730324)
+
+[node name="Prop_Fence_Boards_4obj" parent="Prefabs" instance=ExtResource("10_sxboc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548755, 0.501645, -0.0720673)
+
+[node name="Prop_Fence_Boards_4obj2" parent="Prefabs" instance=ExtResource("10_sxboc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0873595, 0.501645, 0.939022)
+
+[node name="Prop_Fence_Boards_2obj" parent="Prefabs" instance=ExtResource("11_hhl54")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.46631, 0.494036, 1.44241)
+
+[node name="Prop_Docks_Stepsobj2" parent="Prefabs" instance=ExtResource("5_anbxh")]
+transform = Transform3D(-1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 1.93848, -0.4, 0.689209)
+
+[node name="plastic_barrel2" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 1.26272, 0, 0.195724)
+
+[node name="plastic_barrel3" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 1.09845, 0, 0.0127881)
+
+[node name="plastic_barrel4" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0.865217, 0, -0.141633)
+
+[node name="plastic_barrel5" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.319101, 0, -0.162469)
+
+[node name="plastic_barrel6" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.577098, 0, -0.0462535)
+
+[node name="plastic_barrel7" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.72879, 0, 0.222162)
+
+[node name="plastic_barrel8" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.324089, 0, 1.77625)
+
+[node name="plastic_barrel9" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.597145, 0, 1.65266)
+
+[node name="plastic_barrel10" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -0.740499, 0, 1.38466)
+
+[node name="plastic_barrel11" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(-0.2, -3.01992e-08, -1.32005e-15, 0, -8.74228e-09, 0.2, -3.01992e-08, 0.2, 8.74228e-09, 0.831885, 0, 1.56758)
+
+[node name="plastic_barrel12" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(-0.2, -3.01992e-08, -1.32005e-15, 0, -8.74228e-09, 0.2, -3.01992e-08, 0.2, 8.74228e-09, 1.1005, 0, 1.42475)
+
+[node name="plastic_barrel13" parent="Prefabs" instance=ExtResource("12_w62rm")]
+transform = Transform3D(-0.2, -3.01992e-08, -1.32005e-15, 0, -8.74228e-09, 0.2, -3.01992e-08, 0.2, 8.74228e-09, 1.23601, 0, 1.16393)
+
+[node name="CameraArea3D" type="Area3D" parent="."]
+script = ExtResource("13_sps0h")
+
+[node name="Camera3D" type="Camera3D" parent="CameraArea3D"]
+transform = Transform3D(-4.37114e-08, -0.797584, 0.603208, 0, 0.603208, 0.797584, -1, 3.48635e-08, -2.63671e-08, 0.666605, 1.20815, 0.697949)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267847, 0.710625, 0.708353)
+shape = SubResource("BoxShape3D_qs277")
+
+[node name="NodotArea3D" parent="." instance=ExtResource("14_2yltq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263923, 0.863755, 0.613823)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NodotArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687635, 0)
+shape = SubResource("BoxShape3D_bbukc")

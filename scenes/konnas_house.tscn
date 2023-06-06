@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jsfifrmce8v0"]
+[gd_scene load_steps=19 format=3 uid="uid://dnuuet4qftl1a"]
 
 [ext_resource type="PackedScene" uid="uid://dokpxq4xlm13p" path="res://models/buildings/konnahouse.blend" id="1_goc6y"]
 [ext_resource type="PackedScene" uid="uid://cadpmr1tuk7aw" path="res://models/furniture/Light_Cube2.fbx" id="2_r1bb3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3k5orynato41" path="res://models/furniture/Donut2.fbx" id="9_ljpfm"]
 [ext_resource type="PackedScene" uid="uid://bccom6vq3rhbu" path="res://models/furniture/Soda.fbx" id="10_eghma"]
 [ext_resource type="PackedScene" uid="uid://xtlstp365t8p" path="res://models/furniture/Carpet_2.fbx" id="11_v7xk6"]
+[ext_resource type="Script" path="res://addons/nodot/camera/CameraArea3D.gd" id="12_ygtkt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r216"]
 size = Vector3(2.07386, 0.149979, 2.94721)
@@ -26,6 +27,9 @@ size = Vector3(0.287058, 0.885001, 2.94721)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxlis"]
 size = Vector3(0.262614, 0.885001, 1.8614)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqu4u"]
+size = Vector3(1.81834, 1.02125, 2.79659)
 
 [node name="KonnasHouse" type="Node3D"]
 
@@ -79,7 +83,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.3279
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09571, -0.0085597, 0.997892)
 
 [node name="Chair_1fbx" parent="StaticBody3D" instance=ExtResource("7_0k8ae")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.825615, -0.0085597, 1.12814)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.825615, -0.0085597, 1.06132)
 
 [node name="Platefbx" parent="StaticBody3D" instance=ExtResource("8_wxlyd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04409, 0.247434, 1.18322)
@@ -98,3 +102,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456372, 0.878383, 0.405181)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light_Cube2fbx"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100836, 0)
+
+[node name="CameraArea3D" type="Area3D" parent="."]
+script = ExtResource("12_ygtkt")
+
+[node name="Camera3D" type="Camera3D" parent="CameraArea3D"]
+transform = Transform3D(-4.37114e-08, 0.282341, -0.959314, 0, 0.959314, 0.282341, 1, 1.23415e-08, -4.19329e-08, -0.172, 0.625, 0.243)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543249, 0.261785, 0.196082)
+shape = SubResource("BoxShape3D_dqu4u")

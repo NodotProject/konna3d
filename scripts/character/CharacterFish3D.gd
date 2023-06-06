@@ -3,6 +3,7 @@ class_name CharacterFish3D extends CharacterExtensionBase3D
 
 @export var fishing_interaction_3d: Interaction3D
 
+var in_fish_area: bool = false
 var fish_state_id: int
 var idle_state_id: int
 var fish_mode := false
@@ -20,6 +21,9 @@ func _ready():
 	
 	if fishing_interaction_3d:
 		fishing_interaction_3d.connect("interacted", fishing_interacted)
+		
+	GlobalSignal.add_listener("can_fish", self, "set_in_fish_area")
+	GlobalSignal.add_listener("cant_fish", self, "set_not_in_fish_area")
 	
 func state_updated(old_state: int, new_state: int):
 	if new_state == fish_state_id:
@@ -31,7 +35,7 @@ func action(_delta):
 	pass
 	
 func can_fish(body: Node3D):
-	if fish_mode == false and body is WaterArea3D and character.submerge_handler.is_submerged == false:
+	if in_fish_area == true and fish_mode == false and body is WaterArea3D and character.submerge_handler.is_submerged == false:
 		return true
 	return false
 	
@@ -54,3 +58,9 @@ func disable_fish_mode():
 	fish_mode = false
 	%bait.visible = false
 	%FishingRods.visible = false
+
+func set_in_fish_area():
+	in_fish_area = true
+	
+func set_not_in_fish_area():
+	in_fish_area = false

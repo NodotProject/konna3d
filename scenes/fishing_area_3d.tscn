@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl0vx2j35h8eh"]
+
+[ext_resource type="Script" path="res://addons/nodot/NodotArea3D.gd" id="1_o61w5"]
+[ext_resource type="Script" path="res://addons/nodot/utility/LocalToGlobalSignalProxy.gd" id="2_oxmb0"]
+
+[node name="NodotArea3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24445, 0.863755, -17.1666)
+script = ExtResource("1_o61w5")
+
+[node name="CanFishGlobalSignal" type="Node" parent="." node_paths=PackedStringArray("trigger_node")]
+script = ExtResource("2_oxmb0")
+trigger_node = NodePath("..")
+global_signal = "can_fish"
+unbind_count = 1
+trigger_signal = "current_player_body_entered"
+
+[node name="CantFishGlobalSignal" type="Node" parent="." node_paths=PackedStringArray("trigger_node")]
+script = ExtResource("2_oxmb0")
+trigger_node = NodePath("..")
+global_signal = "cant_fish"
+unbind_count = 1
+trigger_signal = "current_player_body_exited"
