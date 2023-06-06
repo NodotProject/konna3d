@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=26 format=3 uid="uid://cmxre06eq6osa"]
 
 [ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_sfkp0"]
 [ext_resource type="PackedScene" uid="uid://lq3kuh3vnyrq" path="res://models/items/FishingRod_Lvl2.fbx" id="2_slikd"]
@@ -261,6 +261,14 @@ func _ready():
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6te2"]
 size = Vector3(0.185645, 0.349231, 0.149826)
+
+[sub_resource type="GDScript" id="GDScript_yxguy"]
+resource_name = "fps"
+script/source = "extends Label
+
+func _physics_process(delta):
+	text = \"FPS: %s\" % str(1 / delta)
+"
 
 [sub_resource type="GDScript" id="GDScript_7jdx5"]
 resource_name = "character_state_debug"
@@ -797,17 +805,25 @@ visible = false
 
 [node name="HUD" type="Node2D" parent="."]
 
-[node name="CharacterState" type="Label" parent="HUD" node_paths=PackedStringArray("character")]
+[node name="FPS" type="Label" parent="HUD"]
 offset_right = 40.0
 offset_bottom = 23.0
+script = SubResource("GDScript_yxguy")
+
+[node name="CharacterState" type="Label" parent="HUD" node_paths=PackedStringArray("character")]
+offset_left = 3.0
+offset_top = 27.0
+offset_right = 132.0
+offset_bottom = 53.0
 text = "Character State: "
 script = SubResource("GDScript_7jdx5")
 character = NodePath("../..")
 
 [node name="ActionAbility" type="Label" parent="HUD" node_paths=PackedStringArray("fishing_raycast", "character_fish_3d")]
-offset_top = 22.0
-offset_right = 40.0
-offset_bottom = 45.0
+offset_left = 3.0
+offset_top = 49.0
+offset_right = 103.0
+offset_bottom = 75.0
 text = "Ability: None"
 script = SubResource("GDScript_qg7ai")
 fishing_raycast = NodePath("../../FishingInteraction3D")

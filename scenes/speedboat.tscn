@@ -1,15 +1,15 @@
 [gd_scene load_steps=21 format=3 uid="uid://cawfwb24ugg4j"]
 
-[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_0fmjq"]
-[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_rigbr"]
+[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_6paj8"]
+[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_id1ga"]
 
 [sub_resource type="GDScript" id="GDScript_unem0"]
 resource_name = "drive"
 script/source = "extends RigidBody3D
 
 @export var acceleration: float = 0.1
-@export var max_engine_speed: float = 3.0
-@export var max_steering_angle: float = 0.15
+@export var max_engine_speed: float = 30.0
+@export var max_steering_angle: float = 5.0
 
 @export_subgroup(\"Input Actions\")
 ## The input action name for strafing left
@@ -24,6 +24,7 @@ script/source = "extends RigidBody3D
 @export var exit_action: String = \"interact\"
 
 var engine_force: float = 0.0
+var target_engine_force: float = 0.0
 var character: NodotCharacter3D
 var input_enabled = false
 var driving = false
@@ -38,29 +39,30 @@ func _input(event: InputEvent):
 		if event.is_action_pressed(\"interact\"):
 			park_mode()
 		
-func _physics_process(_delta):
+func _physics_process(delta: float):
 	var turn_vector = 0
 	if driving:
 		
 		var input_dir = Input.get_vector(left_action, right_action, up_action, down_action)
-		var direction = (character.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var direction = (character.basis * Vector3(0, 0, input_dir.y)).normalized()
+		var boat_front = (basis * Vector3(0, 0, 0.3)).normalized()
 		
-		character.global_position = Vector3(global_position.x, global_position.y + 0.1, global_position.z)
+		character.global_position = Vector3(global_position.x, global_position.y + 0.5, global_position.z)
 		character.rotation.y = rotation.y - PI
 		if Input.is_action_pressed(\"up\") or Input.is_action_pressed(\"down\"):
-			if engine_force + acceleration <= max_engine_speed:
-				engine_force += acceleration
+			if target_engine_force + acceleration <= max_engine_speed:
+				target_engine_force += acceleration
 		if Input.is_action_pressed(\"right\"):
-			turn_vector = max_steering_angle
+			turn_vector = -(max_steering_angle * delta)
 		if Input.is_action_pressed(\"left\"):
-			turn_vector = -max_steering_angle
-			
+			turn_vector = max_steering_angle * delta
+		
 		if direction != Vector3.ZERO:
+			engine_force = lerp(engine_force, target_engine_force, acceleration)
 			var x = direction.x * engine_force
 			var z = direction.z * engine_force
-			
 			apply_central_force(Vector3(x, 0, z))
-			apply_force(Vector3(turn_vector, 0, 0), Vector3.FORWARD)
+			apply_torque(Vector3(0, turn_vector, 0))
 		
 		apply_wake()
 			
@@ -74,6 +76,8 @@ func drive_mode():
 	character.input_enabled = false
 	input_enabled = true
 	character.visible = false
+	var boat_cam = Nodot.get_first_child_of_type(self, Camera3D)
+	character.set_current_camera(boat_cam)
 	$Frog.visible = true
 	$EngineAudio.play()
 	
@@ -83,6 +87,7 @@ func park_mode():
 	character.input_enabled = true
 	input_enabled = false
 	character.visible = true
+	character.set_current_camera(character.camera)
 	$Frog.visible = false
 	$EngineAudio.stop()
 
@@ -390,7 +395,7 @@ gravity_scale = 0.06
 script = SubResource("GDScript_unem0")
 max_engine_speed = 5.0
 
-[node name="Boat" parent="." instance=ExtResource("1_0fmjq")]
+[node name="Boat" parent="." instance=ExtResource("1_6paj8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0709767, 0)
@@ -411,5 +416,8 @@ process_material = SubResource("ParticleProcessMaterial_dwhou")
 draw_pass_1 = SubResource("SphereMesh_xwteb")
 
 [node name="EngineAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_rigbr")
+stream = ExtResource("2_id1ga")
 pitch_scale = 0.01
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.829905, -1.72628)

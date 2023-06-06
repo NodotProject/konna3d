@@ -40,6 +40,7 @@ func _ready() -> void:
 func _physics_process(delta) -> void:
 	if raycast:
 		if raycast.is_colliding() and !raycast.hit_from_inside:
+			var collider = raycast.get_collider()
 			time_since_last_move = 0.0
 			global_position = raycast.get_collision_point()
 		else:
