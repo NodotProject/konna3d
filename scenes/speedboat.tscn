@@ -28,6 +28,7 @@ var target_engine_force: float = 0.0
 var character: NodotCharacter3D
 var input_enabled = false
 var driving = false
+var safe_position: Vector3 = Vector3.ZERO
 var previous_position: Vector3 = Vector3.ZERO
 var pitch_target: float = 0.0
 
@@ -41,7 +42,13 @@ func _input(event: InputEvent):
 		
 func _physics_process(delta: float):
 	var turn_vector = 0
+	
 	if driving:
+		
+		if get_contact_count() > 0:
+			global_position = safe_position
+		else:
+			safe_position = global_position
 		
 		var input_dir = Input.get_vector(left_action, right_action, up_action, down_action)
 		var direction = (character.basis * Vector3(0, 0, input_dir.y)).normalized()
@@ -392,6 +399,8 @@ height = 0.01
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 gravity_scale = 0.06
+max_contacts_reported = 1
+contact_monitor = true
 script = SubResource("GDScript_unem0")
 max_engine_speed = 5.0
 
