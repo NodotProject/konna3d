@@ -9,6 +9,12 @@ script/source = "extends Node3D
 func _physics_process(_delta):
 	if water_area_3d:
 		global_position.y = water_area_3d.get_wave_height(global_position)
+
+func start():
+	$Exclamation.visible = true
+	
+func stop():
+	$Exclamation.visible = false
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5r8vt"]
@@ -112,3 +118,18 @@ script = SubResource("GDScript_lrb6g")
 transform = Transform3D(1.39273, -1.19198e-05, 99.9903, -99.9903, -1.66027e-07, 1.39273, 0, -100, -1.19209e-05, 0, -0.0781801, 0)
 mesh = SubResource("ArrayMesh_s76db")
 skeleton = NodePath("")
+
+[node name="Exclamation" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08529, 0)
+visible = false
+ignore_occlusion_culling = true
+pixel_size = 0.02
+billboard = 1
+shaded = true
+double_sided = false
+no_depth_test = true
+fixed_size = true
+render_priority = 2
+outline_render_priority = 1
+modulate = Color(1, 0, 0, 1)
+text = "!"

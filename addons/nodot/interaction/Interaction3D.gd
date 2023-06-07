@@ -28,7 +28,6 @@ var carried_body_width: float = 0.0
 var label3d: Label3D
 var last_collider: Node3D
 
-
 func _enter_tree():
 	label3d = Label3D.new()
 	label3d.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -38,7 +37,6 @@ func _enter_tree():
 	label3d.modulate = font_color
 	label3d.position.z = -2
 	add_child(label3d)
-
 
 func _input(event: InputEvent):
 	if !event.is_action_pressed(interact_action): return

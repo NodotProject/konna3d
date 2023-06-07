@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cawfwb24ugg4j"]
 
-[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_6paj8"]
-[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_id1ga"]
+[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_hj1m2"]
+[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_ofkah"]
 
 [sub_resource type="GDScript" id="GDScript_unem0"]
 resource_name = "drive"
@@ -75,9 +75,11 @@ func _physics_process(delta: float):
 			
 	
 func interact():
+	print(character.sm.get_name_from_id(character.sm.state))
 	drive_mode()
 
 func drive_mode():
+	character.sm.set_state(character.sm.get_id_from_name(\"boat\"))
 	driving = true
 	character.get_node(\"CollisionShape3D\").disabled = true
 	character.input_enabled = false
@@ -97,6 +99,7 @@ func park_mode():
 	character.set_current_camera(character.camera)
 	$Frog.visible = false
 	$EngineAudio.stop()
+	character.sm.set_state(character.sm.get_id_from_name(\"idle\"))
 
 func apply_wake():
 	var current_speed = min(10, (previous_position - global_position).length() * 1000)
@@ -404,7 +407,7 @@ contact_monitor = true
 script = SubResource("GDScript_unem0")
 max_engine_speed = 5.0
 
-[node name="Boat" parent="." instance=ExtResource("1_6paj8")]
+[node name="Boat" parent="." instance=ExtResource("1_hj1m2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0709767, 0)
@@ -425,7 +428,7 @@ process_material = SubResource("ParticleProcessMaterial_dwhou")
 draw_pass_1 = SubResource("SphereMesh_xwteb")
 
 [node name="EngineAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_id1ga")
+stream = ExtResource("2_ofkah")
 pitch_scale = 0.01
 
 [node name="Camera3D" type="Camera3D" parent="."]
