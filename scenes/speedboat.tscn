@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cawfwb24ugg4j"]
+[gd_scene load_steps=22 format=3 uid="uid://cawfwb24ugg4j"]
 
-[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_hj1m2"]
-[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="2_ofkah"]
+[ext_resource type="PackedScene" uid="uid://b28fmco4c6i8" path="res://models/character/Boat.fbx" id="1_bkl1c"]
+[ext_resource type="AudioStream" uid="uid://xvjim5fp5fi2" path="res://sfx/vehicle/boat_engine.mp3" id="3_42aj1"]
 
 [sub_resource type="GDScript" id="GDScript_unem0"]
 resource_name = "drive"
@@ -121,6 +121,31 @@ func apply_wake():
 		$GPUParticles3D.amount = 10
 		
 	$EngineAudio.pitch_scale = lerp($EngineAudio.pitch_scale, pitch_target, 0.05)
+"
+
+[sub_resource type="GDScript" id="GDScript_3of4v"]
+resource_name = "boat_model"
+script/source = "extends Node3D
+
+var pulse_shader: Shader = load(\"res://addons/nodot/shaders/color_pulse.gdshader\")
+
+var pulsing := false
+var pulse_material: ShaderMaterial = ShaderMaterial.new()
+@onready var boat_mesh: MeshInstance3D = get_node(\"RootNode/Boat\")
+
+func _ready():
+	pulse_material.shader = pulse_shader
+	pulse_material.set_shader_parameter(\"strength\", 0.00)
+	boat_mesh.material_overlay = pulse_material
+	
+func start_pulse():
+	if !pulsing:
+		pulse_material.set_shader_parameter(\"strength\", 0.05)
+		pulsing = true
+
+func stop_pulse():
+	pulse_material.set_shader_parameter(\"strength\", 0.00)
+	pulsing = false
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u3bt1"]
@@ -407,7 +432,8 @@ contact_monitor = true
 script = SubResource("GDScript_unem0")
 max_engine_speed = 5.0
 
-[node name="Boat" parent="." instance=ExtResource("1_hj1m2")]
+[node name="Boat" parent="." instance=ExtResource("1_bkl1c")]
+script = SubResource("GDScript_3of4v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0709767, 0)
@@ -428,7 +454,7 @@ process_material = SubResource("ParticleProcessMaterial_dwhou")
 draw_pass_1 = SubResource("SphereMesh_xwteb")
 
 [node name="EngineAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ofkah")
+stream = ExtResource("3_42aj1")
 pitch_scale = 0.01
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -1,26 +1,28 @@
-[gd_scene load_steps=33 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=36 format=3 uid="uid://cmxre06eq6osa"]
 
-[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_vtnlo"]
-[ext_resource type="PackedScene" uid="uid://lq3kuh3vnyrq" path="res://models/items/FishingRod_Lvl2.fbx" id="2_5qec6"]
-[ext_resource type="PackedScene" uid="uid://dg6pq6kvpg4y4" path="res://models/items/FishingRod_Lvl3.fbx" id="3_2k30r"]
-[ext_resource type="PackedScene" uid="uid://m2l6fjsa77qg" path="res://models/items/FishingRod_Lvl5.fbx" id="4_j2lpa"]
-[ext_resource type="AnimationLibrary" uid="uid://bi8ci450jibq3" path="res://models/character/konna_animation.res" id="5_ovh2c"]
-[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCamera.gd" id="6_5pn5m"]
-[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonMouseInput.gd" id="7_7smoc"]
-[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterJump3D.gd" id="8_jcki2"]
-[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterMover3D.gd" id="9_dgvru"]
-[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterSwim3D.gd" id="10_hgv0t"]
-[ext_resource type="Script" path="res://scripts/character/CharacterFish3D.gd" id="11_i0lsj"]
-[ext_resource type="Script" path="res://addons/nodot/interaction/Interaction3D.gd" id="12_3mi33"]
-[ext_resource type="Script" path="res://scripts/character/CharacterBoat3D.gd" id="12_pxcj5"]
-[ext_resource type="PackedScene" uid="uid://dcnetxo0mb8lc" path="res://scenes/bait.tscn" id="13_it5cd"]
-[ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="14_7qxr2"]
-[ext_resource type="Script" path="res://addons/nodot/sound/SFXPlayer3D.gd" id="14_jry03"]
-[ext_resource type="AudioStream" uid="uid://dlqju641467by" path="res://sfx/fishing/plop.wav" id="15_47phy"]
-[ext_resource type="AudioStream" uid="uid://cs4fl7iubk0le" path="res://sfx/fishing/bite.wav" id="16_h3vfo"]
-[ext_resource type="AudioStream" uid="uid://jxvn7g6rupjs" path="res://sfx/fishing/letgo.mp3" id="17_o25lo"]
-[ext_resource type="AudioStream" uid="uid://cmms12is87w80" path="res://sfx/fishing/catch.wav" id="18_1rjym"]
-[ext_resource type="AudioStream" uid="uid://5ghidgl50ixn" path="res://sfx/fishing/reel_in.wav" id="19_0etkn"]
+[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
+[ext_resource type="PackedScene" uid="uid://lq3kuh3vnyrq" path="res://models/items/FishingRod_Lvl2.fbx" id="2_qtvh4"]
+[ext_resource type="PackedScene" uid="uid://dg6pq6kvpg4y4" path="res://models/items/FishingRod_Lvl3.fbx" id="3_ammmq"]
+[ext_resource type="PackedScene" uid="uid://m2l6fjsa77qg" path="res://models/items/FishingRod_Lvl5.fbx" id="4_e8d1x"]
+[ext_resource type="AnimationLibrary" uid="uid://bi8ci450jibq3" path="res://models/character/konna_animation.res" id="5_k2rgu"]
+[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCamera.gd" id="6_pbol2"]
+[ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonMouseInput.gd" id="7_mrrir"]
+[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterJump3D.gd" id="8_rb6k0"]
+[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterMover3D.gd" id="9_rpitp"]
+[ext_resource type="Script" path="res://addons/nodot/characters/Locomotion3D/CharacterSwim3D.gd" id="10_r4kd7"]
+[ext_resource type="Script" path="res://scripts/character/CharacterFish3D.gd" id="11_vbbh7"]
+[ext_resource type="Script" path="res://scripts/character/CharacterBoat3D.gd" id="12_ceenj"]
+[ext_resource type="Script" path="res://addons/nodot/interaction/Interaction3D.gd" id="13_e6ii8"]
+[ext_resource type="PackedScene" uid="uid://dcnetxo0mb8lc" path="res://scenes/bait.tscn" id="14_mfoc4"]
+[ext_resource type="Script" path="res://addons/nodot/sound/SFXPlayer3D.gd" id="15_6sfyi"]
+[ext_resource type="AudioStream" uid="uid://dlqju641467by" path="res://sfx/fishing/plop.wav" id="16_6qtpm"]
+[ext_resource type="AudioStream" uid="uid://cs4fl7iubk0le" path="res://sfx/fishing/bite.wav" id="17_8f4h7"]
+[ext_resource type="AudioStream" uid="uid://jxvn7g6rupjs" path="res://sfx/fishing/letgo.mp3" id="18_ijjt3"]
+[ext_resource type="AudioStream" uid="uid://cmms12is87w80" path="res://sfx/fishing/catch.wav" id="19_cua3l"]
+[ext_resource type="AudioStream" uid="uid://5ghidgl50ixn" path="res://sfx/fishing/reel_in.wav" id="20_wmb1n"]
+[ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="21_x6mte"]
+[ext_resource type="PackedScene" uid="uid://dvr3d0ppk3omk" path="res://scenes/fish_net.tscn" id="22_2u4c7"]
+[ext_resource type="Script" path="res://addons/nodot/utility/CollectableInventory.gd" id="22_qfugc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4681x"]
 resource_name = "Frog_Secondary"
@@ -269,6 +271,27 @@ func _ready():
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6te2"]
 size = Vector3(0.185645, 0.349231, 0.149826)
 
+[sub_resource type="GDScript" id="GDScript_mgrm1"]
+resource_name = "boat_colliding"
+script/source = "extends Node
+
+@export var boat_raycast: Interaction3D
+
+var boat: Node3D
+
+func _physics_process(delta: float):
+	var boat_collider = boat_raycast.get_collider()
+	if boat_collider:
+		if boat_collider.name == \"SpeedBoat\":
+			var boat_model = boat_collider.get_node(\"Boat\")
+			boat_model.start_pulse()
+			boat = boat_model
+			return
+			
+	if boat:
+		boat.stop_pulse()
+"
+
 [sub_resource type="GDScript" id="GDScript_yxguy"]
 resource_name = "fps"
 script/source = "extends Label
@@ -314,7 +337,7 @@ func _physics_process(delta: float):
 "
 
 [node name="ThirdPersonCharacter" type="CharacterBody3D"]
-script = ExtResource("1_vtnlo")
+script = ExtResource("1_27hwa")
 is_current_player = true
 
 [node name="Frog" type="Node3D" parent="."]
@@ -748,20 +771,20 @@ unique_name_in_owner = true
 transform = Transform3D(0.00532319, -0.00596487, -0.00028981, 7.44206e-05, 0.00045446, -0.00798673, 0.00597144, 0.00531167, 0.000357886, 0, 0, 0)
 visible = false
 
-[node name="WoodRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("2_5qec6")]
+[node name="WoodRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("2_qtvh4")]
 transform = Transform3D(1, 1.52466e-35, 0, 0, 1, 0, 0, 0, 1, 1.13747e-21, 0.620439, -0.0402677)
 
-[node name="IronRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("3_2k30r")]
+[node name="IronRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("3_ammmq")]
 transform = Transform3D(1, 1.52466e-35, 0, 0, 1, 0, 0, 0, 1, -5.7658e-22, -0.374863, -0.0272459)
 visible = false
 
-[node name="FlameRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("4_j2lpa")]
+[node name="FlameRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("4_e8d1x")]
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Frog" node_paths=PackedStringArray("character")]
 autoplay = "CharacterArmature|Idle"
 libraries = {
-"": ExtResource("5_ovh2c")
+"": ExtResource("5_k2rgu")
 }
 script = SubResource("GDScript_65mg3")
 character = NodePath("../..")
@@ -772,20 +795,20 @@ shape = SubResource("BoxShape3D_r6te2")
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.214)
-script = ExtResource("6_5pn5m")
+script = ExtResource("6_pbol2")
 camera_offset = Vector3(0, 1.5, 1.5)
 raycast_offset = Vector3(0, 0.2, 0)
 time_to_reset = 0.0
 
 [node name="ThirdPersonMouseInput" type="Node" parent="."]
-script = ExtResource("7_7smoc")
+script = ExtResource("7_mrrir")
 
 [node name="CharacterJump3D" type="Node" parent="."]
-script = ExtResource("8_jcki2")
+script = ExtResource("8_rb6k0")
 jump_velocity = 3.0
 
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("9_dgvru")
+script = ExtResource("9_rpitp")
 friction = 0.2
 step_height = 0.1
 movement_speed = 1.0
@@ -794,24 +817,28 @@ strafing = false
 character = NodePath("..")
 
 [node name="CharacterSwim3D" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("10_hgv0t")
+script = ExtResource("10_r4kd7")
 submerge_speed = 2.0
 submerge_offset = 0.2
 character = NodePath("..")
 action_unhandled_states = true
 
 [node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("fishing_interaction_3d", "boat_interaction_3d", "character")]
-script = ExtResource("11_i0lsj")
+script = ExtResource("11_vbbh7")
 fishing_interaction_3d = NodePath("../FishingSystem/FishingInteraction3D")
 boat_interaction_3d = NodePath("../BoatInteraction3D")
 character = NodePath("..")
 
 [node name="CharacterBoat3D" type="Node" parent="."]
-script = ExtResource("12_pxcj5")
+script = ExtResource("12_ceenj")
 
 [node name="BoatInteraction3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180527, -0.358912)
-script = ExtResource("12_3mi33")
+transform = Transform3D(1, 0, 0, 0, 0.94464, -0.328108, 0, 0.328108, 0.94464, 0, 0.343149, -0.163558)
+script = ExtResource("13_e6ii8")
+
+[node name="IsCollidingWithBoat" type="Node" parent="BoatInteraction3D" node_paths=PackedStringArray("boat_raycast")]
+script = SubResource("GDScript_mgrm1")
+boat_raycast = NodePath("..")
 
 [node name="FishingSystem" type="Node3D" parent="."]
 
@@ -820,42 +847,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184907, -0.620479)
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
-script = ExtResource("12_3mi33")
+script = ExtResource("13_e6ii8")
 
-[node name="bait" parent="FishingSystem" instance=ExtResource("13_it5cd")]
+[node name="bait" parent="FishingSystem" instance=ExtResource("14_mfoc4")]
 unique_name_in_owner = true
 transform = Transform3D(0.088, 0, 0, 0, 0.088, 0, 0, 0, 0.088, 0, 0, 0)
 visible = false
 
 [node name="FishModeEnabledSFX" type="AudioStreamPlayer3D" parent="FishingSystem" node_paths=PackedStringArray("trigger_node")]
-script = ExtResource("14_jry03")
-sfx = Array[AudioStream]([ExtResource("15_47phy")])
+script = ExtResource("15_6sfyi")
+sfx = Array[AudioStream]([ExtResource("16_6qtpm")])
 trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "fish_mode_enabled"
 
 [node name="BittenSFX" type="AudioStreamPlayer3D" parent="FishingSystem" node_paths=PackedStringArray("trigger_node")]
-script = ExtResource("14_jry03")
-sfx = Array[AudioStream]([ExtResource("16_h3vfo")])
+script = ExtResource("15_6sfyi")
+sfx = Array[AudioStream]([ExtResource("17_8f4h7")])
 trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "bitten"
 
 [node name="LetGoSFX" type="AudioStreamPlayer3D" parent="FishingSystem" node_paths=PackedStringArray("trigger_node")]
 volume_db = -4.42
-script = ExtResource("14_jry03")
-sfx = Array[AudioStream]([ExtResource("17_o25lo")])
+script = ExtResource("15_6sfyi")
+sfx = Array[AudioStream]([ExtResource("18_ijjt3")])
 trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "let_go"
 
 [node name="CaughtSFX" type="AudioStreamPlayer3D" parent="FishingSystem" node_paths=PackedStringArray("trigger_node")]
-script = ExtResource("14_jry03")
-sfx = Array[AudioStream]([ExtResource("18_1rjym")])
+script = ExtResource("15_6sfyi")
+sfx = Array[AudioStream]([ExtResource("19_cua3l")])
 trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "caught"
 
 [node name="FishModeDisabledSFX" type="AudioStreamPlayer3D" parent="FishingSystem" node_paths=PackedStringArray("trigger_node")]
 volume_db = -10.566
-script = ExtResource("14_jry03")
-sfx = Array[AudioStream]([ExtResource("19_0etkn")])
+script = ExtResource("15_6sfyi")
+sfx = Array[AudioStream]([ExtResource("20_wmb1n")])
 trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "fish_mode_disabled"
 
@@ -887,6 +914,18 @@ boat_raycast = NodePath("../../BoatInteraction3D")
 character_fish_3d = NodePath("../../CharacterFish3D")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_7qxr2")
+stream = ExtResource("21_x6mte")
 volume_db = -15.0
 autoplay = true
+
+[node name="FishNet" parent="." node_paths=PackedStringArray("character", "inventory") instance=ExtResource("22_2u4c7")]
+unique_name_in_owner = true
+transform = Transform3D(-0.045, 0, -3.93403e-09, 0, 0.045, 0, 3.93403e-09, 0, -0.045, 0, 0.470121, -0.0840968)
+character = NodePath("..")
+inventory = NodePath("../CollectableInventory")
+animation_speed = 1.0
+
+[node name="CollectableInventory" type="Node" parent="."]
+script = ExtResource("22_qfugc")
+capacity = 0
+max_weight = 0.0

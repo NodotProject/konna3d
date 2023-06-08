@@ -1,0 +1,174 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvr3d0ppk3omk"]
+
+[ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="1_8vo7x"]
+[ext_resource type="PackedScene" uid="uid://fb62afobmmeh" path="res://models/fish/Betta.fbx" id="1_n806m"]
+[ext_resource type="PackedScene" uid="uid://bcawfb4255imx" path="res://models/fish/BlueTang.fbx" id="2_3oui7"]
+[ext_resource type="PackedScene" uid="uid://wpgwuj2nb1ic" path="res://models/fish/ButterflyFish.fbx" id="3_8sbdy"]
+[ext_resource type="PackedScene" uid="uid://klpk2fetjdnl" path="res://models/fish/CardinalFish.fbx" id="4_o42lw"]
+[ext_resource type="PackedScene" uid="uid://b13x877mkj546" path="res://models/fish/CoralGrouper.fbx" id="5_6kwma"]
+[ext_resource type="PackedScene" uid="uid://d35vwf7jt8u62" path="res://models/fish/Flatfish.fbx" id="6_n2gmd"]
+[ext_resource type="PackedScene" uid="uid://cc65gv6bat47m" path="res://models/fish/FlowerHorn.fbx" id="7_65hxi"]
+[ext_resource type="PackedScene" uid="uid://dqafwns84e7vv" path="res://models/fish/Goldfish.fbx" id="8_vwifn"]
+[ext_resource type="PackedScene" uid="uid://bf2ubfkbsk8ci" path="res://models/fish/Humphead.fbx" id="9_lwrub"]
+[ext_resource type="PackedScene" uid="uid://dv63gx87e3rln" path="res://models/fish/Koi.fbx" id="10_u6viw"]
+[ext_resource type="PackedScene" uid="uid://dltdl5brvimgk" path="res://models/fish/MoorishIdol.fbx" id="11_bqv4s"]
+[ext_resource type="PackedScene" uid="uid://b24ycdf2p4n5h" path="res://models/fish/RedSnapper.fbx" id="12_jidfo"]
+[ext_resource type="PackedScene" uid="uid://c0atxregqutaq" path="res://models/fish/YellowTang.fbx" id="13_snf8m"]
+
+[sub_resource type="GDScript" id="GDScript_twfv3"]
+resource_name = "fishnet"
+script/source = "extends Node3D
+
+@export var character: NodotCharacter3D
+@export var inventory: CollectableInventory
+@export var animation_speed: float = 10.0
+
+var rng = RandomNumberGenerator.new()
+var fish_animating := -1
+
+# Chance of catching each fish out of 100
+var fish_rarity = [
+	80,
+	80,
+	80,
+	80,
+	70,
+	70,
+	70,
+	60,
+	60,
+	50,
+	50,
+	40,
+	30,
+	10
+]
+
+func _ready():
+	setup_models()
+	reset_all()
+	
+func _physics_process(delta: float):
+	if fish_animating > -1:
+		get_child(fish_animating).position.y += animation_speed * delta
+		
+func setup_models():
+	var collectables = Nodot.get_children_of_type(self, Collectable3D)
+	for child in collectables:
+		var model_root: Node3D = child.get_child(0)
+		var meshes: Array[Node] = model_root.find_children(\"*\", \"MeshInstance3D\")
+		for mesh in meshes:
+			var surface_count = mesh.mesh.get_surface_count()
+			for i in surface_count:
+				var material: StandardMaterial3D = mesh.mesh.surface_get_material(i)
+
+func reset_all():
+	var collectables = Nodot.get_children_of_type(self, Collectable3D)
+	for child in collectables:
+		child.position = Vector3(0, 0.6, 0)
+		child.visible = false
+		
+func show_fish(idx: int):
+	var collectables = Nodot.get_children_of_type(self, Collectable3D)
+	collectables[idx].visible = true
+	
+func action(allowed_fish: Array[int]):
+	var collectables = Nodot.get_children_of_type(self, Collectable3D)
+	
+	var caught_id = -1
+	while caught_id < 0:
+		var rand = rng.randi_range(0, allowed_fish.size()-1)
+		var test_fish_id = allowed_fish[rand]
+		rand = rng.randi_range(1, 100)
+		if rand <= fish_rarity[test_fish_id]:
+			caught_id = test_fish_id
+	
+	inventory.add(collectables[caught_id].display_name, 1)
+	show_fish(caught_id)
+	fish_animating = caught_id
+	await get_tree().create_timer(2.0).timeout
+	reset_all()
+	
+"
+
+[node name="FishNet" type="Node3D"]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0.6, 0)
+script = SubResource("GDScript_twfv3")
+
+[node name="BettaCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Betta"
+
+[node name="Betta" parent="BettaCollectable" instance=ExtResource("1_n806m")]
+
+[node name="BlueTangCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Blue Tang"
+
+[node name="Blue Tang" parent="BlueTangCollectable" instance=ExtResource("2_3oui7")]
+
+[node name="ButterflyFishCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Butterfly Fish"
+
+[node name="Butterfly Fish" parent="ButterflyFishCollectable" instance=ExtResource("3_8sbdy")]
+
+[node name="CardinalFishCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Cardinal Fish"
+
+[node name="Cardinal Fish" parent="CardinalFishCollectable" instance=ExtResource("4_o42lw")]
+
+[node name="CoralGrouperCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Coral Grouper"
+
+[node name="Coral Grouper" parent="CoralGrouperCollectable" instance=ExtResource("5_6kwma")]
+
+[node name="FlatfishCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Flatfish"
+
+[node name="Flatfish" parent="FlatfishCollectable" instance=ExtResource("6_n2gmd")]
+
+[node name="FlowerhornCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Flower Horn"
+
+[node name="Flower Horn" parent="FlowerhornCollectable" instance=ExtResource("7_65hxi")]
+
+[node name="GoldfishCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Goldfish"
+
+[node name="Goldfish" parent="GoldfishCollectable" instance=ExtResource("8_vwifn")]
+
+[node name="HumpheadCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Hump head"
+
+[node name="Hump head" parent="HumpheadCollectable" instance=ExtResource("9_lwrub")]
+
+[node name="KoiCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Koi"
+
+[node name="Koi" parent="KoiCollectable" instance=ExtResource("10_u6viw")]
+
+[node name="MoorishidolCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Moorish Idol"
+
+[node name="Moorish Idol" parent="MoorishidolCollectable" instance=ExtResource("11_bqv4s")]
+
+[node name="RedsnapperCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Red Snapper"
+
+[node name="Red Snapper" parent="RedsnapperCollectable" instance=ExtResource("12_jidfo")]
+
+[node name="YellowtangCollectable" type="Node3D" parent="."]
+script = ExtResource("1_8vo7x")
+display_name = "Yellow Tang"
+
+[node name="Yellow Tang" parent="YellowtangCollectable" instance=ExtResource("13_snf8m")]

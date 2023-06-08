@@ -59,9 +59,11 @@ func action(delta: float):
 	if current_bitten_time > 0.0:
 		current_bitten_time -= delta
 		if Input.is_action_pressed("interact"):
+			current_bitten_time = 0.0
 			fish_on = false
 			%bait.stop()
 			sm.set_state(idle_state_id)
+			%FishNet.action(fishing_area.allowed_fish_ids)
 			emit_signal("caught")
 	elif fish_on:
 		fish_on = false
