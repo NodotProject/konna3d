@@ -102,13 +102,20 @@ func update_available_slot(collectable_id: String, quantity: int) -> bool:
 	
 	var available_slot
 	
+	var current_stack_size = collectable_stacks.size()
+	
 	# Get first empty slot
-	for i in capacity:
+	for i in current_stack_size:
 		var stored_stack = collectable_stacks[i]
 		var stored_stack_quantity = stored_stack[1]
 		if stored_stack_quantity == 0:
 			available_slot = i
 			break
+	
+	# TODO: Add a test for when capacity is 0 (infinite)
+	if available_slot == null and capacity == 0:
+		available_slot = current_stack_size
+		collectable_stacks.append(["", 0])
 		
 	if available_slot != null:
 		var collectable = CollectableManager.get_info(collectable_id)
@@ -119,6 +126,7 @@ func update_available_slot(collectable_id: String, quantity: int) -> bool:
 		collectable_stacks[available_slot] = [collectable_id, new_quantity]
 		emit_signal("collectable_added", available_slot, collectable_id, new_quantity)
 		return true
+	
 	return false
 
 ## Get a total count of all items of a specific type

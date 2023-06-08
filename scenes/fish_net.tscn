@@ -45,22 +45,11 @@ var fish_rarity = [
 ]
 
 func _ready():
-	setup_models()
 	reset_all()
 	
 func _physics_process(delta: float):
 	if fish_animating > -1:
 		get_child(fish_animating).position.y += animation_speed * delta
-		
-func setup_models():
-	var collectables = Nodot.get_children_of_type(self, Collectable3D)
-	for child in collectables:
-		var model_root: Node3D = child.get_child(0)
-		var meshes: Array[Node] = model_root.find_children(\"*\", \"MeshInstance3D\")
-		for mesh in meshes:
-			var surface_count = mesh.mesh.get_surface_count()
-			for i in surface_count:
-				var material: StandardMaterial3D = mesh.mesh.surface_get_material(i)
 
 func reset_all():
 	var collectables = Nodot.get_children_of_type(self, Collectable3D)
