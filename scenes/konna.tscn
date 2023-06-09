@@ -275,21 +275,23 @@ size = Vector3(0.185645, 0.349231, 0.149826)
 resource_name = "boat_colliding"
 script/source = "extends Node
 
-@export var boat_raycast: Interaction3D
+@export var raycast: Interaction3D
 
-var boat: Node3D
+var target: Node3D
 
 func _physics_process(_delta: float):
-	var boat_collider = boat_raycast.get_collider()
-	if boat_collider:
-		if boat_collider.name == \"SpeedBoat\":
-			var boat_model = boat_collider.get_node(\"Boat\")
-			boat_model.start_pulse()
-			boat = boat_model
-			return
+	var collider = raycast.get_collider()
+	if collider:
+		if collider.has_node(\"Model\"):
+			var model_node = collider.get_node(\"Model\")
+			if model_node.has_method(\"start_pulse\"):
+				model_node.start_pulse()
+				target = model_node
+				return
 			
-	if boat:
-		boat.stop_pulse()
+	if target:
+		target.stop_pulse()
+		target = null
 "
 
 [sub_resource type="GDScript" id="GDScript_yxguy"]
@@ -826,19 +828,19 @@ action_unhandled_states = true
 [node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("fishing_interaction_3d", "boat_interaction_3d", "character")]
 script = ExtResource("11_vbbh7")
 fishing_interaction_3d = NodePath("../FishingSystem/FishingInteraction3D")
-boat_interaction_3d = NodePath("../BoatInteraction3D")
+boat_interaction_3d = NodePath("../Interaction3D")
 character = NodePath("..")
 
 [node name="CharacterBoat3D" type="Node" parent="."]
 script = ExtResource("12_ceenj")
 
-[node name="BoatInteraction3D" type="RayCast3D" parent="."]
+[node name="Interaction3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.94464, -0.328108, 0, 0.328108, 0.94464, 0, 0.343149, -0.163558)
 script = ExtResource("13_e6ii8")
 
-[node name="IsCollidingWithBoat" type="Node" parent="BoatInteraction3D" node_paths=PackedStringArray("boat_raycast")]
+[node name="PulseObjectOnHover" type="Node" parent="Interaction3D" node_paths=PackedStringArray("raycast")]
 script = SubResource("GDScript_mgrm1")
-boat_raycast = NodePath("..")
+raycast = NodePath("..")
 
 [node name="FishingSystem" type="Node3D" parent="."]
 
@@ -910,7 +912,7 @@ offset_bottom = 75.0
 text = "Ability: None"
 script = SubResource("GDScript_qg7ai")
 fishing_raycast = NodePath("../../FishingSystem/FishingInteraction3D")
-boat_raycast = NodePath("../../BoatInteraction3D")
+boat_raycast = NodePath("../../Interaction3D")
 character_fish_3d = NodePath("../../CharacterFish3D")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

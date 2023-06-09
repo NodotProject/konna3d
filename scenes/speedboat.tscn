@@ -437,11 +437,11 @@ contact_monitor = true
 script = SubResource("GDScript_unem0")
 max_engine_speed = 5.0
 
-[node name="Boat" parent="." node_paths=PackedStringArray("boat_mesh") instance=ExtResource("1_bkl1c")]
+[node name="Model" parent="." node_paths=PackedStringArray("boat_mesh") instance=ExtResource("1_bkl1c")]
 script = SubResource("GDScript_3of4v")
 boat_mesh = NodePath("RootNode/Boat")
 
-[node name="Boat" parent="Boat/RootNode" index="0"]
+[node name="Boat" parent="Model/RootNode" index="0"]
 material_overlay = SubResource("ShaderMaterial_jbnsm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -469,4 +469,4 @@ pitch_scale = 0.01
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.829905, -1.72628)
 
-[editable path="Boat"]
+[editable path="Model"]
