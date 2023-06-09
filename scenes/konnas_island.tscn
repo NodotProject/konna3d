@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://utjwyafv53r7"]
+[gd_scene load_steps=83 format=3 uid="uid://utjwyafv53r7"]
 
 [ext_resource type="PackedScene" uid="uid://1mqs6usbuhhj" path="res://models/terrain/Modular Terrain Beach/Prop_Shell_2.obj" id="4_1xu8b"]
 [ext_resource type="PackedScene" uid="uid://cfkuv0iey2ayf" path="res://models/terrain/Modular Terrain Beach/Prop_Starfish_1.obj" id="5_dkoqv"]
@@ -66,6 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://dg67jov108mj5" path="res://models/terrain/underwater_terrain.blend" id="70_3hey3"]
 [ext_resource type="PackedScene" uid="uid://dcgx0ill8wpw5" path="res://models/terrain/Rocks/Rock_6.fbx" id="70_ucugn"]
 [ext_resource type="PackedScene" uid="uid://dfxb7elpkvhtq" path="res://models/terrain/Rocks/Rock_7.fbx" id="71_85baa"]
+[ext_resource type="PackedScene" uid="uid://crgbartxaxrqx" path="res://scenes/tree_grower.tscn" id="71_aisyu"]
 [ext_resource type="PackedScene" uid="uid://dkuxrln4qpuub" path="res://models/terrain/Rocks/Rock_1.fbx" id="72_oscbw"]
 [ext_resource type="PackedScene" uid="uid://b1iooh3drc70s" path="res://models/terrain/Rocks/Rock_2.fbx" id="73_2q0ph"]
 [ext_resource type="PackedScene" uid="uid://bmfvyseevj3ns" path="res://models/terrain/Rocks/Rock_5.fbx" id="74_px412"]
@@ -975,3 +976,12 @@ shape = SubResource("BoxShape3D_xfjgn")
 [node name="underwater_terrain" parent="." instance=ExtResource("70_3hey3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237488, -0.020457, -42.5595)
 visible = false
+
+[node name="TreeGrower" parent="." instance=ExtResource("71_aisyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17888, 3.6, 2.35162)
+
+[node name="TreeGrower2" parent="." instance=ExtResource("71_aisyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17888, 3.6, 1.35162)
+
+[node name="TreeGrower3" parent="." instance=ExtResource("71_aisyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17888, 3.6, 0.351616)

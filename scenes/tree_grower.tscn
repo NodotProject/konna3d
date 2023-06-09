@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://crgbartxaxrqx"]
+
+[ext_resource type="Script" path="res://addons/nodot/interaction/StaticInteractBody3D.gd" id="1_374tg"]
+[ext_resource type="PackedScene" uid="uid://bcj8oixv0ac7g" path="res://models/flora/tree_grow_patch.blend" id="1_ccdbw"]
+[ext_resource type="Shader" path="res://addons/nodot/shaders/color_pulse.gdshader" id="3_uv683"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ush0r"]
+render_priority = 0
+shader = ExtResource("3_uv683")
+shader_parameter/pulse_speed = 5.0
+shader_parameter/strength = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4lhh"]
+size = Vector3(0.661569, 0.0822413, 0.55808)
+
+[node name="TreeGrower" type="StaticBody3D"]
+script = ExtResource("1_374tg")
+
+[node name="tree_grow_patch" parent="." instance=ExtResource("1_ccdbw")]
+
+[node name="Cube" parent="tree_grow_patch" index="0"]
+material_overlay = SubResource("ShaderMaterial_ush0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v4lhh")
+
+[editable path="tree_grow_patch"]

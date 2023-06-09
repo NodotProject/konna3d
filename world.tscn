@@ -93,7 +93,7 @@ float_force = 3.0
 shape = SubResource("BoxShape3D_riiew")
 
 [node name="Konna" parent="." instance=ExtResource("3_txpyj")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.96262, 2.30222, 48.9556)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.91011, 3.74919, 47.7599)
 
 [node name="KonnasIsland" parent="." instance=ExtResource("4_e6ur1")]
 
