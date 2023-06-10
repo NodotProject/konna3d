@@ -6,7 +6,7 @@
 resource_name = "required_item"
 script/source = "extends HBoxContainer
 
-func setup(texture: Texture2D, count: int):
+func setup(texture: Texture2D, count: String):
 	$CountLabel.text = count
 	$TextureRect.texture = texture
 "

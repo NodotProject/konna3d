@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb2c77h6fc4cl"]
+[gd_scene load_steps=10 format=3 uid="uid://bb2c77h6fc4cl"]
 
 [ext_resource type="Script" path="res://addons/nodot/interaction/StaticInteractBody3D.gd" id="1_sdbfm"]
 [ext_resource type="PackedScene" uid="uid://c1gcg3soln1ud" path="res://models/furniture/konna_desk.blend" id="1_xu43o"]
 [ext_resource type="PackedScene" uid="uid://wq4tiiy13x40" path="res://scenes/shops/shop.tscn" id="3_34piw"]
 [ext_resource type="Shader" path="res://addons/nodot/shaders/color_pulse.gdshader" id="3_mqgs1"]
+[ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="5_b4o5d"]
+[ext_resource type="Texture2D" uid="uid://bsc8hjw5mdv75" path="res://textures/item_icons/wooden_pickaxe.png" id="6_my5wy"]
 
 [sub_resource type="GDScript" id="GDScript_dd0pr"]
 resource_name = "workshop"
@@ -49,14 +51,14 @@ size = Vector3(0.332394, 0.259603, 0.647226)
 [node name="workshop" type="StaticBody3D"]
 script = ExtResource("1_sdbfm")
 
-[node name="konna_desk" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_xu43o")]
+[node name="Model" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_xu43o")]
 script = SubResource("GDScript_dd0pr")
 mesh = NodePath("Surface")
 
-[node name="Surface" parent="konna_desk" index="4"]
+[node name="Surface" parent="Model" index="4"]
 material_overlay = SubResource("ShaderMaterial_tupd7")
 
-[node name="CollisionShape3D" parent="konna_desk/Surface/StaticBody3D" index="0"]
+[node name="CollisionShape3D" parent="Model/Surface/StaticBody3D" index="0"]
 disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -74,4 +76,11 @@ trades = Array[Dictionary]([{
 }
 }])
 
-[editable path="konna_desk"]
+[node name="Collectables" type="Node3D" parent="."]
+
+[node name="WoodenPickaxe" type="Node3D" parent="Collectables"]
+script = ExtResource("5_b4o5d")
+icon = ExtResource("6_my5wy")
+display_name = "Wooden Pickaxe"
+
+[editable path="Model"]

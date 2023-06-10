@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://crgbartxaxrqx"]
+[gd_scene load_steps=14 format=3 uid="uid://crgbartxaxrqx"]
 
 [ext_resource type="Script" path="res://addons/nodot/interaction/StaticInteractBody3D.gd" id="1_374tg"]
 [ext_resource type="PackedScene" uid="uid://bcj8oixv0ac7g" path="res://models/flora/tree_grow_patch.blend" id="1_ccdbw"]
 [ext_resource type="Shader" path="res://addons/nodot/shaders/color_pulse.gdshader" id="3_uv683"]
 [ext_resource type="PackedScene" uid="uid://vb2w3v1c24a1" path="res://models/flora/CommonTree_4.fbx" id="4_cjeqg"]
 [ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="5_hdeop"]
+[ext_resource type="Texture2D" uid="uid://b3a23u2xy5f5p" path="res://textures/item_icons/wood.png" id="6_aicof"]
 
 [sub_resource type="GDScript" id="GDScript_hydcb"]
 resource_name = "tree_grow"
@@ -159,6 +160,7 @@ shape = SubResource("BoxShape3D_v4lhh")
 [node name="WoodCollectable" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_hdeop")
+icon = ExtResource("6_aicof")
 display_name = "Wood"
 
 [editable path="Model"]

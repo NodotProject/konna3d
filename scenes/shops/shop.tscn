@@ -19,7 +19,7 @@ signal shop_closed
 signal trade_made
 
 var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
-var item_node = preload(\"res://scenes/shops/item.tscn\")
+var trade_item_node = preload(\"res://scenes/shops/trade_item.tscn\")
 
 func _ready():
 	$OwnedPanel/CloseButton.connect(\"button_up\", close)
@@ -30,15 +30,15 @@ func _input(event: InputEvent):
 			close()
 
 func open():
-	Nodot.free_all_children(required_item_node)
+	Nodot.free_all_children(required_item_container)
 	Nodot.free_all_children(trade_item_container)
 	
-	var inventory: CollectableInventory = Nodot.get_first_child_of_type(PlayerManager.node, \"CollectableInventory\")
+	var inventory: CollectableInventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
 	var required_items: Array[String] = []
 	
 	for receive_item in trades:
-		var new_trade_item_node = item_node.instantiate()
-		new_trade_item_node.setup(receive_item.name, receive_item.quantity, receive_item.trades)
+		var new_trade_item_node = trade_item_node.instantiate()
+		new_trade_item_node.setup(receive_item.name, str(receive_item.quantity), receive_item.trades)
 		trade_item_container.add_child(new_trade_item_node)
 		
 		if !selling:
@@ -50,8 +50,8 @@ func open():
 		var new_required_item_node = required_item_node.instantiate()
 		var item_info = CollectableManager.get_info(required_item)
 		var quantity = inventory.get_collectable_count(required_item)
-		new_required_item_node.setup(item_info.icon, quantity)
-		required_item_node.add_child(new_required_item_node)
+		new_required_item_node.setup(item_info.icon, str(quantity))
+		required_item_container.add_child(new_required_item_node)
 		
 	visible = true
 	emit_signal(\"shop_opened\")

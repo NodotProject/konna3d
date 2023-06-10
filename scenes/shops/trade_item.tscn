@@ -16,9 +16,9 @@ func setup(item_name: String, label: String, items):
 	Nodot.free_all_children($GiveItems)
 	for item in items:
 		var item_node = item_scene.instantiate()
-		var info = CollectableManager.get_info(item[0])
+		var info = CollectableManager.get_info(item)
 		
-		item_node.setup(info.icon, str(item[1]))
+		item_node.setup(info.icon, str(items[item]))
 		$GiveItems.add_child(item_node)
 "
 
