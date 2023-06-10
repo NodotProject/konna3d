@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6hb8eba0c75g"]
+
+[ext_resource type="Texture2D" uid="uid://b3a23u2xy5f5p" path="res://textures/item_icons/wood.png" id="1_53ar1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27kg3"]
+
+[sub_resource type="GDScript" id="GDScript_qtis2"]
+resource_name = "item"
+script/source = "extends Panel
+
+func setup(icon: Texture2D, label: String):
+	$ItemIcon.texture = icon
+	$ItemCount.text = label
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_irf0v"]
+font_size = 26
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Item" type="Panel"]
+custom_minimum_size = Vector2(96, 96)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_27kg3")
+script = SubResource("GDScript_qtis2")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_53ar1")
+
+[node name="ItemCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "10"
+label_settings = SubResource("LabelSettings_irf0v")

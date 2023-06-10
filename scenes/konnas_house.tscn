@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cadpmr1tuk7aw" path="res://models/furniture/Light_Cube2.fbx" id="2_r1bb3"]
 [ext_resource type="PackedScene" uid="uid://cli6dv8lmtk2y" path="res://models/furniture/NightStand_1.fbx" id="3_cn4d4"]
 [ext_resource type="PackedScene" uid="uid://dqwgwnaicrqt2" path="res://models/furniture/WallClock3.fbx" id="4_bkp8u"]
-[ext_resource type="PackedScene" uid="uid://c1gcg3soln1ud" path="res://models/furniture/konna_desk.blend" id="5_7s0ho"]
 [ext_resource type="PackedScene" uid="uid://b5lh268qfep8b" path="res://models/furniture/Bed_Single.fbx" id="5_t3aqd"]
 [ext_resource type="PackedScene" uid="uid://pi1pqccdk4aa" path="res://models/furniture/Chair_1.fbx" id="7_0k8ae"]
 [ext_resource type="PackedScene" uid="uid://bhmy7uw3gxfa1" path="res://models/furniture/Plate.fbx" id="8_wxlyd"]
 [ext_resource type="PackedScene" uid="uid://3k5orynato41" path="res://models/furniture/Donut2.fbx" id="9_ljpfm"]
 [ext_resource type="PackedScene" uid="uid://bccom6vq3rhbu" path="res://models/furniture/Soda.fbx" id="10_eghma"]
 [ext_resource type="PackedScene" uid="uid://xtlstp365t8p" path="res://models/furniture/Carpet_2.fbx" id="11_v7xk6"]
+[ext_resource type="PackedScene" uid="uid://bb2c77h6fc4cl" path="res://scenes/workshop.tscn" id="12_0uibf"]
 [ext_resource type="Script" path="res://addons/nodot/camera/CameraArea3D.gd" id="12_ygtkt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4r216"]
@@ -79,9 +79,6 @@ shape = SubResource("BoxShape3D_2l5s3")
 [node name="WallClock3fbx" parent="StaticBody3D" instance=ExtResource("4_bkp8u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.32792, 0.614944, 1.17607)
 
-[node name="konna_desk" parent="StaticBody3D" instance=ExtResource("5_7s0ho")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09571, -0.0085597, 0.997892)
-
 [node name="Chair_1fbx" parent="StaticBody3D" instance=ExtResource("7_0k8ae")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.825615, -0.0085597, 1.06132)
 
@@ -112,3 +109,6 @@ transform = Transform3D(-4.37114e-08, 0.282341, -0.959314, 0, 0.959314, 0.282341
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543249, 0.261785, 0.196082)
 shape = SubResource("BoxShape3D_dqu4u")
+
+[node name="workshop" parent="." instance=ExtResource("12_0uibf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.09571, -0.0085597, 0.997892)

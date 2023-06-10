@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb2c77h6fc4cl"]
+
+[ext_resource type="Script" path="res://addons/nodot/interaction/StaticInteractBody3D.gd" id="1_sdbfm"]
+[ext_resource type="PackedScene" uid="uid://c1gcg3soln1ud" path="res://models/furniture/konna_desk.blend" id="1_xu43o"]
+[ext_resource type="PackedScene" uid="uid://wq4tiiy13x40" path="res://scenes/shops/shop.tscn" id="3_34piw"]
+[ext_resource type="Shader" path="res://addons/nodot/shaders/color_pulse.gdshader" id="3_mqgs1"]
+
+[sub_resource type="GDScript" id="GDScript_dd0pr"]
+resource_name = "workshop"
+script/source = "extends Node3D
+
+@export var mesh: MeshInstance3D
+
+@onready var shop_node = %Shop
+
+var pulsing := false
+var pulse_material: ShaderMaterial
+
+func _ready():
+	mesh.material_overlay = mesh.material_overlay.duplicate()
+	pulse_material = mesh.material_overlay
+	pulse_material.set_shader_parameter(\"strength\", 0.00)
+	get_parent().connect(\"interacted\", interact)
+	
+func start_pulse():
+	if !pulsing:
+		pulse_material.set_shader_parameter(\"strength\", 0.05)
+		pulsing = true
+
+func stop_pulse():
+	pulse_material.set_shader_parameter(\"strength\", 0.00)
+	pulsing = false
+
+func interact():
+	if !shop_node.visible:
+		shop_node.open()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tupd7"]
+render_priority = 0
+shader = ExtResource("3_mqgs1")
+shader_parameter/pulse_speed = 5.0
+shader_parameter/strength = 0.04
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckqnr"]
+size = Vector3(0.332394, 0.259603, 0.647226)
+
+[node name="workshop" type="StaticBody3D"]
+script = ExtResource("1_sdbfm")
+
+[node name="konna_desk" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_xu43o")]
+script = SubResource("GDScript_dd0pr")
+mesh = NodePath("Surface")
+
+[node name="Surface" parent="konna_desk" index="4"]
+material_overlay = SubResource("ShaderMaterial_tupd7")
+
+[node name="CollisionShape3D" parent="konna_desk/Surface/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126707, 0)
+shape = SubResource("BoxShape3D_ckqnr")
+
+[node name="Shop" parent="." instance=ExtResource("3_34piw")]
+unique_name_in_owner = true
+visible = false
+trades = Array[Dictionary]([{
+"name": "Wooden Pickaxe",
+"quantity": 1,
+"trades": {
+"Wood": 15
+}
+}])
+
+[editable path="konna_desk"]

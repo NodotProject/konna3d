@@ -812,7 +812,7 @@ jump_velocity = 3.0
 [node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("9_rpitp")
 friction = 0.2
-step_height = 0.1
+step_height = 0.4
 movement_speed = 1.0
 sprint_speed_multiplier = 1.0
 strafing = false

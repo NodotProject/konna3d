@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lq3kuh3vnyrq"
-path="res://.godot/imported/FishingRod_Lvl2.fbx-c830ba2d9f47f5eddd69a11428822365.scn"
+uid="uid://135oxvk3mb4n"
+path="res://.godot/imported/Low Poly Pickaxes Pack.fbx-80d9e967ae8aa5d38d3aa003834c5361.scn"
 
 [deps]
 
-source_file="res://models/items/FishingRod_Lvl2.fbx"
-dest_files=["res://.godot/imported/FishingRod_Lvl2.fbx-c830ba2d9f47f5eddd69a11428822365.scn"]
+source_file="res://models/items/Low Poly Pickaxes Pack.fbx"
+dest_files=["res://.godot/imported/Low Poly Pickaxes Pack.fbx-80d9e967ae8aa5d38d3aa003834c5361.scn"]
 
 [params]
 

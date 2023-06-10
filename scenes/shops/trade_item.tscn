@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixcpscscepc0"]
+
+[ext_resource type="PackedScene" uid="uid://b6hb8eba0c75g" path="res://scenes/shops/item.tscn" id="2_nolhe"]
+
+[sub_resource type="GDScript" id="GDScript_txl3y"]
+resource_name = "tradeitem"
+script/source = "extends HBoxContainer
+
+var item_scene = preload(\"res://scenes/shops/item.tscn\")
+
+func setup(item_name: String, label: String, items):
+	var receive_item_info = CollectableManager.get_info(item_name)
+	$ReceiveItem.setup(receive_item_info.icon, label)
+	$ItemName.text = item_name
+	
+	Nodot.free_all_children($GiveItems)
+	for item in items:
+		var item_node = item_scene.instantiate()
+		var info = CollectableManager.get_info(item[0])
+		
+		item_node.setup(info.icon, str(item[1]))
+		$GiveItems.add_child(item_node)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvsd4"]
+font_size = 46
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TradeItem" type="HBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = SubResource("GDScript_txl3y")
+
+[node name="ReceiveItem" parent="." instance=ExtResource("2_nolhe")]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+text = "Breath Underwater"
+label_settings = SubResource("LabelSettings_fvsd4")
+
+[node name="GiveItems" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Item" parent="GiveItems" instance=ExtResource("2_nolhe")]
+layout_mode = 2

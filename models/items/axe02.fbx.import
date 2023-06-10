@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c574q8l4mqdy7"
-path="res://.godot/imported/FishingRod_Lvl4.fbx-9f2a492c834548b090bb9d41bcc3835c.scn"
+uid="uid://ci3n7bfixs6mk"
+path="res://.godot/imported/axe02.fbx-d5d04a7102cbd8054068c82cac0d8628.scn"
 
 [deps]
 
-source_file="res://models/items/FishingRod_Lvl4.fbx"
-dest_files=["res://.godot/imported/FishingRod_Lvl4.fbx-9f2a492c834548b090bb9d41bcc3835c.scn"]
+source_file="res://models/items/axe02.fbx"
+dest_files=["res://.godot/imported/axe02.fbx-d5d04a7102cbd8054068c82cac0d8628.scn"]
 
 [params]
 

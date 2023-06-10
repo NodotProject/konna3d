@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://i4nwbmiitk47"]
+
+[ext_resource type="Texture2D" uid="uid://heja4grko01c" path="res://textures/item_icons/iron.png" id="1_1mluf"]
+
+[sub_resource type="GDScript" id="GDScript_25h7o"]
+resource_name = "required_item"
+script/source = "extends HBoxContainer
+
+func setup(texture: Texture2D, count: int):
+	$CountLabel.text = count
+	$TextureRect.texture = texture
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_mcu7f"]
+font_size = 26
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="RequiredItem" type="HBoxContainer"]
+script = SubResource("GDScript_25h7o")
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 2
+text = "10
+"
+label_settings = SubResource("LabelSettings_mcu7f")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_1mluf")
+expand_mode = 3

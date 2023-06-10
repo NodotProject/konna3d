@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://wq4tiiy13x40"]
+
+[ext_resource type="StyleBox" uid="uid://dpjqq6wg61exn" path="res://scenes/shops/wood_style.tres" id="1_t4c2w"]
+[ext_resource type="PackedScene" uid="uid://i4nwbmiitk47" path="res://scenes/shops/required_item.tscn" id="2_12p2y"]
+[ext_resource type="PackedScene" uid="uid://bixcpscscepc0" path="res://scenes/shops/trade_item.tscn" id="3_g267e"]
+
+[sub_resource type="GDScript" id="GDScript_85u6x"]
+resource_name = "shop"
+script/source = "extends VBoxContainer
+
+@export var trades: Array[Dictionary] = [] # Array[Dictionary[name: string, quantity: int, trades: Dictionary[quantity: int]]
+@export var selling: bool = false
+
+@onready var required_item_container = $OwnedPanel/RequiredItems
+@onready var trade_item_container = $TradePanel/TradeItems
+
+signal shop_opened
+signal shop_closed
+signal trade_made
+
+var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
+var item_node = preload(\"res://scenes/shops/item.tscn\")
+
+func _ready():
+	$OwnedPanel/CloseButton.connect(\"button_up\", close)
+	
+func _input(event: InputEvent):
+	if visible:
+		if event.is_action_pressed(\"escape\"):
+			close()
+
+func open():
+	Nodot.free_all_children(required_item_node)
+	Nodot.free_all_children(trade_item_container)
+	
+	var inventory: CollectableInventory = Nodot.get_first_child_of_type(PlayerManager.node, \"CollectableInventory\")
+	var required_items: Array[String] = []
+	
+	for receive_item in trades:
+		var new_trade_item_node = item_node.instantiate()
+		new_trade_item_node.setup(receive_item.name, receive_item.quantity, receive_item.trades)
+		trade_item_container.add_child(new_trade_item_node)
+		
+		if !selling:
+			for trade_item_name in receive_item.trades:
+				if !required_items.has(trade_item_name):
+					required_items.append(trade_item_name)
+					
+	for required_item in required_items:
+		var new_required_item_node = required_item_node.instantiate()
+		var item_info = CollectableManager.get_info(required_item)
+		var quantity = inventory.get_collectable_count(required_item)
+		new_required_item_node.setup(item_info.icon, quantity)
+		required_item_node.add_child(new_required_item_node)
+		
+	visible = true
+	emit_signal(\"shop_opened\")
+
+func close():
+	visible = false
+	emit_signal(\"shop_closed\")
+"
+
+[node name="Shop" type="VBoxContainer"]
+offset_right = 1152.0
+offset_bottom = 646.0
+script = SubResource("GDScript_85u6x")
+trades = Array[Dictionary]([{
+"name": null,
+"quantity": null,
+"trades": {}
+}])
+
+[node name="OwnedPanel" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CloseButton" type="Button" parent="OwnedPanel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("1_t4c2w")
+text = "X"
+expand_icon = true
+
+[node name="RequiredItems" type="HBoxContainer" parent="OwnedPanel"]
+layout_mode = 2
+
+[node name="RequiredItem" parent="OwnedPanel/RequiredItems" instance=ExtResource("2_12p2y")]
+layout_mode = 2
+
+[node name="TradePanel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_t4c2w")
+
+[node name="TradeItems" type="HBoxContainer" parent="TradePanel"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1152.0
+offset_bottom = 577.0
+size_flags_vertical = 3
+
+[node name="TradeItem" parent="TradePanel/TradeItems" instance=ExtResource("3_g267e")]
+layout_mode = 2
