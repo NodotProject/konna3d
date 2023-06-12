@@ -12,6 +12,7 @@ resource_name = "tree_grow"
 script/source = "extends Node3D
 
 @export var mesh: MeshInstance3D
+@export var grow_time: float = 20.0
 
 var pulsing := false
 var pulse_material: ShaderMaterial
@@ -49,13 +50,13 @@ func plant_tree():
 	tween.connect(\"finished\", tree_grown)
 	%Tree.scale = Vector3.ZERO
 	tween.parallel().tween_property(
-		%Tree, \"scale\", Vector3(1.0, 1.0, 1.0), 20.0
+		%Tree, \"scale\", Vector3(1.0, 1.0, 1.0), grow_time
 	).set_trans(Tween.TRANS_LINEAR)
 	tween.play()
 	
 func cut_tree():
 	var inventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
-	inventory.add(\"Wood\", 1)
+	inventory.add(\"Wood\", 5)
 	# TODO: Show particle effect
 	%Tree.scale = Vector3.ZERO
 	grown = false
@@ -145,6 +146,7 @@ script = ExtResource("1_374tg")
 [node name="Model" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_ccdbw")]
 script = SubResource("GDScript_hydcb")
 mesh = NodePath("Cube")
+grow_time = 2.0
 
 [node name="Cube" parent="Model" index="0"]
 material_overlay = SubResource("ShaderMaterial_w0s7v")

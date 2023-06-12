@@ -28,13 +28,13 @@ var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
 var trade_item_node = preload(\"res://scenes/shops/trade_item.tscn\")
 var player_state: StateMachine
 var interaction3d: Interaction3D
+var inventory: CollectableInventory
 var in_menu_state_id: int
 var idle_state_id: int
 var currently_selected := 1
 
 func _ready():
 	$OwnedPanel/CloseButton.connect(\"button_up\", close)
-	# TODO: Should listen to the player inventory and if it changes, update the shop
 	
 func _input(event: InputEvent):
 	if visible:
@@ -53,28 +53,8 @@ func open():
 	
 	interaction3d.enabled = false
 	player_state.set_state(in_menu_state_id)
-	Nodot.free_all_children(required_item_container)
-	Nodot.free_all_children(trade_item_container)
 	
-	var inventory: CollectableInventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
-	var required_items: Array[String] = []
-	
-	for receive_item in trades:
-		var new_trade_item_node = trade_item_node.instantiate()
-		new_trade_item_node.setup(receive_item.name, str(receive_item.quantity), receive_item.trades)
-		trade_item_container.add_child(new_trade_item_node)
-		
-		if !selling:
-			for trade_item_name in receive_item.trades:
-				if !required_items.has(trade_item_name):
-					required_items.append(trade_item_name)
-					
-	for required_item in required_items:
-		var new_required_item_node = required_item_node.instantiate()
-		var item_info = CollectableManager.get_info(required_item)
-		var quantity = inventory.get_collectable_count(required_item)
-		new_required_item_node.setup(item_info.icon, str(quantity))
-		required_item_container.add_child(new_required_item_node)
+	update_shop()
 		
 	visible = true
 	emit_signal(\"shop_opened\")
@@ -87,10 +67,40 @@ func close():
 	player_state.set_state(idle_state_id)
 	await get_tree().physics_frame
 	interaction3d.enabled = true
+	
+func update_shop():
+	Nodot.free_all_children(required_item_container)
+	Nodot.free_all_children(trade_item_container)
+	
+	inventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
+	var required_items: Array[String] = []
+	
+	for receive_item in trades:
+		var new_trade_item_node = trade_item_node.instantiate()
+		new_trade_item_node.setup(receive_item.name, str(receive_item.quantity), receive_item.trades)
+		trade_item_container.add_child(new_trade_item_node)
+		
+		if !selling:
+			for trade_item_name in receive_item.trades:
+				if !required_items.has(trade_item_name):
+					required_items.append(trade_item_name)
+					
+		if can_afford_trade(receive_item):
+			new_trade_item_node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		else:
+			new_trade_item_node.modulate = Color(1.0, 1.0, 1.0, 0.5)
+					
+	for required_item in required_items:
+		var new_required_item_node = required_item_node.instantiate()
+		var item_info = CollectableManager.get_info(required_item)
+		var quantity = inventory.get_collectable_count(required_item)
+		new_required_item_node.setup(item_info.icon, str(quantity))
+		required_item_container.add_child(new_required_item_node)
 
 func setup_player():
 	player_state = PlayerManager.node.sm
 	interaction3d = PlayerManager.node.get_node(\"Interaction3D\")
+	inventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
 	in_menu_state_id = player_state.register_state(\"in_menu\")
 	idle_state_id = player_state.get_id_from_name(\"idle\")
 	player_state.add_valid_transition(\"in_menu\", \"idle\")
@@ -110,6 +120,27 @@ func select_next_menu_item():
 func perform_trade():
 	if currently_selected == 0:
 		close()
+		return
+		
+	var selected_index = currently_selected - 1
+	var trade = trades[selected_index]
+	
+	if !can_afford_trade(trade):
+		return
+	
+	for item_name in trade.trades:
+		var quantity = trade.trades[item_name]
+		inventory.remove(item_name, quantity)
+		
+	inventory.add(trade.name, trade.quantity)
+	update_shop()
+		
+func can_afford_trade(trade: Dictionary):
+	var can_afford = true
+	for item in trade.trades:
+		if inventory.get_collectable_count(item) < trade.trades[item]:
+			can_afford = false
+	return can_afford
 
 func update_highlighter():
 	if currently_selected == 0:

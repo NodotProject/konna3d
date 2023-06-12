@@ -45,9 +45,9 @@ func add(collectable_id: String, quantity: int) -> bool:
 
 	var remaining_quantity = update_available_stack(collectable_id, quantity)
 	if remaining_quantity > 0:
-		var slot_updated = update_available_slot(collectable_id, remaining_quantity)
-		if slot_updated:
-			return true
+		var overflow = update_available_slot(collectable_id, remaining_quantity)
+		if overflow > 0:
+			return add(collectable_id, overflow)
 	elif remaining_quantity == 0:
 		return true
 		
@@ -57,6 +57,27 @@ func add(collectable_id: String, quantity: int) -> bool:
 	emit_signal("capacity_reached")
 	return false
 
+## Remove a collectable from the inventory
+func remove(collectable_id: String, quantity: int) -> bool:
+	var collectable = CollectableManager.get_info(collectable_id)
+	if !collectable or quantity == 0:
+		push_error("%s has not been registered in CollectableManager" % collectable_id)
+		return false
+	
+	var collectable_index = get_collectable_index(collectable_id)
+	if collectable_index < 0:
+		return false
+	
+	var stack_quantity = collectable_stacks[collectable_index][1]
+	if stack_quantity >= quantity:
+		update_slot(collectable_index, collectable_id, stack_quantity - quantity, 0)
+		return true
+	if stack_quantity > 0:
+		update_slot(collectable_index, collectable_id, 0, 0)
+		return remove(collectable_id, quantity - stack_quantity)
+	
+	return false
+	
 
 ## Get the total weight of the inventory
 func get_total_weight(additional_weight: float = 0.0):
@@ -97,8 +118,8 @@ func update_available_stack(collectable_id: String, quantity: int):
 
 
 ## Get available slot
-func update_available_slot(collectable_id: String, quantity: int) -> bool:
-	if quantity <= 0: return true
+func update_available_slot(collectable_id: String, quantity: int) -> int:
+	if quantity <= 0: return 0
 	
 	var available_slot
 	
@@ -120,14 +141,24 @@ func update_available_slot(collectable_id: String, quantity: int) -> bool:
 	if available_slot != null:
 		var collectable = CollectableManager.get_info(collectable_id)
 		var new_quantity = quantity
+		var overflow = 0
 		if quantity > collectable.stack_limit:
 			new_quantity = collectable.stack_limit
 			update_available_slot(collectable_id, quantity - new_quantity)
+		overflow = quantity - new_quantity
 		collectable_stacks[available_slot] = [collectable_id, new_quantity]
 		emit_signal("collectable_added", available_slot, collectable_id, new_quantity)
-		return true
+		return overflow
 	
-	return false
+	return 0
+
+## Get the last index of a specific collectable
+func get_collectable_index(collectable_id: String):
+	for i in collectable_stacks.size():
+		var stack = collectable_stacks[i]
+		if stack[0] == collectable_id:
+			return i
+	return -1
 
 ## Get a total count of all items of a specific type
 func get_collectable_count(collectable_id: String) -> int:
