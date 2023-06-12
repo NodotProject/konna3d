@@ -39,7 +39,9 @@ func _enter_tree():
 	add_child(label3d)
 
 func _input(event: InputEvent):
-	if !event.is_action_pressed(interact_action): return
+	if !enabled or !event.is_action_pressed(interact_action):
+		return
+		
 	if is_instance_valid(carried_body):
 		carried_body.gravity_scale = 1.0
 		emit_signal("carry_ended", carried_body)

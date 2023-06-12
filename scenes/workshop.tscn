@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb2c77h6fc4cl"]
+[gd_scene load_steps=11 format=3 uid="uid://bb2c77h6fc4cl"]
 
 [ext_resource type="Script" path="res://addons/nodot/interaction/StaticInteractBody3D.gd" id="1_sdbfm"]
 [ext_resource type="PackedScene" uid="uid://c1gcg3soln1ud" path="res://models/furniture/konna_desk.blend" id="1_xu43o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://addons/nodot/shaders/color_pulse.gdshader" id="3_mqgs1"]
 [ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="5_b4o5d"]
 [ext_resource type="Texture2D" uid="uid://bsc8hjw5mdv75" path="res://textures/item_icons/wooden_pickaxe.png" id="6_my5wy"]
+[ext_resource type="Texture2D" uid="uid://cjtep3d2v6e4l" path="res://textures/item_icons/iron_pickaxe.png" id="7_8sg24"]
 
 [sub_resource type="GDScript" id="GDScript_dd0pr"]
 resource_name = "workshop"
@@ -74,6 +75,24 @@ trades = Array[Dictionary]([{
 "trades": {
 "Wood": 15
 }
+}, {
+"name": "Stone Pickaxe",
+"quantity": 1,
+"trades": {
+"Stone": 30
+}
+}, {
+"name": "Wooden Fishing Rod",
+"quantity": 1,
+"trades": {
+"Wood": 30
+}
+}, {
+"name": "Iron Fishing Rod",
+"quantity": 1,
+"trades": {
+"Iron": 5
+}
 }])
 
 [node name="Collectables" type="Node3D" parent="."]
@@ -82,5 +101,10 @@ trades = Array[Dictionary]([{
 script = ExtResource("5_b4o5d")
 icon = ExtResource("6_my5wy")
 display_name = "Wooden Pickaxe"
+
+[node name="StonePickaxe" type="Node3D" parent="Collectables"]
+script = ExtResource("5_b4o5d")
+icon = ExtResource("7_8sg24")
+display_name = "Stone Pickaxe"
 
 [editable path="Model"]

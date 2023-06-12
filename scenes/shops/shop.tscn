@@ -11,6 +11,12 @@ script/source = "extends VBoxContainer
 @export var trades: Array[Dictionary] = [] # Array[Dictionary[name: string, quantity: int, trades: Dictionary[quantity: int]]
 @export var selling: bool = false
 
+@export_subgroup(\"Input Actions\")
+@export var escape_action := \"escape\"
+@export var up_action := \"up\"
+@export var down_action := \"down\"
+@export var select_action := \"interact\"
+
 @onready var required_item_container = $OwnedPanel/RequiredItems
 @onready var trade_item_container = $TradePanel/TradeItems
 
@@ -20,16 +26,33 @@ signal trade_made
 
 var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
 var trade_item_node = preload(\"res://scenes/shops/trade_item.tscn\")
+var player_state: StateMachine
+var interaction3d: Interaction3D
+var in_menu_state_id: int
+var idle_state_id: int
+var currently_selected := 1
 
 func _ready():
 	$OwnedPanel/CloseButton.connect(\"button_up\", close)
+	# TODO: Should listen to the player inventory and if it changes, update the shop
 	
 func _input(event: InputEvent):
 	if visible:
-		if event.is_action_pressed(\"escape\"):
+		if event.is_action_pressed(escape_action):
 			close()
+		if event.is_action_pressed(up_action):
+			select_previous_menu_item()
+		if event.is_action_pressed(down_action):
+			select_next_menu_item()
+		if event.is_action_pressed(select_action):
+			perform_trade()
 
 func open():
+	if !player_state:
+		setup_player()
+	
+	interaction3d.enabled = false
+	player_state.set_state(in_menu_state_id)
 	Nodot.free_all_children(required_item_container)
 	Nodot.free_all_children(trade_item_container)
 	
@@ -57,13 +80,54 @@ func open():
 	emit_signal(\"shop_opened\")
 
 func close():
+	currently_selected = 1
+	update_highlighter()
 	visible = false
 	emit_signal(\"shop_closed\")
+	player_state.set_state(idle_state_id)
+	await get_tree().physics_frame
+	interaction3d.enabled = true
+
+func setup_player():
+	player_state = PlayerManager.node.sm
+	interaction3d = PlayerManager.node.get_node(\"Interaction3D\")
+	in_menu_state_id = player_state.register_state(\"in_menu\")
+	idle_state_id = player_state.get_id_from_name(\"idle\")
+	player_state.add_valid_transition(\"in_menu\", \"idle\")
+	player_state.add_valid_transition(\"idle\", \"in_menu\")
+	player_state.add_valid_transition(\"walk\", \"in_menu\")
+
+func select_previous_menu_item():
+	if currently_selected > 0:
+		currently_selected -= 1
+		update_highlighter()
+	
+func select_next_menu_item():
+	if currently_selected < %TradeItems.get_child_count():
+		currently_selected += 1
+		update_highlighter()
+	
+func perform_trade():
+	if currently_selected == 0:
+		close()
+
+func update_highlighter():
+	if currently_selected == 0:
+		%CloseButton.add_theme_color_override(\"font_color\", Color.WHITE)
+		%Highlighter.visible = false
+	else:
+		%CloseButton.add_theme_color_override(\"font_color\", Color.RED)
+		var selected_index = currently_selected - 1
+		%Highlighter.visible = true
+		var highlighted_item: BoxContainer = %TradeItems.get_child(selected_index)
+		%Highlighter.position.y = highlighted_item.position.y
 "
 
 [node name="Shop" type="VBoxContainer"]
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 1088.0
+offset_bottom = 624.0
 script = SubResource("GDScript_85u6x")
 trades = Array[Dictionary]([{
 "name": null,
@@ -76,6 +140,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="CloseButton" type="Button" parent="OwnedPanel"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -86,22 +151,41 @@ expand_icon = true
 
 [node name="RequiredItems" type="HBoxContainer" parent="OwnedPanel"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="RequiredItem" parent="OwnedPanel/RequiredItems" instance=ExtResource("2_12p2y")]
 layout_mode = 2
 
 [node name="TradePanel" type="Panel" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("1_t4c2w")
 
-[node name="TradeItems" type="HBoxContainer" parent="TradePanel"]
-layout_mode = 2
-offset_top = 4.0
-offset_right = 1152.0
-offset_bottom = 577.0
+[node name="Highlighter" type="ColorRect" parent="TradePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -430.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.145098)
+
+[node name="TradeItems" type="VBoxContainer" parent="TradePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.119995
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="TradeItem" parent="TradePanel/TradeItems" instance=ExtResource("3_g267e")]
 layout_mode = 2
