@@ -10,6 +10,9 @@ class_name CollectableInventory extends Nodot
 ## A node3d used to position items back into the world
 @export var spawn_location_node: Node3D
 
+# Array of tuples. Collectable id (string) and quantity (int)
+@export var collectable_stacks: Array = []
+
 ## Triggered when a stack or slot is updated
 signal collectable_added(index: int, collectable_id: String, quantity: int)
 ## Triggered when the inventory overflows (useful to spawn excess items back into the world)
@@ -18,9 +21,6 @@ signal overflow(collectable_id: String, quantity: int)
 signal max_weight_reached
 ## Triggered when the capacity is reached
 signal capacity_reached
-
-# Array of tuples. Collectable id (string) and quantity (int)
-var collectable_stacks: Array = []
 
 func _enter_tree():
 	for i in capacity:

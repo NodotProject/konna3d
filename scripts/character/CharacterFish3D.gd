@@ -1,6 +1,7 @@
 ## Allows character control and logic management while fishing
 class_name CharacterFish3D extends CharacterExtensionBase3D
 
+@export var inventory: CollectableInventory
 @export var fishing_interaction_3d: Interaction3D
 @export var boat_interaction_3d: Interaction3D
 @export var minimum_bite_time: float = 3.0
@@ -73,8 +74,15 @@ func action(delta: float):
 	
 func can_fish(body: Node3D):
 	var near_boat = boat_interaction_3d.is_colliding() and boat_interaction_3d.get_collider().name == "SpeedBoat"
-	if !near_boat and fishing_area and fish_mode == false and body is WaterArea3D and character.submerge_handler.is_submerged == false:
+	
+	var has_rod = false
+	for rod in ["Wooden Fishing Rod", "Iron Fishing Rod", "Flame Fishing Rod"]:
+		if inventory.get_collectable_count(rod):
+			has_rod = true
+			
+	if has_rod and !near_boat and fishing_area and fish_mode == false and body is WaterArea3D and character.submerge_handler.is_submerged == false:
 		return true
+		
 	return false
 	
 func fishing_interacted(body: Node3D, collision_point: Vector3, _collision_normal):
@@ -89,7 +97,6 @@ func fishing_interacted(body: Node3D, collision_point: Vector3, _collision_norma
 func enable_fish_mode():
 	current_bite_time = rng.randf_range(minimum_bite_time, maximum_bite_time)
 	fish_mode = true
-	# TODO: Check which rod is in the inventory and show it
 	%bait.visible = true
 	%FishingRods.visible = true
 	

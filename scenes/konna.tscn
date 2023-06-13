@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=62 format=3 uid="uid://cmxre06eq6osa"]
 
 [ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
+[ext_resource type="Script" path="res://scripts/character/CharacterItemAttachment3D.gd" id="2_7aciy"]
 [ext_resource type="PackedScene" uid="uid://dune3bocgi3e1" path="res://models/items/FishingRod_Lvl2.fbx" id="2_qtvh4"]
 [ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="3_02tlg"]
 [ext_resource type="PackedScene" uid="uid://dg6pq6kvpg4y4" path="res://models/items/FishingRod_Lvl3.fbx" id="3_ammmq"]
@@ -31,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://5ghidgl50ixn" path="res://sfx/fishing/reel_in.wav" id="20_wmb1n"]
 [ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="21_x6mte"]
 [ext_resource type="PackedScene" uid="uid://dvr3d0ppk3omk" path="res://scenes/fish_net.tscn" id="22_2u4c7"]
+[ext_resource type="Script" path="res://scripts/character/CharacterMine3D.gd" id="22_3qnyw"]
 [ext_resource type="Script" path="res://addons/nodot/utility/CollectableInventory.gd" id="22_qfugc"]
 [ext_resource type="Texture2D" uid="uid://dt1q0xll26xp" path="res://textures/item_icons/coins.png" id="30_rb24p"]
 [ext_resource type="PackedScene" uid="uid://dapc8bpw2mlk4" path="res://scenes/hud/resources_inventory.tscn" id="31_yw8d4"]
@@ -511,6 +513,7 @@ script/source = "extends Node
 @export var raycast: Interaction3D
 
 var target: Node3D
+var last_collider: Node3D
 
 func _physics_process(_delta: float):
 	if !raycast.enabled:
@@ -522,11 +525,15 @@ func _physics_process(_delta: float):
 			var model_node = collider.get_node(\"Model\")
 			if model_node.has_method(\"start_pulse\"):
 				model_node.start_pulse()
-				target = model_node
+				if target != model_node:
+					if is_instance_valid(target):
+						target.stop_pulse()
+					target = model_node
 				return
 			
-	if target:
+	if is_instance_valid(target):
 		target.stop_pulse()
+		last_collider = null
 		target = null
 "
 
@@ -1004,74 +1011,49 @@ transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.5
 bone_name = "Middle1.R"
 bone_idx = 35
 
-[node name="FishingRods" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D"]
+[node name="FishingRods" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("inventory")]
 unique_name_in_owner = true
-transform = Transform3D(0.00532319, -0.00596487, -0.00028981, 7.44206e-05, 0.00045446, -0.00798673, 0.00597144, 0.00531167, 0.000357886, 0, 0, 0)
+transform = Transform3D(0.665399, -0.745609, -0.0362251, 0.0093023, 0.0568057, -0.998342, 0.74643, 0.663959, 0.0447343, 0, 0, 0)
+visible = false
+script = ExtResource("2_7aciy")
+inventory = NodePath("../../../../../../CollectableInventory")
+items = Array[String](["Flame Fishing Rod", "Iron Fishing Rod", "Wooden Fishing Rod"])
 
-[node name="WoodRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("2_qtvh4")]
-transform = Transform3D(1, 1.52466e-35, 0, 0, 1, 0, 0, 0, 1, 1.13747e-21, 0.620439, -0.0402677)
+[node name="Wooden Fishing Rod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("2_qtvh4")]
+transform = Transform3D(0.008, 1.16415e-10, 2.44472e-09, 1.16415e-10, 0.008, 1.44355e-08, -1.60071e-09, -1.36206e-08, 0.008, 0, 0, 0)
 visible = false
 
-[node name="WoodenRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/WoodRod"]
+[node name="WoodenRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/Wooden Fishing Rod"]
 script = ExtResource("3_02tlg")
 icon = ExtResource("4_j0eul")
 display_name = "Wooden Fishing Rod"
 
-[node name="IronRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("3_ammmq")]
-transform = Transform3D(1, 1.52466e-35, 0, 0, 1, 0, 0, 0, 1, -5.7658e-22, -0.374863, -0.0272459)
+[node name="Iron Fishing Rod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("3_ammmq")]
+transform = Transform3D(0.008, 1.16415e-10, 2.44472e-09, 1.16415e-10, 0.008, 1.44355e-08, -1.60071e-09, -1.36206e-08, 0.008, 0, 0, 0)
 visible = false
 
-[node name="IronRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/IronRod"]
+[node name="IronRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/Iron Fishing Rod"]
 script = ExtResource("3_02tlg")
 icon = ExtResource("6_hra83")
 display_name = "Iron Fishing Rod"
 
-[node name="FlameRod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("4_e8d1x")]
+[node name="Flame Fishing Rod" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods" instance=ExtResource("4_e8d1x")]
+transform = Transform3D(0.008, 1.16415e-10, 2.44472e-09, 1.16415e-10, 0.008, 1.44355e-08, -1.60071e-09, -1.36206e-08, 0.008, 0, 0, 0)
 visible = false
 
-[node name="FlameRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/FlameRod"]
+[node name="FlameRodCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/FishingRods/Flame Fishing Rod"]
 script = ExtResource("3_02tlg")
 icon = ExtResource("8_mhbl6")
 display_name = "Flame Fishing Rod"
 
-[node name="PickAxes" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D"]
+[node name="Axes" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("inventory")]
 unique_name_in_owner = true
-
-[node name="WoodenPickAxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
-transform = Transform3D(0.0878152, 0.121501, -0.115095, -0.150134, 0.114626, 0.00645667, 0.0739546, 0.0884272, 0.149774, 0, 0, 0)
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, -1.49012e-08, 2.98023e-08, 0, 1, 0, 0, 0)
 visible = false
-mesh = SubResource("ArrayMesh_l60rq")
-skeleton = NodePath("")
-
-[node name="WoodPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/WoodenPickAxe"]
-script = ExtResource("3_02tlg")
-icon = ExtResource("9_3gsbi")
-display_name = "Wooden Pickaxe"
-
-[node name="IronPickAxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
-transform = Transform3D(0.0657331, 0.0448778, -0.0398265, -0.0587626, 0.0600914, -0.0292739, 0.012129, 0.0479166, 0.0740127, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_8g4sn")
-skeleton = NodePath("")
-
-[node name="IronPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/IronPickAxe"]
-script = ExtResource("3_02tlg")
-icon = ExtResource("10_meeeu")
-display_name = "Iron Pickaxe"
-
-[node name="CrystalPickAxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
-transform = Transform3D(0.0526301, 0.04448, -0.0563259, -0.0638412, 0.0609275, -0.0115384, 0.032793, 0.0472267, 0.0679357, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_4ws64")
-skeleton = NodePath("")
-
-[node name="CrystalPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/CrystalPickAxe"]
-script = ExtResource("3_02tlg")
-icon = ExtResource("11_cd6xr")
-display_name = "Crystal Pickaxe"
-
-[node name="Axes" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D"]
-unique_name_in_owner = true
+script = ExtResource("2_7aciy")
+inventory = NodePath("../../../../../../CollectableInventory")
+items = Array[String](["Axe"])
+time_visible = 1.0
 
 [node name="Axe" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/Axes" instance=ExtResource("5_4ss2q")]
 transform = Transform3D(-0.00845589, -0.0123132, -0.020047, -0.0191813, -0.00872667, 0.0134508, -0.0136227, 0.0199306, -0.00649565, 0, 0, 0)
@@ -1081,6 +1063,49 @@ visible = false
 script = ExtResource("3_02tlg")
 icon = ExtResource("13_fae17")
 display_name = "Axe"
+
+[node name="PickAxes" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("inventory")]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2_7aciy")
+inventory = NodePath("../../../../../../CollectableInventory")
+items = Array[String](["Crystal Pickaxe", "Iron Pickaxe", "Wooden Pickaxe"])
+time_visible = 1.0
+
+[node name="Wooden Pickaxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
+transform = Transform3D(0.0878152, 0.121501, -0.115095, -0.150134, 0.114626, 0.00645668, 0.0739546, 0.0884272, 0.149774, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_l60rq")
+skeleton = NodePath("")
+
+[node name="WoodPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/Wooden Pickaxe"]
+script = ExtResource("3_02tlg")
+icon = ExtResource("9_3gsbi")
+display_name = "Wooden Pickaxe"
+
+[node name="Iron Pickaxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
+transform = Transform3D(0.0657331, 0.0448778, -0.0398265, -0.0587626, 0.0600914, -0.0292739, 0.012129, 0.0479166, 0.0740127, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_8g4sn")
+skeleton = NodePath("")
+
+[node name="IronPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/Iron Pickaxe"]
+script = ExtResource("3_02tlg")
+icon = ExtResource("10_meeeu")
+display_name = "Iron Pickaxe"
+
+[node name="Crystal Pickaxe" type="MeshInstance3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes"]
+transform = Transform3D(0.0526301, 0.04448, -0.0563259, -0.0638412, 0.0609275, -0.0115384, 0.032793, 0.0472267, 0.0679357, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_4ws64")
+skeleton = NodePath("")
+
+[node name="CrystalPickaxeCollectable3D" type="Node3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D/PickAxes/Crystal Pickaxe"]
+script = ExtResource("3_02tlg")
+icon = ExtResource("11_cd6xr")
+display_name = "Crystal Pickaxe"
+
+[node name="Timer" type="Timer" parent="Frog/RootNode/CharacterArmature/Skeleton3D/BoneAttachment3D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Frog" node_paths=PackedStringArray("character")]
 autoplay = "CharacterArmature|Idle"
@@ -1124,10 +1149,15 @@ submerge_offset = 0.2
 character = NodePath("..")
 action_unhandled_states = true
 
-[node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("fishing_interaction_3d", "boat_interaction_3d", "character")]
+[node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("inventory", "fishing_interaction_3d", "boat_interaction_3d", "character")]
 script = ExtResource("11_vbbh7")
+inventory = NodePath("../CollectableInventory")
 fishing_interaction_3d = NodePath("../FishingSystem/FishingInteraction3D")
 boat_interaction_3d = NodePath("../Interaction3D")
+character = NodePath("..")
+
+[node name="CharacterMine3D" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("22_3qnyw")
 character = NodePath("..")
 
 [node name="CharacterBoat3D" type="Node" parent="."]
@@ -1211,7 +1241,9 @@ anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 10.0
+offset_top = 0.0
 offset_right = 106.0
+offset_bottom = 380.0
 grow_horizontal = 1
 items = Array[String](["Coins"])
 
@@ -1223,6 +1255,7 @@ offset_right = 40.0
 offset_bottom = 80.3268
 
 [node name="FPS" type="Label" parent="HUD/Debug"]
+layout_mode = 0
 offset_left = 5.0
 offset_right = 45.0
 offset_bottom = 23.0
@@ -1230,6 +1263,7 @@ text = "FPS: 0"
 script = SubResource("GDScript_yxguy")
 
 [node name="CharacterState" type="Label" parent="HUD/Debug" node_paths=PackedStringArray("character")]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 40.0
 offset_right = 134.0
@@ -1239,6 +1273,7 @@ script = SubResource("GDScript_7jdx5")
 character = NodePath("../../..")
 
 [node name="ActionAbility" type="Label" parent="HUD/Debug" node_paths=PackedStringArray("fishing_raycast", "boat_raycast", "character_fish_3d")]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 20.0
 offset_right = 105.0
@@ -1252,7 +1287,6 @@ character_fish_3d = NodePath("../../../CharacterFish3D")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_x6mte")
 volume_db = -15.0
-autoplay = true
 
 [node name="FishNet" parent="." node_paths=PackedStringArray("character", "inventory") instance=ExtResource("22_2u4c7")]
 unique_name_in_owner = true
@@ -1265,6 +1299,8 @@ animation_speed = 1.0
 script = ExtResource("22_qfugc")
 capacity = 0
 max_weight = 0.0
+spawn_location_node = NodePath("")
+collectable_stacks = [["Wooden Pickaxe", 1]]
 
 [node name="CoinsCollectable3D" type="Node3D" parent="."]
 script = ExtResource("3_02tlg")
