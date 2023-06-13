@@ -70,24 +70,28 @@ shape = SubResource("BoxShape3D_ckqnr")
 unique_name_in_owner = true
 visible = false
 trades = Array[Dictionary]([{
+"hide_on_owned": true,
 "name": "Wooden Pickaxe",
 "quantity": 1,
 "trades": {
 "Wood": 15
 }
 }, {
+"hide_on_owned": true,
 "name": "Stone Pickaxe",
 "quantity": 1,
 "trades": {
 "Stone": 30
 }
 }, {
+"hide_on_owned": true,
 "name": "Wooden Fishing Rod",
 "quantity": 1,
 "trades": {
 "Wood": 30
 }
 }, {
+"hide_on_owned": true,
 "name": "Iron Fishing Rod",
 "quantity": 1,
 "trades": {

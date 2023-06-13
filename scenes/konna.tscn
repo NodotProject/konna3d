@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=60 format=3 uid="uid://cmxre06eq6osa"]
 
 [ext_resource type="Script" path="res://addons/nodot/characters/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
 [ext_resource type="PackedScene" uid="uid://dune3bocgi3e1" path="res://models/items/FishingRod_Lvl2.fbx" id="2_qtvh4"]
@@ -32,6 +32,8 @@
 [ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="21_x6mte"]
 [ext_resource type="PackedScene" uid="uid://dvr3d0ppk3omk" path="res://scenes/fish_net.tscn" id="22_2u4c7"]
 [ext_resource type="Script" path="res://addons/nodot/utility/CollectableInventory.gd" id="22_qfugc"]
+[ext_resource type="Texture2D" uid="uid://dt1q0xll26xp" path="res://textures/item_icons/coins.png" id="30_rb24p"]
+[ext_resource type="PackedScene" uid="uid://dapc8bpw2mlk4" path="res://scenes/hud/resources_inventory.tscn" id="31_yw8d4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4681x"]
 resource_name = "Frog_Secondary"
@@ -1187,30 +1189,65 @@ trigger_signal = "fish_mode_disabled"
 
 [node name="HUD" type="Node2D" parent="."]
 
-[node name="FPS" type="Label" parent="HUD"]
+[node name="Inventory" type="Control" parent="HUD"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourcesInventory" parent="HUD/Inventory" instance=ExtResource("31_yw8d4")]
+layout_mode = 1
+offset_left = -96.0
+offset_right = 0.0
+
+[node name="Wallet" parent="HUD/Inventory" instance=ExtResource("31_yw8d4")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 10.0
+offset_right = 106.0
+grow_horizontal = 1
+items = Array[String](["Coins"])
+
+[node name="Debug" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.335
 offset_right = 40.0
+offset_bottom = 80.3268
+
+[node name="FPS" type="Label" parent="HUD/Debug"]
+offset_left = 5.0
+offset_right = 45.0
 offset_bottom = 23.0
+text = "FPS: 0"
 script = SubResource("GDScript_yxguy")
 
-[node name="CharacterState" type="Label" parent="HUD" node_paths=PackedStringArray("character")]
-offset_left = 3.0
-offset_top = 27.0
-offset_right = 132.0
-offset_bottom = 53.0
+[node name="CharacterState" type="Label" parent="HUD/Debug" node_paths=PackedStringArray("character")]
+offset_left = 5.0
+offset_top = 40.0
+offset_right = 134.0
+offset_bottom = 66.0
 text = "Character State: "
 script = SubResource("GDScript_7jdx5")
-character = NodePath("../..")
+character = NodePath("../../..")
 
-[node name="ActionAbility" type="Label" parent="HUD" node_paths=PackedStringArray("fishing_raycast", "boat_raycast", "character_fish_3d")]
-offset_left = 3.0
-offset_top = 49.0
-offset_right = 103.0
-offset_bottom = 75.0
+[node name="ActionAbility" type="Label" parent="HUD/Debug" node_paths=PackedStringArray("fishing_raycast", "boat_raycast", "character_fish_3d")]
+offset_left = 5.0
+offset_top = 20.0
+offset_right = 105.0
+offset_bottom = 46.0041
 text = "Ability: None"
 script = SubResource("GDScript_qg7ai")
-fishing_raycast = NodePath("../../FishingSystem/FishingInteraction3D")
-boat_raycast = NodePath("../../Interaction3D")
-character_fish_3d = NodePath("../../CharacterFish3D")
+fishing_raycast = NodePath("../../../FishingSystem/FishingInteraction3D")
+boat_raycast = NodePath("../../../Interaction3D")
+character_fish_3d = NodePath("../../../CharacterFish3D")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_x6mte")
@@ -1228,3 +1265,8 @@ animation_speed = 1.0
 script = ExtResource("22_qfugc")
 capacity = 0
 max_weight = 0.0
+
+[node name="CoinsCollectable3D" type="Node3D" parent="."]
+script = ExtResource("3_02tlg")
+icon = ExtResource("30_rb24p")
+display_name = "Coins"

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dapc8bpw2mlk4"]
+
+[sub_resource type="GDScript" id="GDScript_630iu"]
+resource_name = "inventory"
+script/source = "extends VBoxContainer
+
+@export var items: Array[String] = [\"Wood\", \"Stone\", \"Iron\", \"Crystal\"]
+
+var required_item_node: PackedScene = preload(\"res://scenes/shops/required_item.tscn\")
+var inventory: CollectableInventory
+
+func _ready():
+	inventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
+	inventory.connect(\"collectable_added\", inventory_updated)
+	CollectableManager.connect(\"collectable_added\", collectable_added)
+	
+	for item in items:
+		var item_node_instance = required_item_node.instantiate()
+		item_node_instance.name = item
+		add_child(item_node_instance)
+
+func collectable_added(collectable):
+	var item_name = collectable.display_name
+	if item_name in items:
+		update_item(collectable.display_name)
+
+func inventory_updated(_index, _collectable_id, _quantity):	
+	for item in items:
+		update_item(item)
+
+func update_item(item_name: String):
+	get_node(item_name).setup(CollectableManager.get_info(item_name).icon, str(inventory.get_collectable_count(item_name)))
+"
+
+[node name="ResourcesInventory" type="VBoxContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 10.0
+offset_right = 2.97998
+offset_bottom = 390.0
+grow_horizontal = 0
+script = SubResource("GDScript_630iu")

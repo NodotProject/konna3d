@@ -1,6 +1,6 @@
 # Konna3D
 
-**A game about a frog, living near the ocean**
+**A game about a frog, living near the ocean** - based on the original game, [Konna](https://tossu.itch.io/konna), by Tossu.
 
 **Created using [Nodot](https://github.com/NodotProject/nodot), a node composition library for Godot 4**
 
