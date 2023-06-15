@@ -1,34 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://jamsn5bulbre"]
+[gd_scene load_steps=24 format=3 uid="uid://jamsn5bulbre"]
 
 [ext_resource type="Script" path="res://addons/nodot/physics/WaterArea3D.gd" id="1_voed6"]
 [ext_resource type="Material" uid="uid://vbqj6uwb6wph" path="res://addons/nodot/shaders/clean_water.tres" id="2_vqhu8"]
 [ext_resource type="PackedScene" uid="uid://cmxre06eq6osa" path="res://scenes/konna.tscn" id="3_txpyj"]
 [ext_resource type="PackedScene" uid="uid://utjwyafv53r7" path="res://scenes/konnas_island.tscn" id="4_e6ur1"]
 [ext_resource type="PackedScene" uid="uid://bluthpodtuf4l" path="res://scenes/fishing_hut.tscn" id="5_hfbxe"]
-[ext_resource type="PackedScene" uid="uid://bgin173gxxq6v" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Center.obj" id="6_brbf5"]
-[ext_resource type="PackedScene" uid="uid://b45fd6gviiefy" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Corner_Outer_Lg.obj" id="7_xj7ri"]
-[ext_resource type="PackedScene" uid="uid://m4hjw27badsm" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Edge.obj" id="8_0thj2"]
-[ext_resource type="PackedScene" uid="uid://dseoav11kj28e" path="res://models/terrain/Modular Terrain Hilly/Grass_Flat.obj" id="9_grv1i"]
-[ext_resource type="PackedScene" uid="uid://b1that8l3yrdo" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Inner_Lg.obj" id="10_dngwm"]
-[ext_resource type="PackedScene" uid="uid://bmgwarepcryhy" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Inner_Sm.obj" id="11_n8ldj"]
-[ext_resource type="PackedScene" uid="uid://d3ykgo52rirx5" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Hill_Sharp.obj" id="12_gytfe"]
-[ext_resource type="PackedScene" uid="uid://liwcypwblf10" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Hill_Gentle.obj" id="13_5ttoj"]
-[ext_resource type="PackedScene" uid="uid://dxce1dffxnrk5" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Corner_Outer_Sm.obj" id="14_v0jpl"]
-[ext_resource type="PackedScene" uid="uid://byssw5s606eh2" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Waterfall.obj" id="15_n23em"]
-[ext_resource type="PackedScene" uid="uid://bmqy32c3x3pr1" path="res://models/terrain/Modular Terrain Cliff/Prop_Cliff_Rock_1.obj" id="16_7njii"]
-[ext_resource type="PackedScene" uid="uid://b2gr5kfychhoo" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Outer_Lg.obj" id="17_bcw2u"]
-[ext_resource type="PackedScene" uid="uid://cg2ffnw2r2g8u" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Outer_Sm.obj" id="18_62d2w"]
-[ext_resource type="PackedScene" uid="uid://c5stb4gv35u73" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Straight.obj" id="19_gfcm3"]
-[ext_resource type="PackedScene" uid="uid://cybij5lhgs4aw" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Straight.obj" id="20_326nu"]
-[ext_resource type="PackedScene" uid="uid://c7yu4ak2kaqrv" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_4.obj" id="21_xfman"]
-[ext_resource type="PackedScene" uid="uid://dd131jxs64tgn" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_1.obj" id="22_6sctm"]
-[ext_resource type="PackedScene" uid="uid://dtaek7e517bi3" path="res://models/terrain/Modular Terrain Hilly/Prop_Bush_3.obj" id="23_lg33s"]
-[ext_resource type="PackedScene" uid="uid://eqe7brodmfoj" path="res://models/terrain/Modular Terrain Hilly/Prop_Bush_2.obj" id="24_ar8n6"]
-[ext_resource type="PackedScene" uid="uid://dgii4q1d342is" path="res://models/terrain/Modular Terrain Hilly/Prop_Branch_2.obj" id="25_kkwo6"]
-[ext_resource type="PackedScene" uid="uid://bb8b523d1rqo8" path="res://models/flora/Willow_1.fbx" id="26_37yf6"]
-[ext_resource type="PackedScene" uid="uid://vb2w3v1c24a1" path="res://models/flora/CommonTree_4.fbx" id="27_upabo"]
-[ext_resource type="PackedScene" uid="uid://4nerdnhqalgq" path="res://models/flora/Willow_5.fbx" id="28_gevcr"]
-[ext_resource type="PackedScene" uid="uid://c221r1pyf23b7" path="res://models/flora/BirchTree_3.fbx" id="29_okkjw"]
+[ext_resource type="PackedScene" uid="uid://daf78e3rsf43n" path="res://scenes/shop_island.tscn" id="6_e8ncf"]
 [ext_resource type="PackedScene" uid="uid://dnuuet4qftl1a" path="res://scenes/konnas_house.tscn" id="30_ub0or"]
 [ext_resource type="PackedScene" uid="uid://njrfetmfsx8a" path="res://scenes/quarry.tscn" id="31_mojko"]
 [ext_resource type="PackedScene" uid="uid://dfxb7elpkvhtq" path="res://models/terrain/Rocks/Rock_7.fbx" id="34_w1f4o"]
@@ -93,167 +70,14 @@ float_force = 3.0
 shape = SubResource("BoxShape3D_riiew")
 
 [node name="Konna" parent="." instance=ExtResource("3_txpyj")]
-transform = Transform3D(-0.0614143, 0, -0.998112, 0, 1, 0, 0.998112, 0, -0.0614143, 2.95395, 1.35978, 14.105)
+transform = Transform3D(-0.0614143, 0, -0.998112, 0, 1, 0, 0.998112, 0, -0.0614143, 5.22577, 1.95999, 44.638)
 
 [node name="KonnasIsland" parent="." instance=ExtResource("4_e6ur1")]
 
 [node name="FishingHut" parent="." instance=ExtResource("5_hfbxe")]
 
-[node name="ShopIsland" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.9097)
-
-[node name="Path_Steps_Centerobj" parent="ShopIsland" instance=ExtResource("6_brbf5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, -86)
-
-[node name="Cliff_Top_Corner_Outer_Lgobj" parent="ShopIsland" instance=ExtResource("7_xj7ri")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 1, 0, -84)
-
-[node name="Path_Steps_Edgeobj" parent="ShopIsland" instance=ExtResource("8_0thj2")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, -86)
-
-[node name="Grass_Flatobj" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -85)
-
-[node name="Grass_Flatobj2" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -84)
-
-[node name="Grass_Flatobj3" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -85)
-
-[node name="Cliff_Top_Corner_Outer_Lgobj2" parent="ShopIsland" instance=ExtResource("7_xj7ri")]
-transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 1, 0, -87)
-
-[node name="Grass_Flatobj4" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -86)
-
-[node name="Grass_Flatobj5" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -86)
-
-[node name="Grass_Flatobj6" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -87)
-
-[node name="Cliff_Mid_Corner_Inner_Lgobj" parent="ShopIsland" instance=ExtResource("10_dngwm")]
-transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 2, 0, -87)
-
-[node name="Cliff_Mid_Corner_Inner_Smobj" parent="ShopIsland" instance=ExtResource("11_n8ldj")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1, 0, -88)
-
-[node name="Grass_Flatobj7" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -87)
-
-[node name="Grass_Flatobj8" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -86)
-
-[node name="Grass_Flatobj9" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -85)
-
-[node name="Grass_Flatobj10" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -84)
-
-[node name="Grass_Flatobj11" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -84)
-
-[node name="Grass_Flatobj12" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -85)
-
-[node name="Grass_Flatobj13" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -86)
-
-[node name="Grass_Flatobj14" parent="ShopIsland" instance=ExtResource("9_grv1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -87)
-
-[node name="Cliff_Top_Hill_Sharpobj" parent="ShopIsland" instance=ExtResource("12_gytfe")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1, 0, -83)
-
-[node name="Cliff_Top_Hill_Gentleobj" parent="ShopIsland" instance=ExtResource("13_5ttoj")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, -84)
-
-[node name="Cliff_Top_Corner_Outer_Smobj" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -3, 0, -83)
-
-[node name="Cliff_Top_Corner_Outer_Smobj2" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, -2, 0, -83)
-
-[node name="Cliff_Top_Corner_Outer_Smobj3" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(-1, 0, 6.11959e-07, 0, 1, 0, -6.11959e-07, 0, -1, -3, 1, -83)
-
-[node name="Cliff_Top_Waterfallobj" parent="ShopIsland" instance=ExtResource("15_n23em")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1, 1, -88)
-
-[node name="Cliff_Mid_Corner_Inner_Lgobj2" parent="ShopIsland" instance=ExtResource("10_dngwm")]
-transform = Transform3D(8.30516e-07, 0, 1, 0, 1, 0, -1, 0, 8.30516e-07, -2, 0, -88)
-
-[node name="Prop_Cliff_Rock_1obj" parent="ShopIsland" instance=ExtResource("16_7njii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50283, 2.38419e-07, -88.3937)
-
-[node name="Cliff_Mid_Corner_Outer_Lgobj" parent="ShopIsland" instance=ExtResource("17_bcw2u")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -89)
-
-[node name="Cliff_Mid_Corner_Outer_Smobj" parent="ShopIsland" instance=ExtResource("18_62d2w")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2, 0, -90)
-
-[node name="Cliff_Top_Straightobj" parent="ShopIsland" instance=ExtResource("19_gfcm3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -89)
-
-[node name="Cliff_Mid_Straightobj" parent="ShopIsland" instance=ExtResource("20_326nu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -89)
-
-[node name="Prop_Rock_4obj" parent="ShopIsland" instance=ExtResource("21_xfman")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06883, 0.395653, -89.0608)
-
-[node name="Prop_Rock_1obj" parent="ShopIsland" instance=ExtResource("22_6sctm")]
-transform = Transform3D(0.964764, 0, 0.263115, 0, 1, 0, -0.263115, 0, 0.964764, -0.293299, 0.799673, -88.0453)
-
-[node name="Prop_Rock_4obj2" parent="ShopIsland" instance=ExtResource("21_xfman")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50677, 0.715271, -87.8623)
-
-[node name="Prop_Bush_3obj" parent="ShopIsland" instance=ExtResource("23_lg33s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.420007, 0.747323, -88.5664)
-
-[node name="Cliff_Top_Corner_Outer_Smobj4" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(8.30516e-07, 0, 1, 0, 1, 0, -1, 0, 8.30516e-07, -3, 1, -88)
-
-[node name="Cliff_Top_Corner_Outer_Smobj5" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(-1, 0, 9.61651e-07, 0, 1, 0, -9.61651e-07, 0, -1, -3, 2, -87)
-
-[node name="Cliff_Top_Corner_Outer_Smobj6" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(1.18021e-06, 0, 1, 0, 1, 0, -1, 0, 1.18021e-06, -3, 2, -88)
-
-[node name="Prop_Bush_2obj" parent="ShopIsland" instance=ExtResource("24_ar8n6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48602, 2.65413, -88.4409)
-
-[node name="Cliff_Top_Corner_Outer_Smobj7" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(-1.26763e-06, 0, -1, 0, 1, 0, 1, 0, -1.26763e-06, 0, 1, -88)
-
-[node name="Cliff_Top_Corner_Outer_Smobj8" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(1, 0, -1.39876e-06, 0, 1, 0, 1.39876e-06, 0, 1, 0, 1, -89)
-
-[node name="Prop_Branch_2obj" parent="ShopIsland" instance=ExtResource("25_kkwo6")]
-transform = Transform3D(0.697528, 0, -0.716558, 0, 1, 0, 0.716558, 0, 0.697528, -3.07035, 2.89801, -88.6678)
-
-[node name="Cliff_Top_Corner_Outer_Smobj9" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(1.5299e-06, 0, 1, 0, 1, 0, -1, 0, 1.5299e-06, -3, 1, -84)
-
-[node name="Cliff_Top_Corner_Outer_Smobj10" parent="ShopIsland" instance=ExtResource("14_v0jpl")]
-transform = Transform3D(1, 0, -1.57361e-06, 0, 1, 0, 1.57361e-06, 0, 1, -2, 1, -84)
-
-[node name="Prop_Bush_2obj2" parent="ShopIsland" instance=ExtResource("24_ar8n6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99547, 1.5821, -83.5098)
-
-[node name="Willow_1fbx" parent="ShopIsland" instance=ExtResource("26_37yf6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72971, 3.2, -87.5536)
-
-[node name="CommonTree_4fbx" parent="ShopIsland" instance=ExtResource("27_upabo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90477, 2.96763, -86.9836)
-
-[node name="Willow_5fbx" parent="ShopIsland" instance=ExtResource("28_gevcr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.117542, 2.2, -88.3795)
-
-[node name="CommonTree_4fbx2" parent="ShopIsland" instance=ExtResource("27_upabo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.04292, 2.3821, -83.5195)
-
-[node name="BirchTree_3fbx" parent="ShopIsland" instance=ExtResource("29_okkjw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52143, 2.715, -88.3343)
+[node name="ShopIsland" parent="." instance=ExtResource("6_e8ncf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -39.7874)
 
 [node name="KonnasHouse" parent="." instance=ExtResource("30_ub0or")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72933, 1.68197, 48.4972)

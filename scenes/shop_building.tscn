@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhbkahuim1cfp"]
+
+[ext_resource type="PackedScene" uid="uid://d1e7e4xgxjbbi" path="res://models/buildings/shop_building.blend" id="1_in8wd"]
+[ext_resource type="PackedScene" uid="uid://dune3bocgi3e1" path="res://models/items/FishingRod_Lvl2.fbx" id="2_isk15"]
+[ext_resource type="PackedScene" uid="uid://dg6pq6kvpg4y4" path="res://models/items/FishingRod_Lvl3.fbx" id="3_q7g0h"]
+[ext_resource type="PackedScene" uid="uid://m2l6fjsa77qg" path="res://models/items/FishingRod_Lvl5.fbx" id="4_6ffug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svatq"]
+albedo_color = Color(0.47451, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fc7ik"]
+material = SubResource("StandardMaterial3D_svatq")
+size = Vector3(0.44, 0.025, 0.025)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xcgm"]
+size = Vector3(2.85779, 0.078518, 1.95938)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wlbbg"]
+size = Vector3(2.85779, 0.844923, 0.236523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lhxg"]
+size = Vector3(1.99211, 0.845, 0.237)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soyqv"]
+size = Vector3(2.92017, 0.127265, 2.13579)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fue8y"]
+size = Vector3(1.56219, 0.397551, 0.237)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47ums"]
+size = Vector3(0.561499, 0.441335, 0.111091)
+
+[node name="ShopBuilding" type="Node3D"]
+
+[node name="shop_building" parent="." instance=ExtResource("1_in8wd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RodRack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770015, 0.488362, 1.31733)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RodRack"]
+mesh = SubResource("BoxMesh_fc7ik")
+skeleton = NodePath("../..")
+
+[node name="FishingRod_Lvl2" parent="RodRack" instance=ExtResource("2_isk15")]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.138709, -0.379288, 0)
+
+[node name="FishingRod_Lvl3" parent="RodRack" instance=ExtResource("3_q7g0h")]
+transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, 0, -0.492265, 0)
+
+[node name="FishingRod_Lvl5" parent="RodRack" instance=ExtResource("4_6ffug")]
+transform = Transform3D(-0.105, 9.17939e-09, 0, 9.17939e-09, 0.105, 9.17939e-09, 8.02488e-16, 9.17939e-09, -0.105, -0.12936, -0.412324, 0)
+
+[node name="Colliders" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219363, -0.0479555, 0.570438)
+shape = SubResource("BoxShape3D_5xcgm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219363, 0.414951, 1.43541)
+shape = SubResource("BoxShape3D_wlbbg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219363, 0.414951, -0.321329)
+shape = SubResource("BoxShape3D_wlbbg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.56377, 0.414951, 0.56047)
+shape = SubResource("BoxShape3D_2lhxg")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219363, 0.882235, 0.561345)
+shape = SubResource("BoxShape3D_soyqv")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.00535, 0.639254, 0.56047)
+shape = SubResource("BoxShape3D_fue8y")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.05376, 0.218519, 1.05813)
+shape = SubResource("BoxShape3D_47ums")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.05385, 0.218519, 0.0576457)
+shape = SubResource("BoxShape3D_47ums")

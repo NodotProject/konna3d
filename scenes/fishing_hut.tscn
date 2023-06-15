@@ -168,9 +168,9 @@ transform = Transform3D(-4.37114e-08, -0.797584, 0.603208, 0, 0.603208, 0.797584
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267847, 0.710625, 0.708353)
 shape = SubResource("BoxShape3D_qs277")
 
-[node name="NodotArea3D" parent="." instance=ExtResource("14_2yltq")]
+[node name="FishingArea3D" parent="." instance=ExtResource("14_2yltq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263923, 0.863755, 0.613823)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NodotArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishingArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0687635, 0)
 shape = SubResource("BoxShape3D_bbukc")

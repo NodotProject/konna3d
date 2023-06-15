@@ -1,0 +1,187 @@
+[gd_scene load_steps=26 format=3 uid="uid://daf78e3rsf43n"]
+
+[ext_resource type="PackedScene" uid="uid://dhbkahuim1cfp" path="res://scenes/shop_building.tscn" id="1_gpu5w"]
+[ext_resource type="PackedScene" uid="uid://bgin173gxxq6v" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Center.obj" id="1_ikqpv"]
+[ext_resource type="PackedScene" uid="uid://b45fd6gviiefy" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Corner_Outer_Lg.obj" id="2_1wyvl"]
+[ext_resource type="PackedScene" uid="uid://m4hjw27badsm" path="res://models/terrain/Modular Terrain Cliff/Path_Steps_Edge.obj" id="3_8ea4s"]
+[ext_resource type="PackedScene" uid="uid://dseoav11kj28e" path="res://models/terrain/Modular Terrain Hilly/Grass_Flat.obj" id="4_n3k2w"]
+[ext_resource type="PackedScene" uid="uid://b1that8l3yrdo" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Inner_Lg.obj" id="5_ejmv8"]
+[ext_resource type="PackedScene" uid="uid://bmgwarepcryhy" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Inner_Sm.obj" id="6_6gr0n"]
+[ext_resource type="PackedScene" uid="uid://d3ykgo52rirx5" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Hill_Sharp.obj" id="7_vtof1"]
+[ext_resource type="PackedScene" uid="uid://liwcypwblf10" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Hill_Gentle.obj" id="8_2uis0"]
+[ext_resource type="PackedScene" uid="uid://dxce1dffxnrk5" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Corner_Outer_Sm.obj" id="9_uwqc3"]
+[ext_resource type="PackedScene" uid="uid://byssw5s606eh2" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Waterfall.obj" id="10_8uwo0"]
+[ext_resource type="PackedScene" uid="uid://bmqy32c3x3pr1" path="res://models/terrain/Modular Terrain Cliff/Prop_Cliff_Rock_1.obj" id="11_xv7ge"]
+[ext_resource type="PackedScene" uid="uid://b2gr5kfychhoo" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Outer_Lg.obj" id="12_jidgg"]
+[ext_resource type="PackedScene" uid="uid://cg2ffnw2r2g8u" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Corner_Outer_Sm.obj" id="13_5n24s"]
+[ext_resource type="PackedScene" uid="uid://c5stb4gv35u73" path="res://models/terrain/Modular Terrain Cliff/Cliff_Top_Straight.obj" id="14_omipc"]
+[ext_resource type="PackedScene" uid="uid://cybij5lhgs4aw" path="res://models/terrain/Modular Terrain Cliff/Cliff_Mid_Straight.obj" id="15_076ny"]
+[ext_resource type="PackedScene" uid="uid://c7yu4ak2kaqrv" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_4.obj" id="16_y0aej"]
+[ext_resource type="PackedScene" uid="uid://dd131jxs64tgn" path="res://models/terrain/Modular Terrain Hilly/Prop_Rock_1.obj" id="17_fm444"]
+[ext_resource type="PackedScene" uid="uid://dtaek7e517bi3" path="res://models/terrain/Modular Terrain Hilly/Prop_Bush_3.obj" id="18_8hkqx"]
+[ext_resource type="PackedScene" uid="uid://eqe7brodmfoj" path="res://models/terrain/Modular Terrain Hilly/Prop_Bush_2.obj" id="19_nrnwo"]
+[ext_resource type="PackedScene" uid="uid://dgii4q1d342is" path="res://models/terrain/Modular Terrain Hilly/Prop_Branch_2.obj" id="20_hyttu"]
+[ext_resource type="PackedScene" uid="uid://bb8b523d1rqo8" path="res://models/flora/Willow_1.fbx" id="21_q80bn"]
+[ext_resource type="PackedScene" uid="uid://vb2w3v1c24a1" path="res://models/flora/CommonTree_4.fbx" id="22_lualn"]
+[ext_resource type="PackedScene" uid="uid://4nerdnhqalgq" path="res://models/flora/Willow_5.fbx" id="23_aa4xe"]
+[ext_resource type="PackedScene" uid="uid://c221r1pyf23b7" path="res://models/flora/BirchTree_3.fbx" id="24_21eu0"]
+
+[node name="ShopIsland" type="Node3D"]
+
+[node name="ShopBuilding" parent="." instance=ExtResource("1_gpu5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.858504, 1.23795, -0.727272)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Path_Steps_Centerobj" parent="Props" instance=ExtResource("1_ikqpv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0.114072)
+
+[node name="Cliff_Top_Corner_Outer_Lgobj" parent="Props" instance=ExtResource("2_1wyvl")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 1, 0, 2.11407)
+
+[node name="Path_Steps_Edgeobj" parent="Props" instance=ExtResource("3_8ea4s")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 0.114072)
+
+[node name="Grass_Flatobj" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1.11407)
+
+[node name="Grass_Flatobj2" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.11407)
+
+[node name="Grass_Flatobj3" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.11407)
+
+[node name="Cliff_Top_Corner_Outer_Lgobj2" parent="Props" instance=ExtResource("2_1wyvl")]
+transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 1, 0, -0.885928)
+
+[node name="Grass_Flatobj4" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.114072)
+
+[node name="Grass_Flatobj5" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.114072)
+
+[node name="Grass_Flatobj6" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.885928)
+
+[node name="Cliff_Mid_Corner_Inner_Lgobj" parent="Props" instance=ExtResource("5_ejmv8")]
+transform = Transform3D(1, 0, -3.49691e-07, 0, 1, 0, 3.49691e-07, 0, 1, 2, 0, -0.885928)
+
+[node name="Cliff_Mid_Corner_Inner_Smobj" parent="Props" instance=ExtResource("6_6gr0n")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1, 0, -1.88593)
+
+[node name="Grass_Flatobj7" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -0.885928)
+
+[node name="Grass_Flatobj8" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0.114072)
+
+[node name="Grass_Flatobj9" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1.11407)
+
+[node name="Grass_Flatobj10" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 2.11407)
+
+[node name="Grass_Flatobj11" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2.11407)
+
+[node name="Grass_Flatobj12" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 1.11407)
+
+[node name="Grass_Flatobj13" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0.114072)
+
+[node name="Grass_Flatobj14" parent="Props" instance=ExtResource("4_n3k2w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -0.885928)
+
+[node name="Cliff_Top_Hill_Sharpobj" parent="Props" instance=ExtResource("7_vtof1")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1, 0, 3.11407)
+
+[node name="Cliff_Top_Hill_Gentleobj" parent="Props" instance=ExtResource("8_2uis0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 2.11407)
+
+[node name="Cliff_Top_Corner_Outer_Smobj" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -3, 0, 3.11407)
+
+[node name="Cliff_Top_Corner_Outer_Smobj2" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 1, 0, -3.93403e-07, -2, 0, 3.11407)
+
+[node name="Cliff_Top_Corner_Outer_Smobj3" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(-1, 0, 6.11959e-07, 0, 1, 0, -6.11959e-07, 0, -1, -3, 1, 3.11407)
+
+[node name="Cliff_Top_Waterfallobj" parent="Props" instance=ExtResource("10_8uwo0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -1, 1, -1.88593)
+
+[node name="Cliff_Mid_Corner_Inner_Lgobj2" parent="Props" instance=ExtResource("5_ejmv8")]
+transform = Transform3D(8.30516e-07, 0, 1, 0, 1, 0, -1, 0, 8.30516e-07, -2, 0, -1.88593)
+
+[node name="Prop_Cliff_Rock_1obj" parent="Props" instance=ExtResource("11_xv7ge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50283, 2.38419e-07, -2.27963)
+
+[node name="Cliff_Mid_Corner_Outer_Lgobj" parent="Props" instance=ExtResource("12_jidgg")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, -2.88593)
+
+[node name="Cliff_Mid_Corner_Outer_Smobj" parent="Props" instance=ExtResource("13_5n24s")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2, 0, -3.88593)
+
+[node name="Cliff_Top_Straightobj" parent="Props" instance=ExtResource("14_omipc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2.88593)
+
+[node name="Cliff_Mid_Straightobj" parent="Props" instance=ExtResource("15_076ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2.88593)
+
+[node name="Prop_Rock_4obj" parent="Props" instance=ExtResource("16_y0aej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06883, 0.395653, -2.94673)
+
+[node name="Prop_Rock_1obj" parent="Props" instance=ExtResource("17_fm444")]
+transform = Transform3D(0.964764, 0, 0.263115, 0, 1, 0, -0.263115, 0, 0.964764, -0.293299, 0.799673, -1.93123)
+
+[node name="Prop_Rock_4obj2" parent="Props" instance=ExtResource("16_y0aej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50677, 0.715271, -1.74822)
+
+[node name="Prop_Bush_3obj" parent="Props" instance=ExtResource("18_8hkqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.420007, 0.747323, -2.45233)
+
+[node name="Cliff_Top_Corner_Outer_Smobj4" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(8.30516e-07, 0, 1, 0, 1, 0, -1, 0, 8.30516e-07, -3, 1, -1.88593)
+
+[node name="Cliff_Top_Corner_Outer_Smobj5" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(-1, 0, 9.61651e-07, 0, 1, 0, -9.61651e-07, 0, -1, -3, 2, -0.885928)
+
+[node name="Cliff_Top_Corner_Outer_Smobj6" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(1.18021e-06, 0, 1, 0, 1, 0, -1, 0, 1.18021e-06, -3, 2, -1.88593)
+
+[node name="Prop_Bush_2obj" parent="Props" instance=ExtResource("19_nrnwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48602, 2.65413, -2.32683)
+
+[node name="Cliff_Top_Corner_Outer_Smobj7" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(-1.26763e-06, 0, -1, 0, 1, 0, 1, 0, -1.26763e-06, 0, 1, -1.88593)
+
+[node name="Cliff_Top_Corner_Outer_Smobj8" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(1, 0, -1.39876e-06, 0, 1, 0, 1.39876e-06, 0, 1, 0, 1, -2.88593)
+
+[node name="Prop_Branch_2obj" parent="Props" instance=ExtResource("20_hyttu")]
+transform = Transform3D(0.697528, 0, -0.716558, 0, 1, 0, 0.716558, 0, 0.697528, -3.07035, 2.89801, -2.55373)
+
+[node name="Cliff_Top_Corner_Outer_Smobj9" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(1.5299e-06, 0, 1, 0, 1, 0, -1, 0, 1.5299e-06, -3, 1, 2.11407)
+
+[node name="Cliff_Top_Corner_Outer_Smobj10" parent="Props" instance=ExtResource("9_uwqc3")]
+transform = Transform3D(1, 0, -1.57361e-06, 0, 1, 0, 1.57361e-06, 0, 1, -2, 1, 2.11407)
+
+[node name="Prop_Bush_2obj2" parent="Props" instance=ExtResource("19_nrnwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99547, 1.5821, 2.60427)
+
+[node name="Willow_1fbx" parent="Props" instance=ExtResource("21_q80bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72971, 3.2, -1.43952)
+
+[node name="CommonTree_4fbx" parent="Props" instance=ExtResource("22_lualn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90477, 2.96763, -0.869524)
+
+[node name="Willow_5fbx" parent="Props" instance=ExtResource("23_aa4xe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.117542, 2.2, -2.26543)
+
+[node name="CommonTree_4fbx2" parent="Props" instance=ExtResource("22_lualn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.04292, 2.3821, 2.59457)
+
+[node name="BirchTree_3fbx" parent="Props" instance=ExtResource("24_21eu0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52143, 2.715, -2.22022)

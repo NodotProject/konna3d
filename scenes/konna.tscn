@@ -1300,7 +1300,6 @@ script = ExtResource("22_qfugc")
 capacity = 0
 max_weight = 0.0
 spawn_location_node = NodePath("")
-collectable_stacks = [["Wooden Pickaxe", 1]]
 
 [node name="CoinsCollectable3D" type="Node3D" parent="."]
 script = ExtResource("3_02tlg")
