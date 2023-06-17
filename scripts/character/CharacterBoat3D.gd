@@ -1,10 +1,7 @@
 ## Allows character control and logic management while boating
 class_name CharacterBoat3D extends CharacterExtensionBase3D
 
-func _ready():
-	if !enabled:
-		return
-	
+func ready():
 	register_handled_states(["boat"])
 	
 	sm.add_valid_transition("boat", ["idle"])

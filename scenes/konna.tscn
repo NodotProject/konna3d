@@ -1147,7 +1147,6 @@ script = ExtResource("10_r4kd7")
 submerge_speed = 2.0
 submerge_offset = 0.2
 character = NodePath("..")
-action_unhandled_states = true
 
 [node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("inventory", "fishing_interaction_3d", "boat_interaction_3d", "character")]
 script = ExtResource("11_vbbh7")

@@ -72,7 +72,7 @@ func add_action_to_input_map(action_name, default_key):
 	InputMap.action_add_event(action_name, input_key)
 
 
-func _ready():
+func ready():
 	if "camera" in character:
 		camera = character.camera
 		
@@ -96,7 +96,7 @@ func _ready():
 		third_person_camera_container = third_person_camera.get_parent()
 
 
-func action(delta: float) -> void:
+func physics(delta: float) -> void:
 	if !is_submerged: return
 	check_head_submerged()
 	
@@ -130,7 +130,7 @@ func swim(delta: float) -> void:
 	character.velocity.y -= submerged_gravity * delta
 	var jump_pressed: bool = Input.is_action_pressed(ascend_action)
 	if jump_pressed:
-		character.velocity.y = lerp(character.velocity.y, submerge_speed, 1.0 * delta)
+		character.velocity.y = lerp(character.velocity.y, submerge_speed, delta)
 	
 	if direction == Vector3.ZERO:
 		character.velocity.x = move_toward(character.velocity.x, 0, 0.1)

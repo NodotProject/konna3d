@@ -23,7 +23,7 @@ var fish_on := false
 var fish_mode := false
 var rng = RandomNumberGenerator.new()
 
-func _ready():
+func ready():
 	register_handled_states(["fish", "idle", "walk", "sprint"])
 	
 	fish_state_id = sm.get_id_from_name("fish")
@@ -48,7 +48,7 @@ func state_updated(old_state: int, new_state: int):
 		disable_fish_mode()
 		emit_signal("fish_mode_disabled")
 		
-func action(delta: float):
+func physics(delta: float):
 	if current_bite_time > 0.0:
 		current_bite_time -= delta
 	elif !fish_on and fish_mode:
