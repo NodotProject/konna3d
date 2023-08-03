@@ -1217,6 +1217,7 @@ trigger_node = NodePath("../../CharacterFish3D")
 trigger_signal = "fish_mode_disabled"
 
 [node name="HUD" type="Node2D" parent="."]
+visible = false
 
 [node name="Inventory" type="Control" parent="HUD"]
 custom_minimum_size = Vector2(1152, 648)

@@ -12,45 +12,34 @@ class_name FirstPersonCharacter extends NodotCharacter3D
 ## The amount of fall damage to inflict when hitting the ground at velocity (0 for disabled)
 @export var fall_damage_multiplier: float = 0.5
 
-
-@export_category("Input Actions")
-## The input action name for pausing the game
-@export var escape_action: String = "escape"
-
-## Triggered when the game is paused
-signal paused
-## Triggered when the game is unpaused
-signal unpaused
 ## Triggered when the character takes fall damage
 signal fall_damage(amount: float)
 
 var head: Node3D
-var camera: Camera3D = Camera3D.new()
 var health: Health
 var submerge_handler: CharacterSwim3D
 var inventory: CollectableInventory
 var was_on_floor: bool = false
 var previous_velocity: float = 0.0
 
-
 func _enter_tree() -> void:
-	if is_current_player:
-		PlayerManager.node = self
-		set_current_camera(camera)
-		
 	if !sm:
 		sm = StateMachine.new()
 		add_child(sm)
-		
-	head = Node3D.new()
-	head.name = "Head"
-	camera.name = "Camera3D"
-	head.add_child(camera)
-	add_child(head)
+	
+	if !has_node("Head"):
+		head = Node3D.new()
+		head.name = "Head"
+		camera.name = "Camera3D"
+		head.add_child(camera)
+		add_child(head)
 
 	submerge_handler = Nodot.get_first_child_of_type(self, CharacterSwim3D)
 	inventory = Nodot.get_first_child_of_type(self, CollectableInventory)
 	health = Nodot.get_first_child_of_type(self, Health)
+	
+	if NetworkManager.enabled:
+		set_multiplayer_authority(int(str(name)), true)
 
 
 func _ready() -> void:
@@ -67,8 +56,16 @@ func _ready() -> void:
 		head_position_node.queue_free()
 	else:
 		head.position = head_position
+	
+	if is_authority() and is_current_player:
+		set_current_player()
+		
+	if has_method("_after_ready"):
+		call("_after_ready")
 
 func _physics_process(delta: float) -> void:
+	if not is_authority(): return
+	
 	var collision = get_last_slide_collision()
 	if collision:
 		for i in collision.get_collision_count():
@@ -90,30 +87,17 @@ func _physics_process(delta: float) -> void:
 		else:
 			previous_velocity = velocity.y
 	was_on_floor = on_floor
-	
-
-func _input(event: InputEvent) -> void:
-	if !event.is_action_pressed(escape_action): return
-	if input_enabled:
-		pause()
-	else:
-		unpause()
-
-
-## Pause the game
-func pause():
-	input_enabled = false
-	InputManager.disable()
-	emit_signal("paused")
-
-
-## Unpause the game
-func unpause():
-	input_enabled = true
-	InputManager.enable()
-	emit_signal("unpaused")
 
 ## Add collectables to collectable inventory
 func collect(node: Node3D) -> bool:
+	if not is_host(): return false
 	if !inventory: return false
 	return inventory.add(node.display_name, node.quantity)
+
+## Set the character as the current player
+func set_current_player():
+	if not is_authority(): return
+	
+	is_current_player = true
+	PlayerManager.node = self
+	set_current_camera(camera)

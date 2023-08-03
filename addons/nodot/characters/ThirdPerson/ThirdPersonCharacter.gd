@@ -4,11 +4,6 @@ class_name ThirdPersonCharacter extends NodotCharacter3D
 ## Allow player input
 @export var input_enabled: bool = true
 
-@export_category("Input Actions")
-## The input action name for pausing the game
-@export var escape_action: String = "escape"
-
-var camera: ThirdPersonCamera
 var submerge_handler: CharacterSwim3D
 
 func _enter_tree() -> void:
@@ -31,16 +26,6 @@ func _enter_tree() -> void:
 		add_child(sm)
 		
 	submerge_handler = Nodot.get_first_child_of_type(self, CharacterSwim3D)
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(escape_action):
-		if input_enabled:
-			disable_input()
-			input_enabled = false
-		else:
-			enable_input()
-			input_enabled = true
 
 
 ## Disable player input
