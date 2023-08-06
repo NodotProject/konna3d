@@ -10,9 +10,6 @@ script/source = "extends Button
 @export var menu_container: MenuContainer
 ## The initial scene
 @export_file(\"*.tscn\") var first_scene_path: String
-
-func _ready():
-	first_scene_path = menu_container.first_scene_path
 	
 func _on_pressed():
 	var map: PackedScene = load(first_scene_path)
@@ -49,6 +46,7 @@ func _on_pressed():
 "
 
 [node name="MainMenuContainer" type="Node2D"]
+process_mode = 3
 visible = false
 script = ExtResource("1_17ji3")
 
@@ -79,6 +77,7 @@ layout_mode = 2
 text = "Start Game"
 script = SubResource("GDScript_ymbmu")
 menu_container = NodePath("../../../..")
+first_scene_path = "res://scenes/maps/map.tscn"
 
 [node name="MultiplayerButton" type="Button" parent="Control/CenterContainer/VBoxContainer" node_paths=PackedStringArray("menu_container")]
 layout_mode = 2
