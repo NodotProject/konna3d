@@ -76,7 +76,7 @@ Settings/Show_Tooltips=true
 
 config/name="Konna3D"
 run/main_scene="res://world.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -89,6 +89,8 @@ InputManager="*res://addons/nodot/autoload/InputManager.gd"
 VideoManager="*res://addons/nodot/autoload/VideoManager.gd"
 AudioManager="*res://addons/nodot/autoload/AudioManager.gd"
 NetworkManager="*res://addons/nodot/autoload/NetworkManager.gd"
+GlobalStorage="*res://addons/nodot/autoload/GlobalStorage.gd"
+DebugManager="*res://addons/nodot/autoload/DebugManager.gd"
 
 [display]
 
