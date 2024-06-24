@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=63 format=3 uid="uid://cmxre06eq6osa"]
 
 [ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
 [ext_resource type="Script" path="res://scripts/character/CharacterItemAttachment3D.gd" id="2_7aciy"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnetxo0mb8lc" path="res://scenes/bait.tscn" id="14_mfoc4"]
 [ext_resource type="Script" path="res://addons/nodot/sound/SFXPlayer3D.gd" id="15_6sfyi"]
 [ext_resource type="AudioStream" uid="uid://dlqju641467by" path="res://sfx/fishing/plop.wav" id="16_6qtpm"]
+[ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonKeyboardInput.gd" id="16_gwv25"]
 [ext_resource type="AudioStream" uid="uid://cs4fl7iubk0le" path="res://sfx/fishing/bite.wav" id="17_8f4h7"]
 [ext_resource type="AudioStream" uid="uid://jxvn7g6rupjs" path="res://sfx/fishing/letgo.mp3" id="18_ijjt3"]
 [ext_resource type="AudioStream" uid="uid://cmms12is87w80" path="res://sfx/fishing/catch.wav" id="19_cua3l"]
@@ -638,7 +639,7 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, -8.47031e-22, 2.38419e-07, -8.47031e-22, 1, 7.10541e-15, -2.38419e-07, -7.10541e-15, 1, 2.15298e-05, 0.0083747, 0.00167574)
 bones/3/enabled = true
 bones/3/position = Vector3(2.15298e-05, 0.0083747, 0.00167574)
-bones/3/rotation = Quaternion(-3.5527e-15, 1.19209e-07, -3.39304e-29, 1)
+bones/3/rotation = Quaternion(-3.5527e-15, 1.19209e-07, -3.78708e-29, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Hips"
 bones/4/parent = 3
@@ -799,7 +800,7 @@ bones/26/parent = 25
 bones/26/rest = Transform3D(0.909936, -0.414749, -2.99141e-06, 0.414631, 0.909678, 0.0237959, -0.00986661, -0.021654, 0.999717, 3.53903e-10, 0.00279948, -8.19564e-10)
 bones/26/enabled = true
 bones/26/position = Vector3(3.53903e-10, 0.00279948, -8.19564e-10)
-bones/26/rotation = Quaternion(-0.0116281, 0.00252355, 0.212192, 0.977155)
+bones/26/rotation = Quaternion(-0.0116281, 0.00252355, 0.212192, 0.977156)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "Thumb2.L_end"
 bones/27/parent = 26
@@ -925,7 +926,7 @@ bones/44/parent = 43
 bones/44/rest = Transform3D(0.909936, 0.414749, 3.06126e-06, -0.414631, 0.909678, 0.0237961, 0.0098666, -0.0216542, 0.999717, -1.86265e-10, 0.00279948, -2.23517e-10)
 bones/44/enabled = true
 bones/44/position = Vector3(-1.86265e-10, 0.00279948, -2.23517e-10)
-bones/44/rotation = Quaternion(-0.0116282, -0.00252353, -0.212192, 0.977155)
+bones/44/rotation = Quaternion(-0.0116282, -0.00252353, -0.212192, 0.977156)
 bones/44/scale = Vector3(1, 1, 1)
 bones/45/name = "Thumb2.R_end"
 bones/45/parent = 44
@@ -981,7 +982,7 @@ bones/52/parent = 0
 bones/52/rest = Transform3D(1, -8.47031e-22, 2.38419e-07, -8.47031e-22, 1, 7.10541e-15, -2.38419e-07, -7.10541e-15, 1, 0.00348488, 0.00602349, 0.0185759)
 bones/52/enabled = true
 bones/52/position = Vector3(0.00348488, 0.00602349, 0.0185759)
-bones/52/rotation = Quaternion(-3.5527e-15, 1.19209e-07, -2.20889e-29, 1)
+bones/52/rotation = Quaternion(-3.5527e-15, 1.19209e-07, -1.26273e-29, 1)
 bones/52/scale = Vector3(1, 1, 1)
 bones/53/name = "PoleTarget.L_end"
 bones/53/parent = 52
@@ -1025,7 +1026,7 @@ mesh = SubResource("ArrayMesh_1nfrp")
 skin = SubResource("Skin_gp4rt")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D"]
-transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156435, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
+transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156434, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
 bone_name = "Middle1.R"
 bone_idx = 35
 
@@ -1137,15 +1138,18 @@ character = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17173, 0)
 shape = SubResource("BoxShape3D_r6te2")
 
+[node name="ThirdPersonKeyboardInput" type="Node" parent="."]
+script = ExtResource("16_gwv25")
+
+[node name="ThirdPersonMouseInput" type="Node" parent="."]
+script = ExtResource("7_mrrir")
+
 [node name="ThirdPersonCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.214)
 script = ExtResource("6_pbol2")
 camera_offset = Vector3(0, 1.5, 1.5)
 raycast_offset = Vector3(0, 0.2, 0)
 time_to_reset = 0.0
-
-[node name="ThirdPersonMouseInput" type="Node" parent="."]
-script = ExtResource("7_mrrir")
 
 [node name="CharacterJump3D" type="Node" parent="."]
 script = ExtResource("8_rb6k0")
@@ -1306,7 +1310,6 @@ character_fish_3d = NodePath("../../../CharacterFish3D")
 stream = ExtResource("21_x6mte")
 volume_db = -15.0
 autoplay = true
-stream_paused = true
 
 [node name="FishNet" parent="." node_paths=PackedStringArray("character", "inventory") instance=ExtResource("22_2u4c7")]
 unique_name_in_owner = true
