@@ -1026,7 +1026,7 @@ mesh = SubResource("ArrayMesh_1nfrp")
 skin = SubResource("Skin_gp4rt")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D"]
-transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156434, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
+transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156435, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
 bone_name = "Middle1.R"
 bone_idx = 35
 
