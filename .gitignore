@@ -3,3 +3,4 @@
 addons/assetplacer
 build/*
 *.tmp
+addons/godot-jolt/windows/~godot-jolt_windows-x64_editor.dll
