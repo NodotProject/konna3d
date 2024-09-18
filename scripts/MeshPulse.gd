@@ -16,9 +16,9 @@ func start_pulse():
 	if !pulsing:
 		pulse_material.set_shader_parameter("strength", 0.05)
 		pulsing = true
-		emit_signal("pulse_changed", true)
+		pulse_changed.emit(true)
 
 func stop_pulse():
 	pulse_material.set_shader_parameter("strength", 0.00)
 	pulsing = false
-	emit_signal("pulse_changed", false)
+	pulse_changed.emit(false)

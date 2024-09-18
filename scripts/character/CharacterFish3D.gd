@@ -43,10 +43,10 @@ func ready():
 func state_updated(old_state: int, new_state: int):
 	if new_state == fish_state_id:
 		enable_fish_mode()
-		emit_signal("fish_mode_enabled")
+		fish_mode_enabled.emit()
 	elif old_state == fish_state_id:
 		disable_fish_mode()
-		emit_signal("fish_mode_disabled")
+		fish_mode_disabled.emit()
 		
 func physics(delta: float):
 	if current_bite_time > 0.0:
@@ -55,7 +55,7 @@ func physics(delta: float):
 		fish_on = true
 		current_bitten_time = bitten_time
 		%bait.start()
-		emit_signal("bitten")
+		bitten.emit()
 		
 	if current_bitten_time > 0.0:
 		current_bitten_time -= delta
@@ -65,12 +65,12 @@ func physics(delta: float):
 			%bait.stop()
 			sm.set_state(idle_state_id)
 			%FishNet.action(fishing_area.allowed_fish_ids)
-			emit_signal("caught")
+			caught.emit()
 	elif fish_on:
 		fish_on = false
 		%bait.stop()
 		sm.set_state(idle_state_id)
-		emit_signal("let_go")
+		let_go.emit()
 	
 func can_fish(body: Node3D):
 	var near_boat = boat_interaction_3d.is_colliding() and boat_interaction_3d.get_collider().name == "SpeedBoat"

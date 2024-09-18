@@ -9,4 +9,3 @@ func ready():
 	sm.add_valid_transition("walk", ["boat"])
 	sm.add_valid_transition("sprint", ["boat"])
 	sm.add_valid_transition("jump", ["boat"])
-

@@ -11,7 +11,7 @@ func _ready():
 	timer.connect("timeout", hide)
 	inventory.connect("collectable_added", inventory_updated)
 
-func inventory_updated(index, collectable_id, quantity):
+func inventory_updated(_index, _collectable_id, _quantity):
 	hide_all()
 	for item in items:
 		if inventory.get_collectable_count(item) > 0:

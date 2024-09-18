@@ -22,7 +22,6 @@ script/source = "extends VBoxContainer
 
 signal shop_opened
 signal shop_closed
-signal trade_made
 
 var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
 var trade_item_node = preload(\"res://scenes/shops/trade_item.tscn\")
@@ -59,13 +58,13 @@ func open():
 	update_shop()
 		
 	visible = true
-	emit_signal(\"shop_opened\")
+	shop_opened.emit()
 
 func close():
 	currently_selected = 1
 	update_highlighter()
 	visible = false
-	emit_signal(\"shop_closed\")
+	shop_closed.emit()
 	player_state.set_state(idle_state_id)
 	await get_tree().physics_frame
 	interaction3d.enabled = true

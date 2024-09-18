@@ -20,11 +20,11 @@ func interact():
 	var health_limit = get_block_health_limit()
 	if health.max_health <= health_limit:
 		add_health(-health_limit)
-		emit_signal("mine_hit")
+		mine_hit.emit()
 	else:
-		emit_signal("mine_miss")
+		mine_miss.emit()
 	
-	emit_signal("mined")
+	mined.emit()
 	pickaxes_node.activate()
 			
 
