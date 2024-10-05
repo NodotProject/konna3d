@@ -1150,6 +1150,7 @@ script = ExtResource("6_pbol2")
 camera_offset = Vector3(0, 1.5, 1.5)
 raycast_offset = Vector3(0, 0.2, 0)
 time_to_reset = 0.0
+lock_camera_rotation = true
 
 [node name="CharacterJump3D" type="Node" parent="."]
 script = ExtResource("8_rb6k0")
