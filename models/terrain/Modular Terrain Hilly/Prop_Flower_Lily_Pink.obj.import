@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ct0vgjvb2rs1o"
-path="res://.godot/imported/Prop_Flower_Lily_Pink.obj-a433bdb78edb04d30df649d3dba84d7e.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Lily_Pink.obj"
-dest_files=["res://.godot/imported/Prop_Flower_Lily_Pink.obj-a433bdb78edb04d30df649d3dba84d7e.scn"]
 
 [params]
 
@@ -17,6 +16,7 @@ nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,7 +28,6 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
-gltf/embedded_image_handling=1
