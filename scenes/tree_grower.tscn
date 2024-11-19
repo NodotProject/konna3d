@@ -66,7 +66,7 @@ func tree_grown():
 	planted = false
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekc8j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6a55"]
 render_priority = 0
 shader = ExtResource("3_uv683")
 shader_parameter/pulse_speed = 5.0
@@ -81,11 +81,11 @@ script = ExtResource("1_374tg")
 
 [node name="Model" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_ccdbw")]
 script = SubResource("GDScript_hydcb")
-mesh = NodePath("Cube_body/Cube")
+mesh = NodePath("Cube")
 grow_time = 2.0
 
-[node name="Cube" parent="Model/Cube_body" index="0"]
-material_overlay = SubResource("ShaderMaterial_ekc8j")
+[node name="Cube" parent="Model" index="0"]
+material_overlay = SubResource("ShaderMaterial_k6a55")
 
 [node name="Tree" parent="." instance=ExtResource("4_cjeqg")]
 unique_name_in_owner = true

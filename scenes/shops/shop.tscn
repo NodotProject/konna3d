@@ -26,11 +26,8 @@ signal shop_closed
 var required_item_node = preload(\"res://scenes/shops/required_item.tscn\")
 var trade_item_node = preload(\"res://scenes/shops/trade_item.tscn\")
 
-var player_state: StateMachine
 var interaction3d: Interaction3D
 var inventory: CollectableInventory
-var in_menu_state_id: int
-var idle_state_id: int
 var currently_selected := 1
 var available_trades = []
 
@@ -49,11 +46,10 @@ func _input(event: InputEvent):
 			perform_trade()
 
 func open():
-	if !player_state:
-		setup_player()
+	setup_player()
 	
 	interaction3d.enabled = false
-	player_state.set_state(in_menu_state_id)
+	PlayerManager.node.input_enabled = false
 	
 	update_shop()
 		
@@ -65,7 +61,7 @@ func close():
 	update_highlighter()
 	visible = false
 	shop_closed.emit()
-	player_state.set_state(idle_state_id)
+	PlayerManager.node.input_enabled = true
 	await get_tree().physics_frame
 	interaction3d.enabled = true
 	
@@ -105,14 +101,8 @@ func update_shop():
 		required_item_container.add_child(new_required_item_node)
 
 func setup_player():
-	player_state = PlayerManager.node.sm
 	interaction3d = PlayerManager.node.get_node(\"Interaction3D\")
 	inventory = Nodot.get_first_child_of_type(PlayerManager.node, CollectableInventory)
-	in_menu_state_id = player_state.register_state(\"in_menu\")
-	idle_state_id = player_state.get_id_from_name(\"idle\")
-	player_state.add_valid_transition(\"in_menu\", \"idle\")
-	player_state.add_valid_transition(\"idle\", \"in_menu\")
-	player_state.add_valid_transition(\"walk\", \"in_menu\")
 
 func select_previous_menu_item():
 	if currently_selected > 0:

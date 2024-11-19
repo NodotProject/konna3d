@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dbp3sog4eh3rx"
-valid=false
+path="res://.godot/imported/Prop_Starfish_2.obj-a102d3bdeb2d5c46e289f2519730f36a.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Beach/Prop_Starfish_2.obj"
+dest_files=["res://.godot/imported/Prop_Starfish_2.obj-a102d3bdeb2d5c46e289f2519730f36a.scn"]
 
 [params]
 

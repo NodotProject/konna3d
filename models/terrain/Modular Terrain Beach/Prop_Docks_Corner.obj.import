@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d4d725mr3577q"
-valid=false
+path="res://.godot/imported/Prop_Docks_Corner.obj-48c69ec6269dc8165722aacbbfbf2056.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Beach/Prop_Docks_Corner.obj"
+dest_files=["res://.godot/imported/Prop_Docks_Corner.obj-48c69ec6269dc8165722aacbbfbf2056.scn"]
 
 [params]
 

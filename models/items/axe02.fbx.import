@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ci3n7bfixs6mk"
-valid=false
+path="res://.godot/imported/axe02.fbx-d5d04a7102cbd8054068c82cac0d8628.scn"
 
 [deps]
 
 source_file="res://models/items/axe02.fbx"
+dest_files=["res://.godot/imported/axe02.fbx-d5d04a7102cbd8054068c82cac0d8628.scn"]
 
 [params]
 

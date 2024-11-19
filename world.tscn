@@ -60,9 +60,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nw2vd")
 
-[node name="Konna" parent="." instance=ExtResource("3_txpyj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34023, 1.51538, 45.0377)
-
 [node name="WaterArea3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.82964, 5.90968)
 script = ExtResource("1_voed6")
@@ -71,6 +68,9 @@ float_force = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterArea3D"]
 shape = SubResource("BoxShape3D_riiew")
+
+[node name="Konna" parent="." instance=ExtResource("3_txpyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43108, 1.67035, 44.6281)
 
 [node name="KonnasIsland" parent="." instance=ExtResource("4_e6ur1")]
 

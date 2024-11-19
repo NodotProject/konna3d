@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d1e7e4xgxjbbi"
-valid=false
+path="res://.godot/imported/shop_building.blend-fc8134cdbf6d838edc99021eba3e7720.scn"
 
 [deps]
 
 source_file="res://models/buildings/shop_building.blend"
+dest_files=["res://.godot/imported/shop_building.blend-fc8134cdbf6d838edc99021eba3e7720.scn"]
 
 [params]
 

@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bjm0tl7il1amm"
-valid=false
+path="res://.godot/imported/Prop_Mushroom_1.obj-3d3580d26dda3c72b13e4c323384a3d7.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Mushroom_1.obj"
+dest_files=["res://.godot/imported/Prop_Mushroom_1.obj-3d3580d26dda3c72b13e4c323384a3d7.scn"]
 
 [params]
 

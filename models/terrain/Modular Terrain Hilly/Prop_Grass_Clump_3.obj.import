@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bs4njoetrrw2i"
-valid=false
+path="res://.godot/imported/Prop_Grass_Clump_3.obj-f1c1068584fa0fd55950c4c123b5da5d.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Grass_Clump_3.obj"
+dest_files=["res://.godot/imported/Prop_Grass_Clump_3.obj-f1c1068584fa0fd55950c4c123b5da5d.scn"]
 
 [params]
 

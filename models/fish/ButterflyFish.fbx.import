@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wpgwuj2nb1ic"
-valid=false
+path="res://.godot/imported/ButterflyFish.fbx-eabfa31f9cf3d903614d9a33ab0f1803.scn"
 
 [deps]
 
 source_file="res://models/fish/ButterflyFish.fbx"
+dest_files=["res://.godot/imported/ButterflyFish.fbx-eabfa31f9cf3d903614d9a33ab0f1803.scn"]
 
 [params]
 

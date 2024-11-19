@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b28fmco4c6i8"
-valid=false
+path="res://.godot/imported/Boat.fbx-5eb0c9397e238a02dfedc18db3e87a56.scn"
 
 [deps]
 
 source_file="res://models/character/Boat.fbx"
+dest_files=["res://.godot/imported/Boat.fbx-5eb0c9397e238a02dfedc18db3e87a56.scn"]
 
 [params]
 

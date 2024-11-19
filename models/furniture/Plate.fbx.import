@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhmy7uw3gxfa1"
-valid=false
+path="res://.godot/imported/Plate.fbx-313cc1eac377bf251b3de989ff6cc26c.scn"
 
 [deps]
 
 source_file="res://models/furniture/Plate.fbx"
+dest_files=["res://.godot/imported/Plate.fbx-313cc1eac377bf251b3de989ff6cc26c.scn"]
 
 [params]
 

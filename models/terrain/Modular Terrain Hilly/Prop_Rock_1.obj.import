@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dd131jxs64tgn"
-valid=false
+path="res://.godot/imported/Prop_Rock_1.obj-c194a3d9698c116e4b63bfedc60c034f.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Rock_1.obj"
+dest_files=["res://.godot/imported/Prop_Rock_1.obj-c194a3d9698c116e4b63bfedc60c034f.scn"]
 
 [params]
 

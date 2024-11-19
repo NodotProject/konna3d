@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bs7gt3xgusexl"
-valid=false
+path="res://.godot/imported/Prop_Treasure_Chest.obj-6f1e2c6b1374fd4b0c97a82a2d85c50c.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Beach/Prop_Treasure_Chest.obj"
+dest_files=["res://.godot/imported/Prop_Treasure_Chest.obj-6f1e2c6b1374fd4b0c97a82a2d85c50c.scn"]
 
 [params]
 

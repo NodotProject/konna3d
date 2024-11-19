@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://135oxvk3mb4n"
-valid=false
+path="res://.godot/imported/Low Poly Pickaxes Pack.fbx-80d9e967ae8aa5d38d3aa003834c5361.scn"
 
 [deps]
 
 source_file="res://models/items/Low Poly Pickaxes Pack.fbx"
+dest_files=["res://.godot/imported/Low Poly Pickaxes Pack.fbx-80d9e967ae8aa5d38d3aa003834c5361.scn"]
 
 [params]
 

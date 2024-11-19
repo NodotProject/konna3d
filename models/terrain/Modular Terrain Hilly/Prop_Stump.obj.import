@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhgo8u5188h32"
-valid=false
+path="res://.godot/imported/Prop_Stump.obj-b43d149c11154beeb52d409ce6cc4479.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Stump.obj"
+dest_files=["res://.godot/imported/Prop_Stump.obj-b43d149c11154beeb52d409ce6cc4479.scn"]
 
 [params]
 

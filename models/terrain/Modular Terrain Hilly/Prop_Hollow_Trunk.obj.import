@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bqlsc585je0m6"
-valid=false
+path="res://.godot/imported/Prop_Hollow_Trunk.obj-10680b459f219b365886014ae661780c.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Hollow_Trunk.obj"
+dest_files=["res://.godot/imported/Prop_Hollow_Trunk.obj-10680b459f219b365886014ae661780c.scn"]
 
 [params]
 

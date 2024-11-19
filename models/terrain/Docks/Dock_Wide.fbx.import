@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dfqi1fie1rqk5"
-valid=false
+path="res://.godot/imported/Dock_Wide.fbx-111b0f8c3f969e4c8f6cc43a53186339.scn"
 
 [deps]
 
 source_file="res://models/terrain/Docks/Dock_Wide.fbx"
+dest_files=["res://.godot/imported/Dock_Wide.fbx-111b0f8c3f969e4c8f6cc43a53186339.scn"]
 
 [params]
 

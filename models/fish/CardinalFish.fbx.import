@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://klpk2fetjdnl"
-valid=false
+path="res://.godot/imported/CardinalFish.fbx-bb4d910f49b98077296017415fec4f87.scn"
 
 [deps]
 
 source_file="res://models/fish/CardinalFish.fbx"
+dest_files=["res://.godot/imported/CardinalFish.fbx-bb4d910f49b98077296017415fec4f87.scn"]
 
 [params]
 

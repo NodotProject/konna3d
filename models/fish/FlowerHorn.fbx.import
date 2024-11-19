@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cc65gv6bat47m"
-valid=false
+path="res://.godot/imported/FlowerHorn.fbx-2b1b727ba0ad67db1ad9dda23bc47d5a.scn"
 
 [deps]
 
 source_file="res://models/fish/FlowerHorn.fbx"
+dest_files=["res://.godot/imported/FlowerHorn.fbx-2b1b727ba0ad67db1ad9dda23bc47d5a.scn"]
 
 [params]
 

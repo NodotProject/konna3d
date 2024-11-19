@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ckg1y0suk8q0t"
-valid=false
+path="res://.godot/imported/Prop_Tree_Cedar_1.obj-82f5e65b14f64421059205f2ab4cd241.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Tree_Cedar_1.obj"
+dest_files=["res://.godot/imported/Prop_Tree_Cedar_1.obj-82f5e65b14f64421059205f2ab4cd241.scn"]
 
 [params]
 

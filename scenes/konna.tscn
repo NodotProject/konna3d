@@ -1,6 +1,6 @@
-[gd_scene load_steps=63 format=4 uid="uid://cmxre06eq6osa"]
+[gd_scene load_steps=64 format=4 uid="uid://cmxre06eq6osa"]
 
-[ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/ThirdPerson/ThirdPersonCharacter.gd" id="1_27hwa"]
 [ext_resource type="Script" path="res://scripts/character/CharacterItemAttachment3D.gd" id="2_7aciy"]
 [ext_resource type="PackedScene" uid="uid://dune3bocgi3e1" path="res://models/items/FishingRod_Lvl2.fbx" id="2_qtvh4"]
 [ext_resource type="Script" path="res://scripts/Collectable3D.gd" id="3_02tlg"]
@@ -10,14 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://ci3n7bfixs6mk" path="res://models/items/axe02.fbx" id="5_4ss2q"]
 [ext_resource type="AnimationLibrary" uid="uid://bi8ci450jibq3" path="res://models/character/konna_animation.res" id="5_k2rgu"]
 [ext_resource type="Texture2D" uid="uid://dtmqla7llv2s7" path="res://textures/item_icons/iron_rod.png" id="6_hra83"]
-[ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonCamera.gd" id="6_pbol2"]
-[ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonMouseInput.gd" id="7_mrrir"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/ThirdPerson/ThirdPersonCamera.gd" id="6_pbol2"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/ThirdPerson/ThirdPersonMouseInput.gd" id="7_mrrir"]
 [ext_resource type="Texture2D" uid="uid://jcirbhn0vcft" path="res://textures/item_icons/flame_rod.png" id="8_mhbl6"]
-[ext_resource type="Script" path="res://addons/nodot/kits/Locomotion3D/CharacterJump3D.gd" id="8_rb6k0"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/Locomotion3D/CharacterJump3D.gd" id="8_rb6k0"]
 [ext_resource type="Texture2D" uid="uid://bsc8hjw5mdv75" path="res://textures/item_icons/wooden_pickaxe.png" id="9_3gsbi"]
-[ext_resource type="Script" path="res://addons/nodot/kits/Locomotion3D/CharacterMover3D.gd" id="9_rpitp"]
 [ext_resource type="Texture2D" uid="uid://cjtep3d2v6e4l" path="res://textures/item_icons/iron_pickaxe.png" id="10_meeeu"]
-[ext_resource type="Script" path="res://addons/nodot/kits/Locomotion3D/CharacterSwim3D.gd" id="10_r4kd7"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/Locomotion3D/CharacterSwim3D.gd" id="10_r4kd7"]
 [ext_resource type="Texture2D" uid="uid://dteah2jogajki" path="res://textures/item_icons/crystal_pickaxe.png" id="11_cd6xr"]
 [ext_resource type="Script" path="res://scripts/character/CharacterFish3D.gd" id="11_vbbh7"]
 [ext_resource type="Script" path="res://scripts/character/CharacterBoat3D.gd" id="12_ceenj"]
@@ -26,10 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://dcnetxo0mb8lc" path="res://scenes/bait.tscn" id="14_mfoc4"]
 [ext_resource type="Script" path="res://addons/nodot/sound/SFXPlayer3D.gd" id="15_6sfyi"]
 [ext_resource type="AudioStream" uid="uid://dlqju641467by" path="res://sfx/fishing/plop.wav" id="16_6qtpm"]
-[ext_resource type="Script" path="res://addons/nodot/kits/ThirdPerson/ThirdPersonKeyboardInput.gd" id="16_gwv25"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/ThirdPerson/ThirdPersonKeyboardInput.gd" id="16_gwv25"]
 [ext_resource type="AudioStream" uid="uid://cs4fl7iubk0le" path="res://sfx/fishing/bite.wav" id="17_8f4h7"]
 [ext_resource type="AudioStream" uid="uid://jxvn7g6rupjs" path="res://sfx/fishing/letgo.mp3" id="18_ijjt3"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/Locomotion3D/CharacterMove3D.gd" id="19_6h6ol"]
 [ext_resource type="AudioStream" uid="uid://cmms12is87w80" path="res://sfx/fishing/catch.wav" id="19_cua3l"]
+[ext_resource type="Script" path="res://addons/nodot/character/kits/Locomotion3D/CharacterIdle3D.gd" id="19_yu4cl"]
 [ext_resource type="AudioStream" uid="uid://5ghidgl50ixn" path="res://sfx/fishing/reel_in.wav" id="20_wmb1n"]
 [ext_resource type="AudioStream" uid="uid://fjatjne7iqry" path="res://sfx/ambience/waiting-music.mp3" id="21_x6mte"]
 [ext_resource type="PackedScene" uid="uid://dvr3d0ppk3omk" path="res://scenes/fish_net.tscn" id="22_2u4c7"]
@@ -504,22 +505,22 @@ shadow_mesh = SubResource("ArrayMesh_suj2e")
 resource_name = "frog_animation"
 script/source = "extends AnimationPlayer
 
-@export var character: CharacterBody3D
+@export var character: ThirdPersonCharacter
 
 func _ready():
 	var state_animations = {
-		\"idle\": \"CharacterArmature|Idle\",
-		\"walk\": \"CharacterArmature|Run\",
-		\"jump\": \"CharacterArmature|Jump\",
-		\"swim_idle\": \"CharacterArmature|Idle\",
-		\"swim\": \"CharacterArmature|Walk\",
+		\"CharacterIdle3D\": \"CharacterArmature|Idle\",
+		\"CharacterMove3D\": \"CharacterArmature|Run\",
+		\"CharacterJump3D\": \"CharacterArmature|Jump\",
+		\"CharacterSwim3D\": \"CharacterArmature|Walk\",
 	}
 	
 	var state: StateMachine = character.sm
-	state.connect(\"state_updated\", func(_old_state, new_state):
-		var state_name = state.get_name_from_id(new_state)
+	character.sm.on_state_changed.connect(func (_old_state: StateHandler, new_state: StateHandler):
+		var state_name = new_state.name
 		if state_name in state_animations:
-			current_animation = state_animations[state_name])
+			current_animation = state_animations[state_name]
+	)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6te2"]
@@ -572,8 +573,9 @@ script/source = "extends Label
 
 func _ready():
 	var state: StateMachine = character.sm
-	state.connect(\"state_updated\", func(_old_state, new_state):
-		text = \"Character State: %s\" % state.get_name_from_id(new_state))
+	state.on_state_changed.connect(func (_old_state, new_state):
+		text = \"Character State: %s\" % new_state.name
+	)
 "
 
 [sub_resource type="GDScript" id="GDScript_qg7ai"]
@@ -600,7 +602,7 @@ func _physics_process(_delta: float):
 	text = \"Ability: None\"
 "
 
-[node name="ThirdPersonCharacter" type="CharacterBody3D"]
+[node name="Konna" type="CharacterBody3D"]
 script = ExtResource("1_27hwa")
 is_current_player = true
 
@@ -1026,7 +1028,7 @@ mesh = SubResource("ArrayMesh_1nfrp")
 skin = SubResource("Skin_gp4rt")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Frog/RootNode/CharacterArmature/Skeleton3D"]
-transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156435, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
+transform = Transform3D(-0.557302, -0.610984, -0.56224, 0.81544, -0.275169, -0.509254, 0.156434, -0.742281, 0.651573, -0.0123839, 0.000770242, 0.00632233)
 bone_name = "Middle1.R"
 bone_idx = 35
 
@@ -1146,40 +1148,36 @@ script = ExtResource("7_mrrir")
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.214)
+current = true
 script = ExtResource("6_pbol2")
 camera_offset = Vector3(0, 1.5, 1.5)
 raycast_offset = Vector3(0, 0.2, 0)
 time_to_reset = 0.0
-lock_camera_rotation = true
+
+[node name="CharacterIdle3D" type="Node" parent="."]
+script = ExtResource("19_yu4cl")
+
+[node name="CharacterMove3D" type="Node" parent="."]
+script = ExtResource("19_6h6ol")
+sprint_speed_multiplier = 1.0
 
 [node name="CharacterJump3D" type="Node" parent="."]
 script = ExtResource("8_rb6k0")
 jump_velocity = 3.0
 
-[node name="CharacterMover3D" type="Node" parent="." node_paths=PackedStringArray("character")]
-script = ExtResource("9_rpitp")
-step_height = 0.4
-movement_speed = 1.0
-sprint_speed_multiplier = 1.0
-strafing = false
-character = NodePath("..")
-
-[node name="CharacterSwim3D" type="Node" parent="." node_paths=PackedStringArray("character")]
+[node name="CharacterSwim3D" type="Node" parent="."]
 script = ExtResource("10_r4kd7")
 submerge_speed = 2.0
 submerge_offset = 0.2
-character = NodePath("..")
 
-[node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("inventory", "fishing_interaction_3d", "boat_interaction_3d", "character")]
+[node name="CharacterFish3D" type="Node" parent="." node_paths=PackedStringArray("inventory", "fishing_interaction_3d", "boat_interaction_3d")]
 script = ExtResource("11_vbbh7")
 inventory = NodePath("../CollectableInventory")
 fishing_interaction_3d = NodePath("../FishingSystem/FishingInteraction3D")
 boat_interaction_3d = NodePath("../Interaction3D")
-character = NodePath("..")
 
-[node name="CharacterMine3D" type="Node" parent="." node_paths=PackedStringArray("character")]
+[node name="CharacterMine3D" type="Node" parent="."]
 script = ExtResource("22_3qnyw")
-character = NodePath("..")
 
 [node name="CharacterBoat3D" type="Node" parent="."]
 script = ExtResource("12_ceenj")
@@ -1313,7 +1311,7 @@ autoplay = true
 [node name="FishNet" parent="." node_paths=PackedStringArray("character", "inventory") instance=ExtResource("22_2u4c7")]
 unique_name_in_owner = true
 transform = Transform3D(-0.045, 0, -3.93403e-09, 0, 0.045, 0, 3.93403e-09, 0, -0.045, 0, 0.470121, -0.0840968)
-character = NodePath("..")
+character = NodePath("")
 inventory = NodePath("../CollectableInventory")
 animation_speed = 1.0
 

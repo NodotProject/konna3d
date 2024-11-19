@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cue62ooqsq7i1"
-valid=false
+path="res://.godot/imported/Prop_Tree_Palm_2.obj-d9f6a215749d48e41b8a2b762e6f79da.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Beach/Prop_Tree_Palm_2.obj"
+dest_files=["res://.godot/imported/Prop_Tree_Palm_2.obj-d9f6a215749d48e41b8a2b762e6f79da.scn"]
 
 [params]
 

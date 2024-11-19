@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d35vwf7jt8u62"
-valid=false
+path="res://.godot/imported/Flatfish.fbx-66f77e03ed7955537537bdb013969ec0.scn"
 
 [deps]
 
 source_file="res://models/fish/Flatfish.fbx"
+dest_files=["res://.godot/imported/Flatfish.fbx-66f77e03ed7955537537bdb013969ec0.scn"]
 
 [params]
 

@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5vy77lxyomtq"
-valid=false
+path="res://.godot/imported/Dock_Long_NoRope.fbx-922c923524a50314437b566b49be9cce.scn"
 
 [deps]
 
 source_file="res://models/terrain/Docks/Dock_Long_NoRope.fbx"
+dest_files=["res://.godot/imported/Dock_Long_NoRope.fbx-922c923524a50314437b566b49be9cce.scn"]
 
 [params]
 

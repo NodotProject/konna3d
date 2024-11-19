@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d4gt2ma42oay0"
-valid=false
+path="res://.godot/imported/Dock_Stairs.fbx-75f03faa9e564e268748b11916cf8f70.scn"
 
 [deps]
 
 source_file="res://models/terrain/Docks/Dock_Stairs.fbx"
+dest_files=["res://.godot/imported/Dock_Stairs.fbx-75f03faa9e564e268748b11916cf8f70.scn"]
 
 [params]
 

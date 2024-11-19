@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dqafwns84e7vv"
-valid=false
+path="res://.godot/imported/Goldfish.fbx-66528553ff50b8ac4d4262dcdbe8b616.scn"
 
 [deps]
 
 source_file="res://models/fish/Goldfish.fbx"
+dest_files=["res://.godot/imported/Goldfish.fbx-66528553ff50b8ac4d4262dcdbe8b616.scn"]
 
 [params]
 

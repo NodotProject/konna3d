@@ -17,38 +17,27 @@ signal fish_mode_disabled
 var current_bite_time: float = 0.0
 var current_bitten_time: float = 0.0
 var fishing_area: Node
-var fish_state_id: int
-var idle_state_id: int
+var idle_state_handler: StringName
 var fish_on := false
 var fish_mode := false
 var rng = RandomNumberGenerator.new()
 
-func ready():
-	register_handled_states(["fish", "idle", "walk", "sprint"])
-	
-	fish_state_id = sm.get_id_from_name("fish")
-	idle_state_id = sm.get_id_from_name("idle")
-	
-	sm.add_valid_transition("fish", ["idle", "walk", "sprint"])
-	sm.add_valid_transition("idle", "fish")
-	sm.add_valid_transition("walk", "fish")
-	sm.add_valid_transition("sprint", "fish")
-	
+func setup():
 	if fishing_interaction_3d:
 		fishing_interaction_3d.connect("interacted", fishing_interacted)
 		
 	GlobalSignal.add_listener("active_fishing_area", self, "set_fishing_area")
+	idle_state_handler = Nodot.get_first_sibling_of_type(self, CharacterIdle3D).name
 	
-	
-func state_updated(old_state: int, new_state: int):
-	if new_state == fish_state_id:
-		enable_fish_mode()
-		fish_mode_enabled.emit()
-	elif old_state == fish_state_id:
+func enter(_old_state):
+	enable_fish_mode()
+	fish_mode_enabled.emit()
+
+func exit(_new_state):
 		disable_fish_mode()
 		fish_mode_disabled.emit()
 		
-func physics(delta: float):
+func physics_process(delta: float):
 	if current_bite_time > 0.0:
 		current_bite_time -= delta
 	elif !fish_on and fish_mode:
@@ -63,13 +52,13 @@ func physics(delta: float):
 			current_bitten_time = 0.0
 			fish_on = false
 			%bait.stop()
-			sm.set_state(idle_state_id)
+			state_machine.transition(idle_state_handler)
 			%FishNet.action(fishing_area.allowed_fish_ids)
 			caught.emit()
 	elif fish_on:
 		fish_on = false
 		%bait.stop()
-		sm.set_state(idle_state_id)
+		state_machine.transition(idle_state_handler)
 		let_go.emit()
 	
 func can_fish(body: Node3D):
@@ -89,10 +78,10 @@ func fishing_interacted(body: Node3D, collision_point: Vector3, _collision_norma
 	if can_fish(body):
 		%bait.water_area_3d = body
 		%bait.global_position = collision_point
-		sm.set_state(fish_state_id)
+		state_machine.transition(name)
 		return
 	if fish_mode == true:
-		sm.set_state(idle_state_id)
+		state_machine.transition(idle_state_handler)
 
 func enable_fish_mode():
 	current_bite_time = rng.randf_range(minimum_bite_time, maximum_bite_time)

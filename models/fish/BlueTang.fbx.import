@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcawfb4255imx"
-valid=false
+path="res://.godot/imported/BlueTang.fbx-6fc1f74124cc4385636ef5d5781c5824.scn"
 
 [deps]
 
 source_file="res://models/fish/BlueTang.fbx"
+dest_files=["res://.godot/imported/BlueTang.fbx-6fc1f74124cc4385636ef5d5781c5824.scn"]
 
 [params]
 

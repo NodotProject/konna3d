@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ct0vgjvb2rs1o"
-valid=false
+path="res://.godot/imported/Prop_Flower_Lily_Pink.obj-a433bdb78edb04d30df649d3dba84d7e.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Lily_Pink.obj"
+dest_files=["res://.godot/imported/Prop_Flower_Lily_Pink.obj-a433bdb78edb04d30df649d3dba84d7e.scn"]
 
 [params]
 

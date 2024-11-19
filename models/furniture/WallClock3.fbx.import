@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dqwgwnaicrqt2"
-valid=false
+path="res://.godot/imported/WallClock3.fbx-1df66741b7303d34c9811f9c2d201694.scn"
 
 [deps]
 
 source_file="res://models/furniture/WallClock3.fbx"
+dest_files=["res://.godot/imported/WallClock3.fbx-1df66741b7303d34c9811f9c2d201694.scn"]
 
 [params]
 

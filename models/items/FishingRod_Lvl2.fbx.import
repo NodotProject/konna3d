@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dune3bocgi3e1"
-valid=false
+path="res://.godot/imported/FishingRod_Lvl2.fbx-c830ba2d9f47f5eddd69a11428822365.scn"
 
 [deps]
 
 source_file="res://models/items/FishingRod_Lvl2.fbx"
+dest_files=["res://.godot/imported/FishingRod_Lvl2.fbx-c830ba2d9f47f5eddd69a11428822365.scn"]
 
 [params]
 

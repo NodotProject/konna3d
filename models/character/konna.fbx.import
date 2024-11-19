@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e5elidvwmvg6"
-valid=false
+path="res://.godot/imported/konna.fbx-564bf455350fdecb9e7eca7c5a0e5fb5.scn"
 
 [deps]
 
 source_file="res://models/character/konna.fbx"
+dest_files=["res://.godot/imported/konna.fbx-564bf455350fdecb9e7eca7c5a0e5fb5.scn"]
 
 [params]
 

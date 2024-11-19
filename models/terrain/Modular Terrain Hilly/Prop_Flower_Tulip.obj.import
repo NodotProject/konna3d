@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://fbqy6hw26rqk"
-valid=false
+path="res://.godot/imported/Prop_Flower_Tulip.obj-839227775bb96027048f706664756270.scn"
 
 [deps]
 
 source_file="res://models/terrain/Modular Terrain Hilly/Prop_Flower_Tulip.obj"
+dest_files=["res://.godot/imported/Prop_Flower_Tulip.obj-839227775bb96027048f706664756270.scn"]
 
 [params]
 

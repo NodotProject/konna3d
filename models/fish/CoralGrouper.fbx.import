@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b13x877mkj546"
-valid=false
+path="res://.godot/imported/CoralGrouper.fbx-cc28245c83c40464713c4743b0f3c5ee.scn"
 
 [deps]
 
 source_file="res://models/fish/CoralGrouper.fbx"
+dest_files=["res://.godot/imported/CoralGrouper.fbx-cc28245c83c40464713c4743b0f3c5ee.scn"]
 
 [params]
 

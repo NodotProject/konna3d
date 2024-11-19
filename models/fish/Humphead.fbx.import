@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bf2ubfkbsk8ci"
-valid=false
+path="res://.godot/imported/Humphead.fbx-4570c773caf7f6d4069a3249db41d639.scn"
 
 [deps]
 
 source_file="res://models/fish/Humphead.fbx"
+dest_files=["res://.godot/imported/Humphead.fbx-4570c773caf7f6d4069a3249db41d639.scn"]
 
 [params]
 
